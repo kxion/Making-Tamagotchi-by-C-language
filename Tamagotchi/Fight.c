@@ -38,10 +38,10 @@ int fight(ChStat *chStat, int monLv) {
 			else {
 				if (rand() % 100 < chStat->critical) { // 크리티커율보다 낮은 난수 발생시 크리티컬 발생
 					printf("크리티컬 발생!!!\n");
-					mon->hp = mon->hp - (chStat->attack + (chStat->critical * 3) - mon->sheild);
+					mon->hp = mon->hp - (chStat->attack + (chStat->critical * 3) - mon->sheild); // 공격력 = 공격력 + 크리댐 - 상대방어력
 				}
 				else
-					mon->hp = mon->hp - (chStat->attack - mon->sheild);
+					mon->hp = mon->hp - (chStat->attack - mon->sheild); // 공격력 = 공격력 - 상대방어력
 				printf("몬스터hp : %d\n\n", mon->hp);
 
 			}
@@ -52,7 +52,7 @@ int fight(ChStat *chStat, int monLv) {
 
 		Sleep(1000);
 
-		if (mon->hp <= 0) break;
+		if (mon->hp <= 0) break; // 몬스터가 죽으면 break;
 
 		printf("몬스터 공격!!!\n");
 		Sleep(1000);
@@ -61,12 +61,14 @@ int fight(ChStat *chStat, int monLv) {
 		else {
 			if (rand() % 100 < mon->critical) { // 크리티커율보다 낮은 난수 발생시 크리티컬 발생
 				printf("크리티컬 발생!!!\n");
-				chStat->hp = chStat->hp - (mon->attack + (mon->critical * 3) - chStat->sheild);
+				chStat->hp = chStat->hp - (mon->attack + (mon->critical * 3) - chStat->sheild); // 공격력 = 공격력 + 크리댐 - 상대방어력
 			}
 			else
-				chStat->hp = chStat->hp - (mon->attack - chStat->sheild);
+				chStat->hp = chStat->hp - (mon->attack - chStat->sheild); // 공격력 = 공격력 - 상대방어력
 			printf("유저hp : %d\n", chStat->hp);
 		}
+
+		if (chStat->hp <= 0) break; // 유저가 죽으면 break
 
 		Sleep(1000);
 		system("cls");
@@ -83,7 +85,7 @@ int fight(ChStat *chStat, int monLv) {
 
 	if (mon->hp < 0) {
 		printf("유저 승리 !\n");
-		return 30 * monLv;
+		return 30 * monLv; // 몬스터 레벨에 알맞은 경험치 반환
 	}
 	else if (mon->hp < 0 && chStat->hp < 0) {
 		printf("무승부....\n");
@@ -91,6 +93,6 @@ int fight(ChStat *chStat, int monLv) {
 	}
 	else {
 		printf("사냥 실패 !\n");
-		return 0;
+		return -30 * monLv; // 몬스터 레벨에 알맞은 -경험치 반환
 	}
 }

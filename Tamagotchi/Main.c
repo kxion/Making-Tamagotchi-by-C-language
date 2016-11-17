@@ -11,6 +11,9 @@ int main() {
 
 	while (1) {
 		ChStat *chStat = character(lv);
+
+		printf("레벨 : %d hp : %d  공 : %d  방 : %d  크리 : %d  경험치 : %d\n", lv, chStat->hp, chStat->attack, chStat->sheild, chStat->critical, chStat->exp);
+		
 		printf("1.모험\t2.싸우기\t3.저장하기\n");
 		scanf("%d", &number);
 		
