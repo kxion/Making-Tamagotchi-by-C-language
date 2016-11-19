@@ -1,31 +1,41 @@
-#include<stdio.h>
+ï»¿#include<stdio.h>
 #include<windows.h>
 #include"Character.h"
-#pragma warning(disable:4996) // scanf ¿À·ù¸¦ Àâ±â À§ÇØ »ç¿ë, Âü°í¹®Çå http://enter.tistory.com/14
+#include"SaveLoad.h"
+#pragma warning(disable:4996) // warning C4996ì„ ì¡ê¸° ìœ„í•œ ì½”ë“œ, ì°¸ê³ ë¬¸í—Œ http://blog.naver.com/PostView.nhn?blogId=sorkelf&logNo=40137167266
 
 int main() {
-	int lv = 0, monLv = 0, number = 0, exp = 0;
+	int monLv = 0, number = 0, exp = 0, select = 0, lv = 1;
+	ChStat *chStat;
 
-	printf("lv ¼³Á¤ : ");
-	scanf("%d", &lv);
+	printf("1.ì²˜ìŒí•˜ê¸°\t2.ì´ì–´í•˜ê¸°\n");
+	scanf("%d", &select);
+
+	switch (select) {
+	case 1:
+		chStat = character(1);
+		break;
+	case 2:
+		chStat = LoadGame(character(0));
+		lv = chStat->lv;
+		break;
+	}
 
 	while (1) {
-		ChStat *chStat = character(lv);
+		printf("ë ˆë²¨ : %d hp : %d  ê³µ : %d  ë°© : %d  í¬ë¦¬ : %d  ê²½í—˜ì¹˜ : %d\n", chStat->lv, chStat->hp, chStat->attack, chStat->sheild, chStat->critical, chStat->exp);
 
-		printf("·¹º§ : %d hp : %d  °ø : %d  ¹æ : %d  Å©¸® : %d  °æÇèÄ¡ : %d\n", lv, chStat->hp, chStat->attack, chStat->sheild, chStat->critical, chStat->exp);
-		
-		printf("1.¸ğÇè\t2.½Î¿ì±â\t3.ÀúÀåÇÏ±â\n");
+		printf("1.ëª¨í—˜\t2.ì‹¸ìš°ê¸°\t3.ì €ì¥í•˜ê¸°\t4.ì¢…ë£Œ\n");
 		scanf("%d", &number);
-		
+
 		switch (number) {
 		case 1:
-			printf("¸ó½ºÅÍ ·¹º§ ¼³Á¤ : ");
+			printf("ëª¬ìŠ¤í„° ë ˆë²¨ ì„¤ì • : ");
 			scanf("%d", &monLv);
 
 			exp = fight(chStat, monLv);
 			chStat->exp += exp;
 			addExp(chStat->exp);
-			lv = levelUp(lv);
+			chStat->lv = levelUp(lv);
 
 			Sleep(2000);
 			system("cls");
@@ -33,10 +43,12 @@ int main() {
 		case 2:
 			break;
 		case 3:
-			printf("Á¾·á\n");
+			SaveGame(chStat);
+			break;
+		case 4:
+			printf("ì¢…ë£Œë˜ì—ˆìŠµë‹ˆë‹¤\n");
 			exit(0);
 		}
 	}
-	
 	return 0;
 }

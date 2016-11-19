@@ -19,6 +19,5 @@ typedef struct monStat { // 몬스터들 스텟
 
 MonStat* monster(int lv); // 몬스터 레벨에 맞는 스텟
 
-
 #endif // #ifndef CHARACTER_H 종료
 

@@ -28,7 +28,7 @@ void addExp(int exp) { // 사냥 성공시 경험치 축적
 void delExp(int exp) { // 사냥 실패시 경험치 손실
 	chStat.exp = exp;
 }
-int levelUp(int lv) { // 렙업 유무 확인
+int levelUp(lv) { // 렙업 유무 확인
 	if (chStat.exp > lv * 100) {
 		printf("레벨 업!!!\n");
 		printf("LEVEL : %d가 되었습니다 !!\n", ++lv);

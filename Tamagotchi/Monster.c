@@ -1,4 +1,3 @@
-
 /*
 
 2012244009 이대웅
@@ -21,4 +20,3 @@ MonStat* monster(int lv) { // 몬스터 레벨에 맞는 스텟
 
 	return pMonStat;
 }
-
