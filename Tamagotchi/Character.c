@@ -57,7 +57,3 @@ void showStat() {
 	gotoxy(x, y);
 	printf("exp : %d", chStat.exp);
 }
-void gotoxy(int x, int y) { // goto 함수선언, 참고문헌 http://m.blog.naver.com/bestheroz/110240153
-	COORD Pos = { x - 1, y - 1 };
-	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), Pos);
-}

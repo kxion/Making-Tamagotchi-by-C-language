@@ -3,14 +3,17 @@
 #include"Character.h"
 #include"SaveLoad.h"
 #include"Display.h"
+#include"Interface.h"
+
 #pragma warning(disable:4996) // warning C4996을 잡기 위한 코드, 참고문헌 http://blog.naver.com/PostView.nhn?blogId=sorkelf&logNo=40137167266
 
 int main() {
 	int monLv = 0, number = 0, exp = 0, select = 0, lv = 1;
 	ChStat *chStat;
 
-	printf("1.처음하기\t2.이어하기\n");
-	scanf("%d", &select);
+	disappear(); // 콘솔에 커서 제거
+
+	select = selectStart();
 
 	switch (select) {
 	case 1:
@@ -21,29 +24,22 @@ int main() {
 		lv = chStat->lv;
 		break;
 	}
-
 	while (1) {
-		
-		gotoxy(2,18);
 		RightAgumon();
-
 		showStat();
-
-		gotoxy(55,15);
-		printf("1.모험\t2.싸우기\t3.저장하기\t4.종료\n");
-		scanf("%d", &number);
+		
+		number = selectMove();
 
 		switch (number) {
 		case 1:
-			printf("몬스터 레벨 설정 : ");
-			scanf("%d", &monLv);
-
+			monLv = selectAdventure();
+			
 			exp = fight(chStat, monLv);
 			chStat->exp += exp;
 			addExp(chStat->exp);
 			chStat->lv = levelUp(lv);
 
-			Sleep(2000);
+			Sleep(1000);
 			system("cls");
 			break;
 		case 2:

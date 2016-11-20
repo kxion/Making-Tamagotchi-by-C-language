@@ -1,5 +1,6 @@
 #include<stdio.h>
 #include"Display.h"
+#include"Interface.h"
 
 void LeftAgumon() {
 		printf("           бсбсбсбсбсбс        \n");
@@ -21,6 +22,8 @@ void LeftAgumon() {
 		printf("   бсбс бсбс бсбс бсбс  бсбс бс\n");
 }
 void RightAgumon() {
+	gotoxy(2, 18);
+
 	printf("          бсбсбсбсбс        	  \n");
 	printf("        бс         бс       	  \n");
 	printf("      бс     бсбс  бсбс     	  \n");
@@ -40,27 +43,27 @@ void RightAgumon() {
 	printf(" бс бсбс   бсбс  бсбс  бсбс  бсбс  \n");
 }
 void enemy_4(){
-	printf("   @@@@@@      @@@@@@@      \n");
-	printf("   @@    @@    @@    @@@    \n");
-	printf("   @@    @@    @@@   @@@    \n");
-	printf("   @@  @@@@@@@@@@@@   @@    \n");
-	printf("     @@          @@@@@@@    \n");
-	printf("     @@          @@@@@@@    \n");
-	printf("     @@@@@@@@@@@@@@@@@@@@@  \n");
-	printf("     @@      @@@@    @@@  @@\n");
-	printf("   @ @@      @@@@    @@@ @@@\n");
-	printf("   @@  @@    @@      @@@@@@@\n");
-	printf("   @@@@  @@          @@@    \n");
-	printf("   @ @@  @@         @@@     \n");
-	printf("     @@            @@       \n");
-	printf("       @@@@@@@@@@@@  @@@    \n");
-	printf("   @@@@  @@      @@    @@   \n");
-	printf("   @@@@  @@      @@     @@  \n");
-	printf(" @@    @@          @@@    @@\n");
-	printf(" @@    @@          @@     @@\n");
-	printf(" @@    @@          @@     @@\n");
-	printf(" @@@@@@  @@    @@  @@@@@@@  \n");
-	printf("   @@      @@@@@@      @@@  \n");
-	printf("   @@      @@@@@@       @@  \n");
-	printf("   @@@@@@@@@@@@@@@@@@@@@@@  \n");
+	printf("   бсбсбс      бсбсбс      \n");
+	printf("   бс    бс    бс    бс    \n");
+	printf("   бс    бс    бсбс   бс    \n");
+	printf("   бс  бсбсбсбсбсбс   бс    \n");
+	printf("     бс         бсбсбсбс    \n");
+	printf("     бс         бсбсбсбс    \n");
+	printf("     бсбсбсбсбсбсбсбсбсбс  \n");
+	printf("     бс      бсбс    бсбс  бсбс\n");
+	printf("  бс бс      бсбс    бсбс  бсбс\n");
+	printf("  бс бс    бс      бсбсбс   \n");
+	printf("   бсбс  бс         бсбс    \n");
+	printf("  бс бс  бс         бсбс     \n");
+	printf("     бс            бс       \n");
+	printf("       бсбсбсбсбсбс  бсбс    \n");
+	printf("   бсбс  бс      бс    бс   \n");
+	printf("   бсбс  бс      бс     бс  \n");
+	printf(" бс    бс          бсбс    бс@\n");
+	printf(" бс    бс          бс      бсn");
+	printf(" бс    бс          бс      бс\n");
+	printf(" бсбсбс  бс    бс  бсбсбсбс  \n");
+	printf("   бс      бсбсбс      бсбс\n");
+	printf("   бс      бсбсбс        бс  \n");
+	printf("   бсбсбсбсбсбсбсбсбсбсбсбс  \n");
 }
