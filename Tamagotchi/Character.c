@@ -8,10 +8,13 @@
 */
 
 #include<stdio.h>
+#include<Windows.h>
 #include"Character.h"
 
 ChStat chStat; // 캐릭터 스텟을 저장할 구조체 변수
 ChStat *pChStat = &chStat; // 캐릭터 포인터 구조체 변수
+const int x = 35;
+int y = 18;
 
 ChStat* character(int lv) { // 캐릭터 레벨에 해당하는 스텟
 	chStat.lv = lv; // 레벨
@@ -28,7 +31,7 @@ void addExp(int exp) { // 사냥 성공시 경험치 축적
 void delExp(int exp) { // 사냥 실패시 경험치 손실
 	chStat.exp = exp;
 }
-int levelUp(lv) { // 렙업 유무 확인
+int levelUp(int lv) { // 렙업 유무 확인
 	if (chStat.exp > lv * 100) {
 		printf("레벨 업!!!\n");
 		printf("LEVEL : %d가 되었습니다 !!\n", ++lv);
@@ -37,4 +40,24 @@ int levelUp(lv) { // 렙업 유무 확인
 		lv = 10;
 	
 	return lv;
+}
+void showStat() {
+	gotoxy(x, y++);
+	printf("lv : %d", chStat.lv);
+
+	gotoxy(x, y++);
+	printf("attack : %d", chStat.attack);
+
+	gotoxy(x, y++);
+	printf("sheild : %d", chStat.sheild);
+
+	gotoxy(x, y++);
+	printf("critical : %d", chStat.critical);
+
+	gotoxy(x, y);
+	printf("exp : %d", chStat.exp);
+}
+void gotoxy(int x, int y) { // goto 함수선언, 참고문헌 http://m.blog.naver.com/bestheroz/110240153
+	COORD Pos = { x - 1, y - 1 };
+	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), Pos);
 }

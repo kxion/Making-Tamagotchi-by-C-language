@@ -18,10 +18,11 @@ typedef struct chStat { // 캐릭터들 스텟
 	int exp;
 }ChStat;
 
-ChStat* character(int lv); //  캐릭터 레벨에 해당하는 스텟
+ChStat* character(int lv); //  디지몬 레벨에 해당하는 스텟
 void addExp(int exp); // 사냥 성공시 경험치 축적
 void delExp(int exp); // 사냥 실패시 경험치 손실 
 int levelUp(int lv); // 렙업 유무 확인
-
+void gotoxy(int x, int y); // goto 함수 선언
+void showStat(); // 해당하는 디지몬 스텟창
 
 #endif // #ifndef CHARACTER_H 종료

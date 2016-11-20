@@ -2,6 +2,7 @@
 #include<windows.h>
 #include"Character.h"
 #include"SaveLoad.h"
+#include"Display.h"
 #pragma warning(disable:4996) // warning C4996을 잡기 위한 코드, 참고문헌 http://blog.naver.com/PostView.nhn?blogId=sorkelf&logNo=40137167266
 
 int main() {
@@ -22,8 +23,13 @@ int main() {
 	}
 
 	while (1) {
-		printf("레벨 : %d hp : %d  공 : %d  방 : %d  크리 : %d  경험치 : %d\n", chStat->lv, chStat->hp, chStat->attack, chStat->sheild, chStat->critical, chStat->exp);
+		
+		gotoxy(2,18);
+		RightAgumon();
 
+		showStat();
+
+		gotoxy(55,15);
 		printf("1.모험\t2.싸우기\t3.저장하기\t4.종료\n");
 		scanf("%d", &number);
 
