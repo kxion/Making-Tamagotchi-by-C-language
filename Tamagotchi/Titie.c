@@ -49,6 +49,7 @@ void printTitle()
 
 
 	gotoxy(60, y + 6);
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 11);
 	printf("Plese press anyKey...");
 
 	while (1)//---------------------------------------------------------------------------------타이틀의 while문
