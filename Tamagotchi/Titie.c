@@ -7,7 +7,7 @@ void gotoxy(int x, int y);
 
 int main()
 {
-	system("mode con: cols=140 lines=30");//가로 , 세로 ->http://berabue.tistory.com/59
+	system("mode con: cols=140 lines=28");//가로 , 세로 ->http://berabue.tistory.com/59
 	printTitle();
 
 
