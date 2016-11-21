@@ -13,8 +13,8 @@
 
 ChStat chStat; // 캐릭터 스텟을 저장할 구조체 변수
 ChStat *pChStat = &chStat; // 캐릭터 포인터 구조체 변수
-const int x = 35;
-int y = 18;
+const int x = 35, y = 18;
+int hp = 0, exp = 0;
 
 ChStat* character(int lv) { // 캐릭터 레벨에 해당하는 스텟
 	chStat.lv = lv; // 레벨
@@ -22,6 +22,9 @@ ChStat* character(int lv) { // 캐릭터 레벨에 해당하는 스텟
 	chStat.sheild = 3 * lv; // 방어력
 	chStat.hp = 50 * lv; // 피
 	chStat.critical = 3 * lv; // 크리티컬 확률
+
+	hp = chStat.hp;
+	exp = chStat.lv * 100;
 
 	return pChStat;
 }
@@ -42,18 +45,22 @@ int levelUp(int lv) { // 렙업 유무 확인
 	return lv;
 }
 void showStat() {
-	gotoxy(x, y++);
-	printf("lv : %d", chStat.lv);
+	gotoxy(x, y+1);
+	printf("레벨 : %d", chStat.lv);
 
-	gotoxy(x, y++);
-	printf("attack : %d", chStat.attack);
+	gotoxy(x, y+2);
+	printf("체력 : %d / %d", chStat.hp, hp);
+	
+	gotoxy(x, y+3);
+	printf("경험치 : %d / %d", chStat.exp, exp);
 
-	gotoxy(x, y++);
-	printf("sheild : %d", chStat.sheild);
+	gotoxy(x, y+4);
+	printf("공격 : %d", chStat.attack);
 
-	gotoxy(x, y++);
-	printf("critical : %d", chStat.critical);
+	gotoxy(x, y+5);
+	printf("방어 : %d", chStat.sheild);
 
-	gotoxy(x, y);
-	printf("exp : %d", chStat.exp);
+	gotoxy(x, y+6);
+	printf("민첩 : %d", chStat.critical);
+
 }

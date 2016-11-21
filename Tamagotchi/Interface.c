@@ -2,6 +2,8 @@
 #include<windows.h>
 #include<conio.h>
 #include"Interface.h"
+#include"Character.h"
+#include"Display.h"
 
 /*
 
@@ -100,7 +102,10 @@ int selectMove(){ // 게임상 메인 인터페이스 동작
 	}
 	return selectNum;
 }
-int selectAdventure() {
+int selectAdventure() { // 모험선택 인터페이스
+	RightAgumon();
+	showStat();
+
 	int selectNum = 1;
 
 	while (1) {
@@ -345,6 +350,20 @@ int selectAdventure() {
 		}
 	}
 	return selectNum;
+}
+void fightInterface(int chHp, int monHp) { // 싸움시 디스플레이
+	const int x = 40, y = 27;
+	int i = 0;
+
+	RightAgumon();
+	enemy_4();
+
+	gotoxy(x - 5, y - 8);
+	for (i = 0; i <= chHp; i++)
+		printf("l");
+	gotoxy(x - 15, y - 18);
+	for (i = 0; i <= monHp; i++)
+		printf("l");
 }
 void disappear() { // goto사용시 깜박이는 콘솔의 커서 제거, 참고문헌 http://tip.daum.net/question/39372106
 	HANDLE hConsole; // 콘솔 핸들

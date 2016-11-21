@@ -18,7 +18,8 @@
 
 int selectStart(); // 게임 초기 인터페이스 동작
 int selectMove(); // 게임상 메인 인터페이스 동작
-int selectAdventure();
+int selectAdventure(); // 모험선택 인터페이스
+void fightInterface(); // 싸움시 인터페이스
 void disappear(); // goto사용시 깜박이는 콘솔의 커서 제거
 void gotoxy(int x, int y); // goto 함수 선언
 

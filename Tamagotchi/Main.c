@@ -13,17 +13,15 @@ int main() {
 
 	disappear(); // 콘솔에 커서 제거
 
-	select = selectStart();
+	select = selectStart(); // 메인 인터페이스에서 선택
+	chStat = character(1);
 
-	switch (select) {
-	case 1:
-		chStat = character(1);
-		break;
-	case 2:
-		chStat = LoadGame(character(0));
+	if (select == 2) { // 이어하기시 불러오기
+		chStat = LoadGame(chStat);
 		lv = chStat->lv;
-		break;
+		character(lv);
 	}
+		
 	while (1) {
 		RightAgumon();
 		showStat();

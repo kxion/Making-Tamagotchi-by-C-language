@@ -11,7 +11,7 @@
 
 void SaveGame(ChStat *chStat) {
 	FILE *fp = fopen("save.txt", "wt");
-	fprintf(fp, "%d %d %d %d %d %d", chStat->lv, chStat->attack, chStat->sheild, chStat->hp, chStat->critical, chStat->exp);
+	fprintf(fp, "%d %d %d %d %d %d", chStat->lv, chStat->hp, chStat->exp, chStat->attack, chStat->sheild, chStat->critical);
 	fclose(fp);
 }
 ChStat* LoadGame(ChStat *chStat) {

@@ -9,10 +9,13 @@
 #include<time.h>
 #include<windows.h>
 #include"Fight.h"
+#include"Interface.h"
+
 #pragma warning(disable:4996) // warning C4996을 잡기 위한 코드, 참고문헌 http://blog.naver.com/PostView.nhn?blogId=sorkelf&logNo=40137167266
 
 int fight(ChStat *chStat, int monLv) {
-	int chSelect = 0, hp = 0;
+	const int x = 40, y = 27;
+	int chSelect = 0, i = 0;
 
 	srand((unsigned)time(NULL));
 	/*  
@@ -21,18 +24,21 @@ int fight(ChStat *chStat, int monLv) {
 	 */
 
 	MonStat *mon = monster(monLv);
-	hp = chStat->hp;
 
 	while (mon->hp > 0 && chStat->hp > 0) { // 몬스터, 유저중 hp가 0이 되면 종료
+		fightInterface(chStat->hp, mon->hp);
 
+		gotoxy(x, y);
 		printf("1.공격\t2.도망\n");
 		scanf("%d", &chSelect);
 		
+		gotoxy(x, y+2);
 		printf("공격 !!!\n");
 		Sleep(1000);
 
 		switch (chSelect) {
 		case 1:
+			gotoxy(x, y+3);
 			if (rand() % 100 < mon->sheild) // 방어율보다 낮은 난수 발생시 방어 성공
 				printf("몬스터 방어성공 !!!\n\n");
 			else {
@@ -42,8 +48,8 @@ int fight(ChStat *chStat, int monLv) {
 				}
 				else
 					mon->hp = mon->hp - (chStat->attack - mon->sheild); // 공격력 = 공격력 - 상대방어력
-				printf("몬스터hp : %d\n\n", mon->hp);
-
+				system("cls");
+				fightInterface(chStat->hp, mon->hp);
 			}
 			break;
 		case 2:
@@ -54,8 +60,11 @@ int fight(ChStat *chStat, int monLv) {
 
 		if (mon->hp <= 0) break; // 몬스터가 죽으면 break;
 
+		gotoxy(x, y+2);
 		printf("몬스터 공격!!!\n");
 		Sleep(1000);
+
+		gotoxy(x, y + 3);
 		if (rand() % 100 < chStat->sheild) // 방어율보다 낮은 난수 발생시 방어 성공
 			printf("유저 방어성공 !!!\n");
 		else {
@@ -65,7 +74,8 @@ int fight(ChStat *chStat, int monLv) {
 			}
 			else
 				chStat->hp = chStat->hp - (mon->attack - chStat->sheild); // 공격력 = 공격력 - 상대방어력
-			printf("유저hp : %d\n", chStat->hp);
+			system("cls");
+			fightInterface(chStat->hp, mon->hp);
 		}
 
 		if (chStat->hp <= 0) break; // 유저가 죽으면 break
@@ -73,29 +83,19 @@ int fight(ChStat *chStat, int monLv) {
 		Sleep(1000);
 		system("cls");
 
-		printf("남은 hp\n");
-		printf("유저hp : %d\n", chStat->hp);
-		printf("몬스터hp : %d\n", mon->hp);
-
-		Sleep(2000);
-		system("cls");
-
 		getchar();
 	}
 
 	if (mon->hp <= 0) {
 		printf("유저 승리 !\n");
-		chStat->hp = hp; // hp 회복
 		return 30 * monLv; // 몬스터 레벨에 알맞은 경험치 반환
 	}
 	else if (mon->hp < 0 && chStat->hp < 0) {
-		chStat->hp = hp;
 		printf("무승부....\n");
 		return 0;
 	}
 	else {
 		printf("사냥 실패 !\n");
-		chStat->hp = hp; // hp 회복
 		return -30 * monLv; // 몬스터 레벨에 알맞은 -경험치 반환
 	}
 }
