@@ -11,12 +11,14 @@
 
 void SaveGame(ChStat *chStat) {
 	FILE *fp = fopen("save.txt", "wt");
-	fprintf(fp, "%d %d %d %d %d %d", chStat->lv, chStat->hp, chStat->exp, chStat->attack, chStat->sheild, chStat->critical);
+	fprintf(fp, "%s %s %d %d %d %d %d %d %d %d", chStat->name, chStat->condition, chStat->lv, chStat->hp, chStat->gauge, chStat->exp, chStat->money, 
+		chStat->attack, chStat->health, chStat->agility);
 	fclose(fp);
 }
 ChStat* LoadGame(ChStat *chStat) {
 	FILE *fp = fopen("save.txt", "rt");
-	fscanf(fp, "%d %d %d %d %d %d", &chStat->lv, &chStat->attack, &chStat->sheild, &chStat->hp, &chStat->critical, &chStat->exp);
+	fscanf(fp, "%s %s %d %d %d %d %d %d %d %d", chStat->name, chStat->condition, &chStat->lv, &chStat->hp, &chStat->gauge, &chStat->exp, &chStat->money,
+		&chStat->attack, &chStat->health, &chStat->agility);
 	fclose(fp);
 	
 	return chStat;

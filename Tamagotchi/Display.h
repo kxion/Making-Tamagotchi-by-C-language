@@ -9,9 +9,14 @@
 
 */
 
-void LeftAgumon(); // 아구몬 왼쪽 이미지 
-void RightAgumon(); // 아구몬 오른쪽 이미지
-void enemy_4(); // 4번째 적 이미지
+void coyomon(); // 코요몬 이미지
+void agumon(); // 아구몬 이미지
+void greymon(); // 그레이몬 이미지
+void metalgreymon(); // 메탈그레이몬 이미지
+void wargraymon(); // 워그레이몬 이미지
+void omegamon(); // 오메가몬 이미지
+void enemy1(); // 적 1
+
 
 #endif // #ifndef DISPLAY_H 종료
 
