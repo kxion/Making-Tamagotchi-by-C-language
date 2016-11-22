@@ -16,7 +16,20 @@ void greymon(); // 그레이몬 이미지
 void metalgreymon(); // 메탈그레이몬 이미지
 void wargraymon(); // 워그레이몬 이미지
 void omegamon(); // 오메가몬 이미지
+
+void digimonDisplay(int lv);
+void enemyDisplay(int monLv);
+
 void enemy1(); // 적 1
+void enemy2(); // 적 2
+void enemy3(); // 적 3
+void enemy4(); // 적 4
+void enemy5(); // 적 5
+void enemy6(); // 적 6
+void enemy7(); // 적 7
+void enemy8(); // 적 8
+void enemy9(); // 적 9
+void enemy10(); // 적 10
 
 
 #endif // #ifndef DISPLAY_H 종료

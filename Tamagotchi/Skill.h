@@ -1,5 +1,5 @@
-#ifndef SKILL_H // CHARACTER_H가 정의되어 있지 않다면
-#define SKILL_H // CHARACTER_H 매크로 정의
+#ifndef SKILL_H // SKILL_H가 정의되어 있지 않다면
+#define SKILL_H // SKILL_H 매크로 정의
 
 /*
 
@@ -8,7 +8,6 @@
 캐릭터 스킬에 관련된 소스 
 
 */
-
 
 int agumonSkill_1(int attack); // 꼬마불꽃
 int agumonSkill_2(int attack); // 꼬마화염

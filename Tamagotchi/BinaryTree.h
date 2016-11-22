@@ -9,19 +9,18 @@
 
 */
 
-
-
 typedef struct treeNode {
-	int number;
-	char name[20]; 
+	int number; // 노드번호
+	char name[20]; // 성장이름
+	char digimon[20]; // 디지몬이름
 	struct treeNode *left;
 	struct treeNode *right;
 }TreeNode;
 
-void createRoot(int number, char name[20]); // 성장에 관련된 값 입력
-void *child(int number, char name[20]); // 성장에 해당하는 레벨과 단계 저장
+void createRoot(int number, char name[20], char digimon[20]); // 성장에 관련된 값 입력
+void child(int number, char name[20], char digimon[20]); // 성장에 해당하는 레벨과 단계 저장
 int search(int number); // 트리탐색
 TreeNode* searchName(int number);
-void setTree(); // 렙업 시 5의배수라면 진화
+void setDigimonCondition(); // 렙업 시 5의배수라면 진화
 
 #endif // #ifndef BINARYTREE_H 종료

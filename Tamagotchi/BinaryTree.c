@@ -3,18 +3,19 @@
 #include<string.h>
 #include"BinaryTree.h"
 
+#pragma warning(disable:4996) // warning C4996을 잡기 위한 코드, 참고문헌 http://blog.naver.com/PostView.nhn?blogId=sorkelf&logNo=40137167266
+
 TreeNode *root;
 
-
-
-void createRoot(int number, char name[20]) { // 루트 생성
+void createRoot(int number, char name[20], char digimon[20]) { // 루트 생성
 	root = (TreeNode*)malloc(sizeof(TreeNode));
 	root->number = number;
 	strcpy(root->name, name);
+	strcpy(root->digimon, digimon);
 	root->left = NULL;
 	root->right = NULL;
 }
-void *child(int number, char name[20]) { // 성장에 해당하는 레벨과 단계 저장
+void child(int number, char name[20], char digimon[20]) { // 성장에 해당하는 레벨과 단계 저장
 	TreeNode *parrent;
 	TreeNode *newNodeTree = (TreeNode*)malloc(sizeof(TreeNode));
 
@@ -26,6 +27,7 @@ void *child(int number, char name[20]) { // 성장에 해당하는 레벨과 단계 저장
 	newNodeTree->right = NULL;
 	newNodeTree->number = number;
 	strcpy(newNodeTree->name, name);
+	strcpy(newNodeTree->digimon, digimon);
 
 	parrent = root;
 
@@ -80,11 +82,23 @@ TreeNode* searchName(int number) {
 		}
 	}
 }
-void setTree() {
-	createRoot(10, "성숙기"); // 렙이 5의 배수마다 진화
-	child(1,  "유년기");
-	child(5, "성장기");
-	child(15, "완전체");
-	child(20, "궁극체");
-	child(25, "초궁극체");
+void setDigimonCondition() {
+	int i = 1;
+
+	createRoot(10, "성숙기", "그레이몬"); // 렙이 5의 배수마다 진화
+	for (i = 1; i <= 30; i++) {
+		if (i >= 5 && i < 10)
+			child(i, "성장기", "아구몬");
+		else if (i >= 10 && i < 15) {
+			if (i == 10) continue;
+			child(i, "성숙기", "그레이몬");
+		}
+		else if (i >= 15 && i < 20)
+			child(i, "완전체", "메탈그레이몬");
+		else if (i >= 20 && i < 25)
+			child(i, "궁극체","워그레이몬");
+		else if (i >= 25 && i <= 30)
+			child(i, "초궁극체","오메가몬");
+		else child(i, "유아기","코요몬");
+	}
 }

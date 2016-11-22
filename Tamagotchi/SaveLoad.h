@@ -11,8 +11,8 @@
 */
 #include"Character.h"
 
-void SaveGame(ChStat *chStat);
-ChStat* LoadGame(ChStat *chStat);
+void SaveGame(ChStat *chStat, int number);
+ChStat* LoadGame(ChStat *chStat, int number);
 
 #endif // #ifndef CHARACTER_H Á¾·á
 

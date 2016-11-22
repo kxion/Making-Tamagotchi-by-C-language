@@ -19,10 +19,13 @@
 
 int selectStart(); // 게임 초기 인터페이스 동작
 int selectMove(); // 게임상 메인 인터페이스 동작
-int selectAdventure(); // 모험선택 인터페이스
-void fightInterface(int chHp, int monHp); // 싸움시 인터페이스
+int selectAdventure(int lv); // 모험선택 인터페이스
+void fightInterface(int chHp, int monHp, int lv, int monLv); // 싸움시 인터페이스
 int selectMotion(); // 공격, 스킬, 도망 인터페이스
 int selectSkill(); // 스킬 선택 인터페이스
+int selectSave(int lv);
+int selectLoad(ChStat *chStat);
+void printTitle();
 int wait(); // 엔터 전까지 기다리는 함수
 void disappear(); // goto사용시 깜박이는 콘솔의 커서 제거
 void gotoxy(int x, int y); // goto 함수 선언

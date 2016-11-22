@@ -1,5 +1,5 @@
-#ifndef FIGHT_H  // CHARACTER_H가 정의되어 있지 않다면
-#define FIGHT_H  // CHARACTER_H 매크로 정의
+#ifndef FIGHT_H  // FIGHT_H가 정의되어 있지 않다면
+#define FIGHT_H  // FIGHT_H 매크로 정의
 
 /*
 
@@ -14,5 +14,5 @@
 
 int fight(ChStat *chStat, int monLv); // 몬스터 사냥
 
-#endif // #ifndef CHARACTER_H 종료
+#endif // #ifndef FIGHT_H 종료
 

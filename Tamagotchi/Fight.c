@@ -32,7 +32,7 @@ int fight(ChStat *chStat, int monLv) {
 	attack = chStat->attack; // 공격값 초기화
 
 	while (mon->hp > 0 && chStat->hp > 0) { // 몬스터, 유저중 hp가 0이 되면 종료
-		fightInterface(chStat->hp, mon->hp);
+		fightInterface(chStat->hp, mon->hp, chStat->lv, mon->lv);
 
 		chSelect = selectMotion();
 				
@@ -57,6 +57,8 @@ int fight(ChStat *chStat, int monLv) {
 				break;
 			}
 			break;
+		case 3:
+			break;
 		}
 
 		gotoxy(x, y + 3);
@@ -75,7 +77,7 @@ int fight(ChStat *chStat, int monLv) {
 			Sleep(1000);
 			system("cls");
 			chStat->attack = attack;
-			fightInterface(chStat->hp, mon->hp);
+			fightInterface(chStat->hp, mon->hp, chStat->lv, mon->lv);
 		}
 
 		Sleep(1000);
@@ -100,7 +102,7 @@ int fight(ChStat *chStat, int monLv) {
 			else
 				chStat->hp = chStat->hp - (mon->attack - chStat->health); // 공격력 = 공격력 - 상대방어력
 			system("cls");
-			fightInterface(chStat->hp, mon->hp);
+			fightInterface(chStat->hp, mon->hp, chStat->lv, mon->lv);
 		}
 
 		if (chStat->hp <= 0) break; // 유저가 죽으면 break
@@ -112,7 +114,7 @@ int fight(ChStat *chStat, int monLv) {
 
 	if (mon->hp <= 0) {
 		printf("유저 승리 !\n");
-		chStat->money = 500 * monLv;
+		chStat->money += 500 * monLv;
 		mon->hp = monHp;
 		chStat->hp = chHp;
 		return 20 * monLv; // 몬스터 레벨에 알맞은 경험치 반환

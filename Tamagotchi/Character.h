@@ -13,6 +13,7 @@
 typedef struct chStat { // 캐릭터들 스텟
 	char name[10];
 	char condition[10];
+	char digimon[30];
 	int lv;
 	int attack;
 	int health;

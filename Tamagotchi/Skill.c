@@ -6,7 +6,6 @@
 
 */
 
-
 #include<stdio.h>
 #include"Skill.h"
 
