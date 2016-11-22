@@ -15,7 +15,7 @@ int main()
 	return 0;
 }
 
-
+    
 void printTitle()
 {
 	int x = 10, y = 3;
@@ -57,6 +57,8 @@ void printTitle()
 		
 		if (_kbhit())//키 입력 여부 확인 ->http://showmiso.tistory.com/8
 		{
+			
+			system("mode con: cols=100 lines=30");//가로 , 세로 ->http://berabue.tistory.com/59
 			//아무키 입력 받았을때, 호출되는 함수 입력
 			exit(1);
 		}
