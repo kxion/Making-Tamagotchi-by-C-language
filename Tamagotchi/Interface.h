@@ -10,6 +10,7 @@
 
 */
 
+
 #define ENTER 13 // 아스키값 선언
 #define UP 72 // 아스키값 선언
 #define DOWN 80 // 아스키값 선언

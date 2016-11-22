@@ -8,6 +8,7 @@
 #include<stdio.h>
 #include "Monster.h"
 
+
 MonStat monStat; // 몬스터 스텟을 저장할 구조체 변수
 MonStat *pMonStat = &monStat; // 몬스터 포인터 구조체 변수
 

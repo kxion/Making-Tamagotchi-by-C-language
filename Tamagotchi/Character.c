@@ -7,10 +7,12 @@
 
 */
 
+
 #include<stdio.h>
 #include<Windows.h>
 #include"Character.h"
 #include"Interface.h"
+
 
 ChStat chStat; // 캐릭터 스텟을 저장할 구조체 변수
 ChStat *pChStat = &chStat; // 캐릭터 포인터 구조체 변수

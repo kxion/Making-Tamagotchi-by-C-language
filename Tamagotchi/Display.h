@@ -9,6 +9,7 @@
 
 */
 
+
 void coyomon(); // 코요몬 이미지
 void agumon(); // 아구몬 이미지
 void greymon(); // 그레이몬 이미지

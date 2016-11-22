@@ -14,6 +14,7 @@
 
 */
 
+
 int selectStart() { // 게임 초기 인터페이스 동작
 	int selectNum = 1, x = 45, y = 15; // 임의의 좌표;
 

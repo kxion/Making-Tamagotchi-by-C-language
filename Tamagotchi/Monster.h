@@ -9,6 +9,7 @@
 
 */
 
+
 typedef struct monStat { // 몬스터들 스텟
 	int lv;
 	int attack;

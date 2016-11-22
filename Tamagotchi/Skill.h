@@ -9,6 +9,7 @@
 
 */
 
+
 int agumonSkill_1(int attack); // ²¿¸¶ºÒ²É
 int agumonSkill_2(int attack); // ²¿¸¶È­¿°
 

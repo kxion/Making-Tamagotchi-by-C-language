@@ -9,6 +9,7 @@
 
 #pragma warning(disable:4996) // warning C4996을 잡기 위한 코드, 참고문헌 http://blog.naver.com/PostView.nhn?blogId=sorkelf&logNo=40137167266
 
+
 int main() {
 	int monLv = 0, number = 0, exp = 0, select = 0, lv = 1;
 	const int x = 35, y = 15;

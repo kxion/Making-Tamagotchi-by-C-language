@@ -12,6 +12,7 @@
 #include"Interface.h"
 #include"Skill.h"
 
+
 #pragma warning(disable:4996) // warning C4996을 잡기 위한 코드, 참고문헌 http://blog.naver.com/PostView.nhn?blogId=sorkelf&logNo=40137167266
 
 int fight(ChStat *chStat, int monLv) {

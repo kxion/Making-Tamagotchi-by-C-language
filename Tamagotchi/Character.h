@@ -9,6 +9,7 @@
 
 */
 
+
 typedef struct chStat { // 캐릭터들 스텟
 	char name[10];
 	char condition[10];

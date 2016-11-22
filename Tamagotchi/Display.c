@@ -2,6 +2,8 @@
 #include"Display.h"
 #include"Interface.h"
 
+
+
 void coyomon() {
 	printf("                 бс\n");
 	printf("                 бсбс\n");
