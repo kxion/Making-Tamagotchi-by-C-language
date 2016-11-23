@@ -17,7 +17,7 @@ void SaveGame(ChStat *chStat, int number) {
 		case 2: fp = fopen("save2.txt", "wt"); break;
 		case 3: fp = fopen("save3.txt", "wt"); break;
 	}
-	fprintf(fp, "%s %s %s %d %d %d %d %d %d %d %d", chStat->name, chStat->condition, chStat->digimon, chStat->lv, chStat->hp, chStat->gauge,
+	fprintf(fp, "%s %s %s %d %d %d %d %d %d %d %d", chStat->name, chStat->condition, chStat->digimon, chStat->lv, chStat->hp, chStat->energy,
 		chStat->exp, chStat->money, chStat->attack, chStat->health, chStat->agility);
 	fclose(fp);
 }
@@ -28,9 +28,23 @@ ChStat* LoadGame(ChStat *chStat, int number) {
 		case 2: fp = fopen("save2.txt", "rt"); break;
 		case 3: fp = fopen("save3.txt", "rt"); break;
 	}
-		fscanf(fp, "%s %s %s %d %d %d %d %d %d %d %d", chStat->name, chStat->condition, chStat->digimon, &chStat->lv, &chStat->hp, &chStat->gauge, 
-		&chStat->exp, &chStat->money, &chStat->attack, &chStat->health, &chStat->agility);
-	fclose(fp);
-	
+	if (fp == NULL) {
+		gotoxy(45, 16);
+		printf("ºó ½½·ÔÀÔ´Ï´Ù");
+		chStat->agility = 0;
+	}
+	else {
+		fscanf(fp, "%s", chStat->name);
+		if (!strcmp(chStat->name, "À¯³â±â") || !strcmp(chStat->name, "¼ºÀå±â") || !strcmp(chStat->name, "¼º¼÷±â") || !strcmp(chStat->name, "¿ÏÀüÃ¼") ||
+			!strcmp(chStat->name, "±Ã±ØÃ¼") || !strcmp(chStat->name, "ÃÊ±Ã±ØÃ¼")) { // ÀÌ¸§ÀÌ °ø¹éÀÏ ‹šÀÇ ¿¹¿ÜÃ³¸®
+			strcpy(chStat->condition, chStat->name);
+			strcpy(chStat->name, " ");
+			fscanf(fp, "%s %d %d %d %d %d %d %d %d", chStat->digimon, &chStat->lv, &chStat->hp, &chStat->energy, &chStat->exp, &chStat->money,
+			&chStat->attack, &chStat->health, &chStat->agility);
+		}
+		else fscanf(fp, "%s %s %d %d %d %d %d %d %d %d", chStat->condition, chStat->digimon, &chStat->lv, &chStat->hp, &chStat->energy,
+			&chStat->exp, &chStat->money,&chStat->attack, &chStat->health, &chStat->agility);
+		fclose(fp);
+	}
 	return chStat;
 }

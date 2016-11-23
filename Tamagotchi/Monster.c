@@ -16,7 +16,7 @@ MonStat* monster(int lv) { // 몬스터 레벨에 맞는 스텟
 	monStat.lv = lv; // 레벨
 	monStat.attack = 2 * lv; // 공격력
 	monStat.sheild = 1 * lv; // 방어력
-	monStat.hp = 1 * lv; // 피
+	monStat.hp = 20 * lv; // 피
 	monStat.critical = 3 * lv; // 크리티컬 확률
 
 	return pMonStat;

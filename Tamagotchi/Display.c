@@ -1,13 +1,15 @@
 ﻿#include<stdio.h>
+#include<string.h>
 #include"Display.h"
 #include"Interface.h"
+#include"Skill.h"
 
 void coyomon() {
 	gotoxy(2, 15);
 
 	printf("                 ■\n");
-	printf("                 ■■\n");
-	printf("                 ■■\n");
+	printf("                 ■ ■\n");
+	printf("                 ■  ■\n");
 	printf(" ■■■■         ■  ■\n");
 	printf("   ■   ■■       ■  ■\n");
 	printf("    ■■    ■     ■  ■\n");
@@ -21,7 +23,7 @@ void coyomon() {
 	printf("     ■                    ■\n");
 	printf("     ■          ■■■    ■\n");
 	printf("     ■         ■■■■   ■\n");
-	printf("      ■                ■\n");
+	printf("      ■                 ■\n");
 	printf("        ■■■■■■■■■\n"); // 18
 }
 void agumon() {
@@ -72,6 +74,30 @@ void greymon() {
 void metalgreymon() {
 	gotoxy(2, 11);
 
+	printf("  ■■    ■■■■■\n");
+	printf(" ■   ■■■■■■■■     ■■\n");
+	printf(" ■     ■■■   ■■■ ■ ■■\n");
+	printf(" ■       ■■    ■■■■■  ■\n");
+	printf(" ■   ■■■■■    ■■■■■■\n");
+	printf(" ■   ■  ■■■■■■■■■■\n");
+	printf(" ■   ■  ■ ■■■■■■■■■\n");
+	printf(" ■     ■     ■■       ■\n");
+	printf(" ■      ■     ■■       ■\n");
+	printf(" ■      ■       ■■■■■\n");
+	printf(" ■  ■  ■ ■        ■\n");
+	printf(" ■  ■■     ■■     ■■\n");
+	printf(" ■  ■■    ■    ■    ■  ■\n");
+	printf(" ■ ■■   ■    ■   ■  ■\n");
+	printf(" ■■  ■■ ■    ■   ■  ■\n");
+	printf(" ■  ■    ■■■■     ■■\n");
+	printf("  ■      ■         ■  ■■\n");
+	printf(" ■  ■  ■  ■■■■    ■  ■\n");
+	printf(" ■ ■  ■ ■■■■■   ■ ■■\n");
+	printf(" ■■■■■      ■■■■■■■\n");
+}
+void wargraymon() {
+	gotoxy(2, 11);
+
 	printf("   ■■■   ■■■■■\n");
 	printf("   ■    ■■■■■■■  ■■\n");
 	printf("    ■   ■■   ■■■■■ ■\n");
@@ -92,30 +118,6 @@ void metalgreymon() {
 	printf(" ■ ■  ■  ■■■■■   ■  ■\n");
 	printf(" ■ ■■■ ■   ■■■■■■■\n");
 	printf(" ■■■■■■    ■■■■■■\n");
-}
-void wargraymon() {
-	gotoxy(2, 11);
-
-	printf("  ■■■   ■■■■■\n");
-	printf("  ■    ■■■■■■■     ■■\n");
-	printf("    ■  ■■■   ■■■ ■ ■■\n");
-	printf("    ■    ■■    ■■■■■  ■\n");
-	printf("  ■  ■■■■■    ■■■■■■\n");
-	printf("  ■  ■  ■■■■■■■■■■\n");
-	printf("  ■  ■  ■ ■■■■■■■■■\n");
-	printf(" ■     ■     ■■       ■\n");
-	printf(" ■      ■     ■■       ■\n");
-	printf(" ■      ■       ■■■■■\n");
-	printf(" ■  ■  ■ ■        ■\n");
-	printf(" ■  ■■     ■■     ■■\n");
-	printf(" ■  ■■    ■    ■    ■  ■\n");
-	printf(" ■ ■■   ■    ■   ■  ■\n");
-	printf(" ■■  ■■ ■    ■   ■  ■\n");
-	printf(" ■  ■    ■■■■     ■■\n");
-	printf("  ■      ■         ■  ■■\n");
-	printf(" ■  ■  ■  ■■■■    ■  ■\n");
-	printf(" ■ ■  ■ ■■■■■   ■ ■■\n");
-	printf(" ■■■■■      ■■■■■■■\n");
 }
 void omegamon() {
 	gotoxy(2, 11);
@@ -167,6 +169,188 @@ void enemyDisplay(int monLv) {
 	case 8: enemy8(); break;
 	case 9: enemy9(); break;
 	case 10: enemy10(); break;
+	}
+}
+ChStat* skillDisplay(ChStat *chStat, int selectNum) {
+	const int x = 40, y = 25;
+	gotoxy(x, y);
+
+	if (!strcmp(chStat->digimon, "코요몬")) {
+		if (chStat->energy >= 2) {
+			printf("몸통박치기 !!!");
+			chStat->attack = coyomonSkill(chStat->attack);
+			chStat->energy = chStat->energy - 2;
+		}
+		else printf("기력부족 공격으로 !!!");
+	}
+
+	if(!strcmp(chStat->digimon, "아구몬")) {
+		if (selectNum == 1 && chStat->energy >= 2) {
+			printf("꼬마불꽃 !!!\n");
+			chStat->attack = agumonSkill_1(chStat->attack);
+			chStat->energy = chStat->energy - 2;
+		}
+		else if (selectNum == 2 && chStat->energy >= 4) {
+			printf("꼬마화염 !!!\n");
+			chStat->attack = agumonSkill_2(chStat->attack);
+			chStat->energy = chStat->energy - 4;
+		}
+		else printf("기력부족 공격으로 !!!");
+	}
+	else if (!strcmp(chStat->digimon, "그레이몬")) {
+		if (selectNum == 1 && chStat->energy >= 2) {
+			printf("화염 불 !!!\n");
+			chStat->attack = greymonSkill_1(chStat->attack);
+			chStat->energy = chStat->energy - 2;
+		}
+		else if (selectNum == 2 && chStat->energy >= 4) {
+			printf("메가화염 !!!\n");
+			chStat->attack = greymonSkill_2(chStat->attack);
+			chStat->energy = chStat->energy - 4;
+		}
+		else printf("기력부족 공격으로 !!!");
+	}
+	else if (!strcmp(chStat->digimon, "메탈그레이몬")) {
+		if (selectNum == 1 && chStat->energy >= 2) {
+			printf("다연발 불꽃 !!! \n");
+			chStat->attack = metalGreymonSkill_1(chStat->attack);
+			chStat->energy = chStat->energy - 2;
+		}
+		else if (selectNum == 2 && chStat->energy >= 4) {
+			printf("기가 디스티로이어 !!!\n");
+			chStat->attack = metalGreymonSkill_2(chStat->attack);
+			chStat->energy = chStat->energy - 4;
+		}
+		else printf("기력부족 공격으로 !!!");
+	}
+	else if (!strcmp(chStat->digimon, "워그레이몬")) {
+		if (selectNum == 1 && chStat->energy >= 2) {
+			printf("테라광선 !!!\n");
+			chStat->attack = wargraymonSkill_1(chStat->attack);
+			chStat->energy = chStat->energy - 2;
+		}
+		else if (selectNum == 2 && chStat->energy >= 4) {
+			printf("가이아포스 !!!\n");
+			chStat->attack = wargraymonSkill_2(chStat->attack);
+			chStat->energy = chStat->energy - 4;
+		}
+		else printf("기력부족 공격으로 !!!");
+	}
+	else if (!strcmp(chStat->digimon, "오메가몬")) {
+		if (selectNum == 1 && chStat->energy >= 2) {
+			printf("그레이검 !!!\n");
+			chStat->attack = omegaMonSKill_1(chStat->attack);
+			chStat->energy = chStat->energy - 2;
+		}
+		else if(selectNum == 2 && chStat->energy >= 4){
+			printf("가루캐논 !!!\n");
+			chStat->attack = omegaMonSKill_2(chStat->attack);
+			chStat->energy = chStat->energy - 4;
+		}
+		else printf("기력부족 공격으로 !!!");
+	}
+	return chStat;
+}
+void skillDescription(ChStat *chStat) {
+	const int x = 60, y = 10;
+	int selectNum = 1;
+
+	while (1) {
+		int key = 1; // 초기화를 안하면 if문에서 에러가 나므로, 아무 값이나 초기화.
+
+		if (_kbhit()) // 키 입력 여부 확인 ->http://showmiso.tistory.com/8
+			key = _getch(); // 키를 입력 받음. 이하는 키에따른 처리 출처
+
+		if (key == LEFT) {
+			if (selectNum > 1) // selectNum이 1보다 클경우(1 이상)
+				selectNum -= 1;
+			else continue; // 아니면 계속 진행
+		}
+		else if (key == RIGHT) {
+			if (selectNum < 3) // selectNUm이 4보다 작은경우(3 이하)
+				selectNum += 1;
+			else continue; // 아니면 계속 진행
+		}
+		else if (key == ENTER) { // 엔터의 아스키값. 엔터가 입력되었을시, 타이틀을 탈출. 및 selectNum에 해당하는 동작 수행
+			break;
+		}
+
+		gotoxy(x, y);
+		if (!strcmp(chStat->digimon, "코요몬")) {
+			printf("▶ 몸통박치기");
+			gotoxy(x, y + 2);
+			printf("   공격력 : %d", coyomonSkill(chStat->attack));
+		}
+		else if (!strcmp(chStat->digimon, "아구몬")) {
+			switch (selectNum) {
+			case 1:
+				printf("▶ 꼬마불꽃       꼬마화염\n");
+				gotoxy(x, y + 2);
+				printf("   공격력 : %2d", agumonSkill_1(chStat->attack));
+				break;
+			case 2:
+				printf("   꼬마불꽃    ▶ 꼬마화염\n");
+				gotoxy(x, y + 2);
+				printf("   공격력 : %2d", agumonSkill_2(chStat->attack));
+				break;
+			}
+		}
+		else if (!strcmp(chStat->digimon, "그레이몬")) {
+			switch (selectNum) {
+			case 1:
+				printf("▶ 화염불        메가화염\n");
+				gotoxy(x, y + 2);
+				printf("   공격력 : %2d", greymonSkill_1(chStat->attack));
+				break;
+			case 2:
+				printf("   화염불     ▶ 메가화염\n");
+				gotoxy(x , y + 2);
+				printf("   공격력 : %2d", greymonSkill_2(chStat->attack));
+				break;
+			}
+		}
+		else if (!strcmp(chStat->digimon, "메탈그레이몬")) {
+			switch (selectNum) {
+			case 1:
+				printf("▶ 다연발 불꽃       기가 디스티로이어\n");
+				gotoxy(x, y + 2);
+				printf("   공격력 : %2d", metalGreymonSkill_1(chStat->attack));
+				break;
+			case 2:
+				printf("   다연발 불꽃    ▶ 기가 디스티로이어\n");
+				gotoxy(x , y + 2);
+				printf("   공격력 : %2d", metalGreymonSkill_2(chStat->attack));
+				break;
+			}
+		}
+		else if (!strcmp(chStat->digimon, "워그레이몬")) {
+			switch (selectNum) {
+			case 1:
+				printf("▶ 테라광선       가이아포스\n");
+				gotoxy(x, y + 2);
+				printf("   공격력 : %2d", wargraymonSkill_1(chStat->attack));
+				break;
+			case 2:
+				printf("   테라광선    ▶ 가이아포스\n");
+				gotoxy(x, y + 2);
+				printf("   공격력 : %2d", wargraymonSkill_2(chStat->attack));
+				break;
+			}
+		}
+		else {
+			switch (selectNum) {
+			case 1:
+				printf("▶ 그레이검       가루캐논\n");
+				gotoxy(x, y + 2);
+				printf("   공격력 : %2d", omegaMonSKill_1(chStat->attack));
+				break;
+			case 2:
+				printf("   그레이검    ▶ 가루캐논\n");
+				gotoxy(x, y + 2);
+				printf("   공격력 : %2d", omegaMonSKill_2(chStat->attack));
+				break;
+			}
+		}
 	}
 }
 

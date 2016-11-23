@@ -25,7 +25,7 @@ ChStat* character(int lv) { // 캐릭터 레벨에 해당하는 스텟
 	chStat.health = 1 * lv; // 방어력
 	chStat.hp = 7 * lv ; // 피
 	chStat.agility = 0 + lv; // 크리티컬 확률
-	chStat.gauge = 0; // 게이지 0으로 초기화
+	chStat.energy = 0; // 게이지 0으로 초기화
 	
 	hp = chStat.hp;
 	exp = chStat.lv * 50;
@@ -74,7 +74,7 @@ void showStat() {
 	printf("체력   : %d / %d", chStat.hp, hp);
 	
 	gotoxy(x, y + 5);
-	printf("게이지 : %d", chStat.gauge);
+	printf("기력   : %d / %d", chStat.energy, 5);
 
 	gotoxy(x, y + 6);
 	printf("경험치 : %d / %d", chStat.exp, exp);
@@ -110,7 +110,7 @@ void showAllStat() {
 	printf("체력   : %d / %d", chStat.hp, hp);
 
 	gotoxy(x, y + 8);
-	printf("게이지 : %d / %d", chStat.gauge, 1 * chStat.lv);
+	printf("기력   : %d / %d", chStat.energy, 5);
 
 	gotoxy(x, y + 9);
 	printf("경험치 : %d / %d", chStat.exp, exp);

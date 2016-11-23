@@ -9,6 +9,7 @@
 
 */
 
+#include"Character.h"
 
 void coyomon(); // 코요몬 이미지
 void agumon(); // 아구몬 이미지
@@ -19,6 +20,8 @@ void omegamon(); // 오메가몬 이미지
 
 void digimonDisplay(int lv);
 void enemyDisplay(int monLv);
+ChStat* skillDisplay(ChStat *chStat, int selectNum);
+void skillDescription(ChStat *chStat);
 
 void enemy1(); // 적 1
 void enemy2(); // 적 2

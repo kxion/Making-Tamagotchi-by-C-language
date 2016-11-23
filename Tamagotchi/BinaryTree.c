@@ -99,6 +99,6 @@ void setDigimonCondition() {
 			child(i, "궁극체","워그레이몬");
 		else if (i >= 25 && i <= 30)
 			child(i, "초궁극체","오메가몬");
-		else child(i, "유아기","코요몬");
+		else child(i, "유년기","코요몬");
 	}
 }
