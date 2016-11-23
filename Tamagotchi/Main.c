@@ -27,7 +27,7 @@ int main() {
 		gotoxy(x, y);
 		printf("닉네임을 입력하세요 : ");
 		gotoxy(x + 25, y);
-		gets(chStat->name);
+		fgets(chStat->name, 10, stdin); /* gets(string); XXX: gets 함수는 string의 크기가 어느 정도인지 알지 못한다. 따라서 STRING_SIZE 이상의 길이를 가진 문자열 입력시 정상 작동을 보장할 수 없다. https://kldp.org/node/75467 */
 		strcpy(chStat->condition, "유아기");
 		strcpy(chStat->digimon, "코요몬");
 	}
