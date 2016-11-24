@@ -882,16 +882,16 @@ void fightInterface(ChStat *chStat, MonStat *mon) { // 싸움시 디스플레이
 }
 */
 void printUser(ChStat *chStat) { // 오프라인 대전시 유저 디스플레이 2016 11 25 한진오 수정
-	const int chX = 50, chY = 27; // hp바 위치 고정
+	const int chX = 5, chY = 2; // hp바 위치 고정
 	int i = 0;
 
 
 	digimonDisplay(chStat->lv);
 
-	gotoxy(chX - 14, chY);
+	gotoxy(chX , chY);
 	printf("%s hp : ", chStat->digimon);
 
-	gotoxy(chX, chY);
+	gotoxy(chX+12, chY);
 	for (i = 1; i <= chStat->hp; i++) {
 		printf("l");
 		if (i == 50)
@@ -920,14 +920,12 @@ void printMon(MonStat *mon)//오프라인 대전시 몬스터 디스플레이 2016 11 25 한진오
 
 }
 
-void attackMotion()
+void userAtMotion1()
 {
-	gotoxy(38, 19);//기존의 인터페이스를 지움
+	gotoxy(38, 19);//기존의 인터페이스를 지움(공격 방어 도망)
 	printf("                           ");
 	
 	int x, y, speed;
-
-	//system("mode con: cols=100 lines=30");//가로 , 세로 ->http://berabue.tistory.com/59
 
 	x = 30, y = 20, speed = 20;
 
@@ -962,7 +960,63 @@ void attackMotion()
 	printf("  ");
 
 }
+void userAtMotion2()
+{
+	int x, y, speed;
 
+	x = 0, y = 20, speed = 20;
+
+	while (1)
+	{
+		gotoxy(x, y);
+		printf("■■■");
+		Sleep(speed);
+		x += 1;
+		if (x == 70)//몬스터와 닿는 지점
+			break;
+	}
+
+
+	gotoxy(x, y); //기존의 공격모션을 화면에서 초기화
+	printf("      ");
+
+}
+void monAtMotion()
+{
+	int x, y, speed;
+
+	x = 70, y = 10, speed = 20;
+
+	while (1)
+	{
+		gotoxy(x, y);
+		printf("■■■");
+		Sleep(speed);
+		x -= 1;
+		if (x == 0)//화면의 끝
+			break;
+	}
+
+	gotoxy(x, y);//기존의 공격모션(화면상의 큰 비중을 차지)를 화면에서 초기화
+	printf("         ");
+
+	//x -= 1;
+	gotoxy(x, y);
+	printf("■■");
+	Sleep(speed);
+
+
+	gotoxy(x, y);//기존의 공격모션(화면상의 큰 비중을 차지)를 화면에서 초기화
+	printf("       ");
+
+	//x-= 1;
+	gotoxy(x, y);
+	printf("■");
+	Sleep(speed);
+
+	gotoxy(x, y);
+	printf("      ");
+}
 void disappear() { // goto사용시 깜박이는 콘솔의 커서 제거, 참고문헌 http://tip.daum.net/question/39372106
 	HANDLE hConsole; // 콘솔 핸들
 	CONSOLE_CURSOR_INFO ConsoleCursor; // 콘솔커서 정보 구조체

@@ -42,9 +42,11 @@ int fight(ChStat *chStat, int monLv) {
 				
 		switch (chSelect) {
 		case 1:
-			attackMotion();
+			userAtMotion1();//2016 11 25 한진오 수정
 			system("cls");
 			printMon(mon);
+			userAtMotion2();
+
 			if (chStat->energy < 5)
 				chStat->energy = chStat->energy + 1;
 			break;
@@ -78,6 +80,7 @@ int fight(ChStat *chStat, int monLv) {
 			Sleep(500);
 			system("cls");
 			//printUser(chStat);// 오프라인 대전시 유저 디스플레이 2016 11 25 한진오 수정
+			
 			printMon(mon);//오프라인 대전시 몬스터 디스플레이 2016 11 25 한진오 수정
 		}
 
@@ -85,8 +88,10 @@ int fight(ChStat *chStat, int monLv) {
 
 		if (mon->hp <= 0) break; // 몬스터가 죽으면 break;
 
-		gotoxy(x, y+2);
-		printf("몬스터 공격!!!\n");
+		/*gotoxy(x, y+2);
+		printf("몬스터 공격!!!\n");*/
+		monAtMotion();//2016 11 25 한진오 수정
+		
 		Sleep(500);
 
 		gotoxy(x, y);
