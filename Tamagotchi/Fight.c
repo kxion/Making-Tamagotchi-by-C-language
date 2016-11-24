@@ -43,6 +43,8 @@ int fight(ChStat *chStat, int monLv) {
 		switch (chSelect) {
 		case 1:
 			attackMotion();
+			system("cls");
+			printMon(mon);
 			if (chStat->energy < 5)
 				chStat->energy = chStat->energy + 1;
 			break;
@@ -75,7 +77,7 @@ int fight(ChStat *chStat, int monLv) {
 			}
 			Sleep(500);
 			system("cls");
-			printUser(chStat);// 오프라인 대전시 유저 디스플레이 2016 11 25 한진오 수정
+			//printUser(chStat);// 오프라인 대전시 유저 디스플레이 2016 11 25 한진오 수정
 			printMon(mon);//오프라인 대전시 몬스터 디스플레이 2016 11 25 한진오 수정
 		}
 

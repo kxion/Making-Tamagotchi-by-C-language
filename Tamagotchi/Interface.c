@@ -922,6 +922,9 @@ void printMon(MonStat *mon)//오프라인 대전시 몬스터 디스플레이 2016 11 25 한진오
 
 void attackMotion()
 {
+	gotoxy(38, 19);//기존의 인터페이스를 지움
+	printf("                           ");
+	
 	int x, y, speed;
 
 	//system("mode con: cols=100 lines=30");//가로 , 세로 ->http://berabue.tistory.com/59
