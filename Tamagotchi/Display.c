@@ -72,31 +72,8 @@ void greymon() {
 	printf(" ■ ■ ■■ ■■■■■   ■ ■\n");
 	printf(" ■■■■■     ■■■■■■\n"); // 20
 }
-void metalgreymon() {
-	gotoxy(2, 11);
 
-	printf("  ■■    ■■■■■\n");
-	printf(" ■   ■■■■■■■■     ■■\n");
-	printf(" ■     ■■■   ■■■ ■ ■■\n");
-	printf(" ■       ■■    ■■■■■  ■\n");
-	printf(" ■   ■■■■■    ■■■■■■\n");
-	printf(" ■   ■  ■■■■■■■■■■\n");
-	printf(" ■   ■  ■ ■■■■■■■■■\n");
-	printf(" ■     ■     ■■       ■\n");
-	printf(" ■      ■     ■■       ■\n");
-	printf(" ■      ■       ■■■■■\n");
-	printf(" ■  ■  ■ ■        ■\n");
-	printf(" ■  ■■     ■■     ■■\n");
-	printf(" ■  ■■    ■    ■    ■  ■\n");
-	printf(" ■ ■■   ■    ■   ■  ■\n");
-	printf(" ■■  ■■ ■    ■   ■  ■\n");
-	printf(" ■  ■    ■■■■     ■■\n");
-	printf("  ■      ■         ■  ■■\n");
-	printf(" ■  ■  ■  ■■■■    ■  ■\n");
-	printf(" ■ ■  ■ ■■■■■   ■ ■■\n");
-	printf(" ■■■■■      ■■■■■■■\n");
-}
-void wargraymon() {
+void metalgreymon() {
 	gotoxy(2, 11);
 
 	printf("   ■■■   ■■■■■\n");
@@ -120,6 +97,32 @@ void wargraymon() {
 	printf(" ■ ■■■ ■   ■■■■■■■\n");
 	printf(" ■■■■■■    ■■■■■■\n");
 }
+
+void wargraymon() {
+	gotoxy(2, 11);
+
+	printf("  ■■    ■■■■■\n");
+	printf(" ■   ■■■■■■■■     ■■\n");
+	printf(" ■     ■■■   ■■■ ■ ■■\n");
+	printf(" ■       ■■    ■■■■■  ■\n");
+	printf(" ■   ■■■■■    ■■■■■■\n");
+	printf(" ■   ■  ■■■■■■■■■■\n");
+	printf(" ■   ■  ■ ■■■■■■■■■\n");
+	printf(" ■     ■     ■■       ■\n");
+	printf(" ■      ■     ■■       ■\n");
+	printf(" ■      ■       ■■■■■\n");
+	printf(" ■  ■  ■ ■        ■\n");
+	printf(" ■  ■■     ■■     ■■\n");
+	printf(" ■  ■■    ■    ■    ■  ■\n");
+	printf(" ■ ■■   ■    ■   ■  ■\n");
+	printf(" ■■  ■■ ■    ■   ■  ■\n");
+	printf(" ■  ■    ■■■■     ■■\n");
+	printf("  ■      ■         ■  ■■\n");
+	printf(" ■  ■  ■  ■■■■    ■  ■\n");
+	printf(" ■ ■  ■ ■■■■■   ■ ■■\n");
+	printf(" ■■■■■      ■■■■■■■\n");
+}
+
 void omegamon() {
 	gotoxy(2, 11);
 
