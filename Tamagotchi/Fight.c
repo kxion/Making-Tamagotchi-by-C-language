@@ -34,21 +34,21 @@ int fight(ChStat *chStat, int monLv) {
 	monAttack = mon->attack;
 
 	while (mon->hp > 0 && chStat->hp > 0) { // 몬스터, 유저중 hp가 0이 되면 종료
-		fightInterface(chStat, mon);
+		
+		printUser(chStat);// 오프라인 대전시 유저 디스플레이 2016 11 25 한진오 수정
+		//printMon(mon);//오프라인 대전시 몬스터 디스플레이 2016 11 25 한진오 수정
 
 		chSelect = selectMotion();
 				
 		switch (chSelect) {
 		case 1:
-			gotoxy(x, y + 2);
-			printf("공격 !!!\n");
-			Sleep(500);
+			attackMotion();
 			if (chStat->energy < 5)
 				chStat->energy = chStat->energy + 1;
 			break;
 		case 2:
 			skSelect = selectSkill(chStat);
-			chStat = skillDisplay(chStat, skSelect);
+			chStat = skillDisplay(chStat, skSelect);//****
 			break;
 		case 3:
 			menu(chStat);
@@ -75,7 +75,8 @@ int fight(ChStat *chStat, int monLv) {
 			}
 			Sleep(500);
 			system("cls");
-			fightInterface(chStat, mon);
+			printUser(chStat);// 오프라인 대전시 유저 디스플레이 2016 11 25 한진오 수정
+			printMon(mon);//오프라인 대전시 몬스터 디스플레이 2016 11 25 한진오 수정
 		}
 
 		Sleep(500);
@@ -105,7 +106,8 @@ int fight(ChStat *chStat, int monLv) {
 				Sleep(500);
 			}
 			system("cls");
-			fightInterface(chStat, mon);
+			printUser(chStat);// 오프라인 대전시 유저 디스플레이 2016 11 25 한진오 수정
+			printMon(mon);//오프라인 대전시 몬스터 디스플레이 2016 11 25 한진오 수정
 		}
 
 		if (chStat->hp <= 0) break; // 유저가 죽으면 break
