@@ -18,7 +18,7 @@
 
 int fight(ChStat *chStat, int monLv) {
 	const int x = 38, y = 23;
-	int chSelect = 0, money = 0, skSelect = 0, monHp = 0, chHp = 0, chAttack = 0, monAttack = 0, energy = 0;
+	int chSelect = 0, money = 0, skSelect = 0, monHp = 0, chHp = 0, chAttack = 0, monAttack = 0;
 
 	srand((unsigned)time(NULL));
 	/*  
@@ -43,6 +43,8 @@ int fight(ChStat *chStat, int monLv) {
 			gotoxy(x, y + 2);
 			printf("공격 !!!\n");
 			Sleep(500);
+			if (chStat->energy < 5)
+				chStat->energy = chStat->energy + 1;
 			break;
 		case 2:
 			skSelect = selectSkill(chStat);
@@ -62,17 +64,15 @@ int fight(ChStat *chStat, int monLv) {
 			if (rand() % 100 < chStat->agility) { // 크리티커율보다 낮은 난수 발생시 크리티컬 발생
 				printf("크리티컬 발생!!!\n\n");
 				gotoxy(x, y+2);
-				printf("데미지 : %d", chStat->attack + (chStat->agility * 3) - mon->sheild);
+				printf("데미지 : %2d", chStat->attack + chStat->agility - mon->sheild);
 				Sleep(500);
-				mon->hp = mon->hp - (chStat->attack + (chStat->agility * 3) - mon->sheild); // 공격력 = 공격력 + 크리댐 - 상대방어력
+				mon->hp = mon->hp - (chStat->attack + chStat->agility - mon->sheild); // 공격력 = 공격력 + 크리댐 - 상대방어력
 			}
 			else {
-				printf("데미지 : %d", chStat->attack - mon->sheild);
+				printf("데미지 : %2d", chStat->attack - mon->sheild);
 				Sleep(500);
 				mon->hp = mon->hp - (chStat->attack - mon->sheild); // 공격력 = 공격력 - 상대방어력
 			}
-			if (energy != 5)
-				chStat->energy = ++energy;
 			Sleep(500);
 			system("cls");
 			fightInterface(chStat, mon);
@@ -96,12 +96,12 @@ int fight(ChStat *chStat, int monLv) {
 				printf("크리티컬 발생!!!\n");
 				gotoxy(x, y + 2);
 				Sleep(500);
-				printf("데미지 : %d", mon->attack + (mon->critical * 3) - chStat->health);
-				chStat->hp = chStat->hp - (mon->attack + (mon->critical * 3) - chStat->health); // 공격력 = 공격력 + 크리댐 - 상대방어력
+				printf("데미지 : %2d", mon->attack + mon->critical - chStat->health);
+				chStat->hp = chStat->hp - (mon->attack + mon->critical - chStat->health); // 공격력 = 공격력 + 크리댐 - 상대방어력
 			}
 			else {
 				chStat->hp = chStat->hp - (mon->attack - chStat->health); // 공격력 = 공격력 - 상대방어력
-				printf("데미지 : %d", mon->attack - chStat->health);
+				printf("데미지 : %2d", mon->attack - chStat->health);
 				Sleep(500);
 			}
 			system("cls");
@@ -110,16 +110,20 @@ int fight(ChStat *chStat, int monLv) {
 
 		if (chStat->hp <= 0) break; // 유저가 죽으면 break
 		chStat->energy;
-		if (energy != 5) 
-			chStat->energy = ++energy;
+		if (chStat->energy < 5)
+			chStat->energy = chStat->energy + 1;
 		Sleep(500);
 		system("cls");
+
+		chStat->attack = chAttack;
+		mon->attack = monAttack;
 	}
-	chStat->attack = chAttack;
-	mon->attack = monAttack;
+
+	//chStat->attack = chAttack;
+	//mon->attack = monAttack;
 
 	if (mon->hp <= 0) {
-		printf("유저 승리 !\n");
+		printWin();//win 이미지
 		chStat->money += 500 * monLv;
 		mon->hp = monHp;
 		chStat->hp = chHp;
@@ -134,7 +138,7 @@ int fight(ChStat *chStat, int monLv) {
 		return 0;
 	}
 	else {
-		printf("사냥 실패 !\n");
+		printLose();//lose 이미지
 		mon->hp = monHp;
 		chStat->hp = chHp;
 		chStat->energy = 0;

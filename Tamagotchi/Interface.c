@@ -34,7 +34,8 @@ void interfaceMain() {
 		gotoxy(x, y);
 		printf("닉네임을 입력하세요 : ");
 		gotoxy(x + 25, y);
-		gets(chStat->name);
+		fgets(chStat->name, 20, stdin); // 이름제한
+
 		strcpy(chStat->condition, "유년기");
 		strcpy(chStat->digimon, "코요몬");
 
@@ -491,7 +492,7 @@ int selectAdventure(int lv) { // 모험선택 인터페이스, 이대웅 추가
 }
 int selectMotion() {
 	int selectNum = 1; //selectNum 초기화
-	const int x = 38, y = 21;
+	const int x = 38, y = 19;
 	
 	while (1) {
 		int key = 1; // 초기화를 안하면 if문에서 에러가 나므로, 아무 값이나 초기화.
@@ -532,7 +533,7 @@ int selectMotion() {
 }
 int selectSkill(ChStat *chStat) { // 스킬 선택 인터페이스, 이대웅 추가
 	int selectNum = 1;
-	const int x = 40, y = 29;
+	const int x = 40, y = 25;
 
 	while (1) {
 		int key = 1; // 초기화를 안하면 if문에서 에러가 나므로, 아무 값이나 초기화.
@@ -874,7 +875,7 @@ void fightInterface(ChStat *chStat, MonStat *mon) { // 싸움시 디스플레이
 		printf("l");
 	gotoxy(75 , 25);
 	printf("기력 : ");
-	gotoxy(78, 25);
+	gotoxy(83, 25);
 	for (i = 1; i <= chStat->energy; i++)
 		printf("■");
 }

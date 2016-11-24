@@ -23,7 +23,7 @@ ChStat* character(int lv) { // 캐릭터 레벨에 해당하는 스텟
 	chStat.lv = lv; // 레벨
 	chStat.attack = 2 * lv; // 공격력
 	chStat.health = 1 * lv; // 방어력
-	chStat.hp = 7 * lv ; // 피
+	chStat.hp = 10 * lv ; // 피
 	chStat.agility = 0 + lv; // 크리티컬 확률
 	chStat.energy = 0; // 게이지 0으로 초기화
 	
@@ -42,8 +42,8 @@ ChStat* levelUp(int lv) { // 렙업 유무 확인
 	TreeNode *name;
 
 	if (chStat.exp >= lv * 1) {
-		printf("레벨 업!!!\n");
-		printf("LEVEL : %d가 되었습니다 !!\n", ++lv);
+		printLvUp();
+		++lv;
 		chStat.exp = 0;
 		name = searchName(lv);
 		strcpy(pChStat->condition, name->name);

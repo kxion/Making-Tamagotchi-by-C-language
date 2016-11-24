@@ -11,7 +11,7 @@
 
 
 typedef struct chStat { // 캐릭터들 스텟
-	char name[30];
+	char name[20];
 	char condition[30];
 	char digimon[30];
 	int lv;

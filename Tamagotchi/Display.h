@@ -22,6 +22,9 @@ void digimonDisplay(int lv);
 void enemyDisplay(int monLv);
 ChStat* skillDisplay(ChStat *chStat, int selectNum);
 void skillDescription(ChStat *chStat);
+void printWin();//윈 이미지
+void printLose();//로즈 이미지
+void printLvUp();//레벨업 이미지
 
 void enemy1(); // 적 1
 void enemy2(); // 적 2

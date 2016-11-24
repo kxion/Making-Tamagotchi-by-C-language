@@ -4,7 +4,11 @@
 #include"BinaryTree.h"
 
 #pragma warning(disable:4996) // warning C4996을 잡기 위한 코드, 참고문헌 http://blog.naver.com/PostView.nhn?blogId=sorkelf&logNo=40137167266
-
+/*
+이진트리 -> hashmap 처럼 사용, 레벨을 키 값으로하여, 디지몬에 관련된 이름과 성장 이름 저장.
+C로 배우는 쉬운 자료구조 (개정판) 참고.
+참고 http://robodream.tistory.com/192
+*/
 TreeNode *root;
 
 void createRoot(int number, char name[20], char digimon[20]) { // 루트 생성
