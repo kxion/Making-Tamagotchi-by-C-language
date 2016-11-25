@@ -9,6 +9,7 @@
 #include"SaveLoad.h"
 #include"BinaryTree.h"
 #include"Monster.h"
+#include"Client.h"
 
 #pragma warning(disable:4996) // warning C4996을 잡기 위한 코드, 참고문헌 http://blog.naver.com/PostView.nhn?blogId=sorkelf&logNo=40137167266
 
@@ -98,6 +99,10 @@ void menu(ChStat* chStat) {
 			system("cls");
 			break;
 		case 5:
+			digimonDisplay(chStat->lv);
+			showStat();
+			client(chStat->name);
+			system("cls");
 			break;
 		case 6:
 			printf("종료되었습니다\n");
