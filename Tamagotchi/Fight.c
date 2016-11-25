@@ -63,25 +63,44 @@ int fight(ChStat *chStat, int monLv) {
 		if (rand() % 100 < mon->sheild) { // 방어율보다 낮은 난수 발생시 방어 성공
 			printf("몬스터 방어성공 !!!\n\n");
 			Sleep(500);
+			gotoxy(x, y);
+			printf("                          ");//출력문 지우기
 		}
 		else {
 			if (rand() % 100 < chStat->agility) { // 크리티커율보다 낮은 난수 발생시 크리티컬 발생
+				mon->hp = mon->hp - (chStat->attack + chStat->agility - mon->sheild); // 공격력 = 공격력 + 크리댐 - 상대방어력
+				
+				system("cls");
+				printMon(mon);//오프라인 대전시 몬스터 및 hp 디스플레이 2016 11 25 한진오 수정
+				gotoxy(x, y);
 				printf("크리티컬 발생!!!\n\n");
+				Sleep(500);
 				gotoxy(x, y+2);
 				printf("데미지 : %2d", chStat->attack + chStat->agility - mon->sheild);
 				Sleep(500);
-				mon->hp = mon->hp - (chStat->attack + chStat->agility - mon->sheild); // 공격력 = 공격력 + 크리댐 - 상대방어력
+				gotoxy(x, y);
+				printf("                     ");//크리티컬 발생!!! 출력문 지우기
+				gotoxy(x, y + 2);
+				printf("              ");// 데미지 출력문 지우기
+				
 			}
 			else {
+				mon->hp = mon->hp - (chStat->attack - mon->sheild); // 공격력 = 공격력 - 상대방어력
+				
+				system("cls");
+				printMon(mon);//오프라인 대전시 몬스터 및 hp 디스플레이 2016 11 25 한진오 수정
+				gotoxy(x, y);
 				printf("데미지 : %2d", chStat->attack - mon->sheild);
 				Sleep(500);
-				mon->hp = mon->hp - (chStat->attack - mon->sheild); // 공격력 = 공격력 - 상대방어력
+				gotoxy(x, y);
+				printf("              ");//데미지 출력 초기화(한진오)
+				
 			}
-			Sleep(500);
-			system("cls");
+			//Sleep(500);
+			//system("cls");
 			
 			//printUser(chStat);// 오프라인 대전시 유저 디스플레이 2016 11 25 한진오 수정
-			printMon(mon);//오프라인 대전시 몬스터 디스플레이 2016 11 25 한진오 수정
+			//printMon(mon);//오프라인 대전시 몬스터 디스플레이 2016 11 25 한진오 수정
 		}
 
 		Sleep(500);
@@ -101,22 +120,39 @@ int fight(ChStat *chStat, int monLv) {
 		if (rand() % 100 < chStat->health) { // 방어율보다 낮은 난수 발생시 방어 성공
 			printf("유저 방어성공 !!!\n");
 			Sleep(500);
+			gotoxy(x, y);
+			printf("                          ");//출력문 지우기
 		}
 		else {
 			if (rand() % 100 < mon->critical) { // 크리티커율보다 낮은 난수 발생시 크리티컬 발생
+				chStat->hp = chStat->hp - (mon->attack + mon->critical - chStat->health); // 공격력 = 공격력 + 크리댐 - 상대방어력
+
+				system("cls");
+				printUser(chStat);// 오프라인 대전시 유저 디스플레이 2016 11 25 한진오 수정
 				printf("크리티컬 발생!!!\n");
 				gotoxy(x, y + 2);
 				Sleep(500);
 				printf("데미지 : %2d", mon->attack + mon->critical - chStat->health);
-				chStat->hp = chStat->hp - (mon->attack + mon->critical - chStat->health); // 공격력 = 공격력 + 크리댐 - 상대방어력
+				Sleep(500);
+				gotoxy(x, y);
+				printf("                     ");//크리티컬 발생!!! 출력문 지우기
+				gotoxy(x, y + 2);
+				printf("              ");// 데미지 출력문 지우기
+				
 			}
 			else {
 				chStat->hp = chStat->hp - (mon->attack - chStat->health); // 공격력 = 공격력 - 상대방어력
+				
+				system("cls");
+				printUser(chStat);// 오프라인 대전시 유저 디스플레이 2016 11 25 한진오 수정
+				gotoxy(x, y);
 				printf("데미지 : %2d", mon->attack - chStat->health);
 				Sleep(500);
+				gotoxy(x, y);
+				printf("              ");//데미지 출력 초기화(한진오)
 			}
-			system("cls");
-			printUser(chStat);// 오프라인 대전시 유저 디스플레이 2016 11 25 한진오 수정
+			//system("cls");
+		//	printUser(chStat);// 오프라인 대전시 유저 디스플레이 2016 11 25 한진오 수정
 			//printMon(mon);//오프라인 대전시 몬스터 디스플레이 2016 11 25 한진오 수정
 		}
 
