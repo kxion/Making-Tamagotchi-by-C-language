@@ -101,7 +101,7 @@ void menu(ChStat* chStat) {
 		case 5:
 			digimonDisplay(chStat->lv);
 			showStat();
-			client(chStat->name);
+			client(chStat);
 			system("cls");
 			break;
 		case 6:
