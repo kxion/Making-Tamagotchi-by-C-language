@@ -181,14 +181,14 @@ ChStat* skillDisplay(ChStat *chStat, int selectNum) {
 
 	if (!strcmp(chStat->digimon, "코요몬")) {
 		if (chStat->energy >= 2) {
-			printf("몸통박치기 !!!");
+			printf("몸통박치기 !!!");//*********
 			chStat->attack = coyomonSkill(chStat->attack);
 			chStat->energy = chStat->energy - 2;
 		}
 		else {
 			printf("기력이 2 필요합니다 !!!");
 			gotoxy(x, y + 2);
-			printf("기력부족으로 인한 기본공격 !!!");
+			printf("기력부족으로 인한 기본공격 !!!");//**************
 		}
 	}
 
@@ -574,7 +574,7 @@ void printLvUp() {
 
 void enemy1()
 {
-	int x = 70, y = 4;
+	int x = 70, y = 13;
 	gotoxy(x,y);
 	printf("        ■■■■■■■\n");
 	gotoxy(x, y+1);
@@ -611,7 +611,7 @@ void enemy1()
 	printf("     ■■   ■■■■   ■■\n");
 }
 void enemy2() {
-	int x = 70, y = 4;
+	int x = 70, y = 14;
 
 	gotoxy(x, y);
 	printf("               ■■■\n");
@@ -649,7 +649,7 @@ void enemy2() {
 	printf("     ■■■■■■■■■\n");
 }
 void enemy3() {
-	int x = 70, y = 3;
+	int x = 70, y = 10;
 
 	gotoxy(x, y);
 	printf("    ■■■      ■■■\n");
@@ -693,7 +693,7 @@ void enemy3() {
 	printf("    ■■■■■■■■■■\n");
 }
 void enemy4() {
-	int x = 70, y = 4;
+	int x = 70, y = 10;
 
 	gotoxy(x, y );
 	printf("        ■■■■■■\n");
@@ -737,7 +737,7 @@ void enemy4() {
 	printf("    ■■■■  ■■■■■\n");
 }
 void enemy5() {
-	int x = 70, y = 4;
+	int x = 70, y = 11;
 
 	gotoxy(x, y++);
 	printf("         ■■■■■\n");
@@ -779,7 +779,7 @@ void enemy5() {
 	printf("           ■■■■■■■\n");
 }
 void enemy6() {
-	int x = 70, y = 4;
+	int x = 70, y = 11;
 
 	gotoxy(x, y++);
 	printf("      ■            ■\n");
@@ -821,7 +821,7 @@ void enemy6() {
 	printf("  ■■■■■    ■■■■■■\n");
 }
 void enemy7(){
-	int x = 70, y = 4;
+	int x = 70, y = 11;
 
 	gotoxy(x, y++);
 	printf("          ■  ■ ■\n");
@@ -863,7 +863,7 @@ void enemy7(){
 	printf("    ■■■■■  ■■■■■\n");
 }
 void enemy8() {
-	int x = 70, y = 4;
+	int x = 70, y = 11;
 
 	gotoxy(x, y++);
 	printf("    ■      ■   ■ \n");
@@ -905,7 +905,7 @@ void enemy8() {
 	printf("  ■■■■■  ■■■■■■\n");
 }
 void enemy9() {
-	int x = 70, y = 4;
+	int x = 70, y = 11;
 
 	gotoxy(x, y++);
 	printf("  ■     ■■■       ■\n");
@@ -947,7 +947,7 @@ void enemy9() {
 	printf("     ■■■■■■■■\n");
 }
 void enemy10(){
-	int x = 70, y = 4;
+	int x = 70, y = 11;
 
 	gotoxy(x, y++);
 	printf("    ■■     ■■  ■■\n");

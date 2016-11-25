@@ -79,8 +79,8 @@ int fight(ChStat *chStat, int monLv) {
 			}
 			Sleep(500);
 			system("cls");
-			//printUser(chStat);// 오프라인 대전시 유저 디스플레이 2016 11 25 한진오 수정
 			
+			//printUser(chStat);// 오프라인 대전시 유저 디스플레이 2016 11 25 한진오 수정
 			printMon(mon);//오프라인 대전시 몬스터 디스플레이 2016 11 25 한진오 수정
 		}
 
@@ -90,7 +90,10 @@ int fight(ChStat *chStat, int monLv) {
 
 		/*gotoxy(x, y+2);
 		printf("몬스터 공격!!!\n");*/
-		monAtMotion();//2016 11 25 한진오 수정
+		monAtMotion1();//2016 11 25 한진오 수정
+		system("cls");
+		printUser(chStat);// 오프라인 대전시 유저 디스플레이 2016 11 25 한진오 수정
+		monAtMotion2();
 		
 		Sleep(500);
 
@@ -114,7 +117,7 @@ int fight(ChStat *chStat, int monLv) {
 			}
 			system("cls");
 			printUser(chStat);// 오프라인 대전시 유저 디스플레이 2016 11 25 한진오 수정
-			printMon(mon);//오프라인 대전시 몬스터 디스플레이 2016 11 25 한진오 수정
+			//printMon(mon);//오프라인 대전시 몬스터 디스플레이 2016 11 25 한진오 수정
 		}
 
 		if (chStat->hp <= 0) break; // 유저가 죽으면 break

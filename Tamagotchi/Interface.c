@@ -927,7 +927,7 @@ void userAtMotion1()
 	
 	int x, y, speed;
 
-	x = 30, y = 20, speed = 20;
+	x = 27, y = 20, speed = 20;
 
 	while (1)
 	{
@@ -954,9 +954,9 @@ void userAtMotion1()
 	x += 1;
 	gotoxy(x, y);
 	printf("■");
-	Sleep(speed);//화면상에서 없어졌을떄
+	Sleep(speed);
 
-	gotoxy(x, y);
+	gotoxy(x, y);//화면상에서 없어졌을떄
 	printf("  ");
 
 }
@@ -964,7 +964,7 @@ void userAtMotion2()
 {
 	int x, y, speed;
 
-	x = 0, y = 20, speed = 20;
+	x = 1, y = 20, speed = 20;
 
 	while (1)
 	{
@@ -972,7 +972,7 @@ void userAtMotion2()
 		printf("■■■");
 		Sleep(speed);
 		x += 1;
-		if (x == 70)//몬스터와 닿는 지점
+		if (x == 66)//몬스터와 닿는 지점
 			break;
 	}
 
@@ -981,11 +981,11 @@ void userAtMotion2()
 	printf("      ");
 
 }
-void monAtMotion()
+void monAtMotion1()
 {
 	int x, y, speed;
 
-	x = 70, y = 10, speed = 20;
+	x = 65, y = 20, speed = 20;
 
 	while (1)
 	{
@@ -1017,6 +1017,40 @@ void monAtMotion()
 	gotoxy(x, y);
 	printf("      ");
 }
+
+void monAtMotion2()
+{
+	int x, y, speed;
+
+	x = 98, y = 20, speed = 30;
+
+	gotoxy(x, y);
+	printf("■");
+	Sleep(speed);
+
+	x -= 2;
+	gotoxy(x, y);
+	printf("■■");
+	Sleep(speed);
+
+	x -= 2;
+	while (1)
+	{
+		gotoxy(x, y);
+		printf("■■■");
+		Sleep(speed);
+		x -= 2;
+		if (x == 30)//몬스터의 공격이 유저와 닿는 지점
+			break;
+		gotoxy(x, y);
+		printf("         ");
+	}
+
+	gotoxy(x, y);
+	printf("                 ");
+
+}
+
 void disappear() { // goto사용시 깜박이는 콘솔의 커서 제거, 참고문헌 http://tip.daum.net/question/39372106
 	HANDLE hConsole; // 콘솔 핸들
 	CONSOLE_CURSOR_INFO ConsoleCursor; // 콘솔커서 정보 구조체
