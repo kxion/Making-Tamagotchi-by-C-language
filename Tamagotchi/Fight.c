@@ -14,6 +14,7 @@
 #include"Display.h"
 
 
+
 #pragma warning(disable:4996) // warning C4996을 잡기 위한 코드, 참고문헌 http://blog.naver.com/PostView.nhn?blogId=sorkelf&logNo=40137167266
 
 int fight(ChStat *chStat, int monLv) {
@@ -36,23 +37,19 @@ int fight(ChStat *chStat, int monLv) {
 	while (mon->hp > 0 && chStat->hp > 0) { // 몬스터, 유저중 hp가 0이 되면 종료
 		
 		printUser(chStat);// 오프라인 대전시 유저 디스플레이 2016 11 25 한진오 수정
-		//printMon(mon);//오프라인 대전시 몬스터 디스플레이 2016 11 25 한진오 수정
 
 		chSelect = selectMotion();
 				
 		switch (chSelect) {
 		case 1:
-			userAtMotion1();//2016 11 25 한진오 수정
-			system("cls");
-			printMon(mon);
-			userAtMotion2();
-
+			baseAt1(chStat);
+			baseAt2(mon);
 			if (chStat->energy < 5)
 				chStat->energy = chStat->energy + 1;
 			break;
 		case 2:
 			skSelect = selectSkill(chStat);
-			chStat = skillDisplay(chStat, skSelect);//****
+			chStat = skillDisplay(chStat, mon, skSelect);//****
 			break;
 		case 3:
 			menu(chStat);
@@ -70,6 +67,7 @@ int fight(ChStat *chStat, int monLv) {
 			if (rand() % 100 < chStat->agility) { // 크리티커율보다 낮은 난수 발생시 크리티컬 발생
 				mon->hp = mon->hp - (chStat->attack + chStat->agility - mon->sheild); // 공격력 = 공격력 + 크리댐 - 상대방어력
 				
+				damaged();// 해골 모양 출력
 				system("cls");
 				printMon(mon);//오프라인 대전시 몬스터 및 hp 디스플레이 2016 11 25 한진오 수정
 				gotoxy(x, y);
@@ -87,6 +85,7 @@ int fight(ChStat *chStat, int monLv) {
 			else {
 				mon->hp = mon->hp - (chStat->attack - mon->sheild); // 공격력 = 공격력 - 상대방어력
 				
+				damaged();
 				system("cls");
 				printMon(mon);//오프라인 대전시 몬스터 및 hp 디스플레이 2016 11 25 한진오 수정
 				gotoxy(x, y);
@@ -109,12 +108,12 @@ int fight(ChStat *chStat, int monLv) {
 
 		/*gotoxy(x, y+2);
 		printf("몬스터 공격!!!\n");*/
-		monAtMotion1();//2016 11 25 한진오 수정
+		monAt1(mon);//2016 11 25 한진오 수정
 		system("cls");
 		printUser(chStat);// 오프라인 대전시 유저 디스플레이 2016 11 25 한진오 수정
-		monAtMotion2();
+		monAt2(chStat);
 		
-		Sleep(500);
+		//Sleep(500);
 
 		gotoxy(x, y);
 		if (rand() % 100 < chStat->health) { // 방어율보다 낮은 난수 발생시 방어 성공
@@ -127,6 +126,7 @@ int fight(ChStat *chStat, int monLv) {
 			if (rand() % 100 < mon->critical) { // 크리티커율보다 낮은 난수 발생시 크리티컬 발생
 				chStat->hp = chStat->hp - (mon->attack + mon->critical - chStat->health); // 공격력 = 공격력 + 크리댐 - 상대방어력
 
+				damaged();
 				system("cls");
 				printUser(chStat);// 오프라인 대전시 유저 디스플레이 2016 11 25 한진오 수정
 				printf("크리티컬 발생!!!\n");
@@ -143,6 +143,7 @@ int fight(ChStat *chStat, int monLv) {
 			else {
 				chStat->hp = chStat->hp - (mon->attack - chStat->health); // 공격력 = 공격력 - 상대방어력
 				
+				damaged();
 				system("cls");
 				printUser(chStat);// 오프라인 대전시 유저 디스플레이 2016 11 25 한진오 수정
 				gotoxy(x, y);

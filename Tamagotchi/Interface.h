@@ -30,6 +30,7 @@ int selectMove(); // 게임상 메인 인터페이스 동작
 int selectAdventure(int lv); // 모험선택 인터페이스
 //void fightInterface(ChStat *chStat, MonStat *mon); // 싸움시 인터페이스
 void printUser(ChStat *chStat);// 오프라인 대전시 유저 디스플레이 2016 11 25 한진오 수정
+void printUser2(ChStat *chStat);//기력 표시가 안되는, 디스플레이 
 void printMon(MonStat *mon);//오프라인 대전시 몬스터 디스플레이 2016 11 25 한진오 수정
 void userAtMotion1();//유저 공격 모션  2016 11 25 한진오
 void userAtMotion2();//유저 공격 모션  2016 11 25 한진오

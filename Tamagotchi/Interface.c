@@ -905,6 +905,27 @@ void printUser(ChStat *chStat) { // ฟภวมถ๓ภฮ ด๋ภüฝร ภฏภ๚ ต๐ฝบวรทนภฬ 2016 11 25 ว
 	for (i = 1; i <= chStat->energy; i++)
 		printf("กแ");
 }
+
+void printUser2(ChStat *chStat) { // ฑโทย วฅฝร พศตวดย, ภฏภ๚ ต๐ฝบวรทนภฬ 2016 11 25 วัม๘ฟภ ผ๖มค
+	const int chX = 5, chY = 2; // hpนู ภงฤก ฐํมค
+	int i = 0;
+
+
+	digimonDisplay(chStat->lv);
+
+	gotoxy(chX, chY);
+	printf("%s hp : ", chStat->digimon);
+
+	gotoxy(chX + 12, chY);
+	for (i = 1; i <= chStat->hp; i++) {
+		printf("l");
+		if (i == 50)
+			gotoxy(chX, chY + 1);
+	}
+
+
+}
+
 void printMon(MonStat *mon)//ฟภวมถ๓ภฮ ด๋ภüฝร ธ๓ฝบลอ ต๐ฝบวรทนภฬ 2016 11 25 วัม๘ฟภ ผ๖มค
 {
 	const int monX = 5, monY = 2;
@@ -932,6 +953,7 @@ void userAtMotion1()
 	while (1)
 	{
 		gotoxy(x, y);
+
 		printf("กแกแกแ");
 		Sleep(speed);
 		x += 1;
@@ -1040,7 +1062,7 @@ void monAtMotion2()
 		printf("กแกแกแ");
 		Sleep(speed);
 		x -= 2;
-		if (x == 30)//ธ๓ฝบลอภว ฐ๘ฐÝภฬ ภฏภ๚ฟอ ด๊ดย ม๖มก
+		if (x == 36)//ธ๓ฝบลอภว ฐ๘ฐÝภฬ ภฏภ๚ฟอ ด๊ดย ม๖มก
 			break;
 		gotoxy(x, y);
 		printf("         ");

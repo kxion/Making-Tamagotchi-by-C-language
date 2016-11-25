@@ -4,148 +4,272 @@
 #include"Display.h"
 #include"Interface.h"
 #include"Skill.h"
+#include"Monster.h"
+
 
 void coyomon() {
-	gotoxy(2, 15);
-
-	printf("                 ■\n");
-	printf("                 ■ ■\n");
-	printf("                 ■  ■\n");
-	printf(" ■■■■         ■  ■\n");
-	printf("   ■   ■■       ■  ■\n");
-	printf("    ■■    ■     ■  ■\n");
-	printf("     ■■    ■     ■  ■\n");
-	printf("        ■■  ■■■■  ■\n");
-	printf("        ■■  ■        ■\n");
-	printf("       ■                 ■\n");
-	printf("      ■                  ■\n");
-	printf("     ■        ■       ■ ■\n");
-	printf("     ■        ■       ■ ■\n");
-	printf("     ■                    ■\n");
-	printf("     ■          ■■■    ■\n");
-	printf("     ■         ■■■■   ■\n");
-	printf("      ■                 ■\n");
-	printf("        ■■■■■■■■■\n"); // 18
+	int x, y;
+	x = 2, y = 12;
+	gotoxy(x, y++);
+	printf("                 ■");
+	gotoxy(x, y++);
+	printf("                 ■ ■");
+	gotoxy(x, y++);
+	printf("                 ■  ■");
+	gotoxy(x, y++);
+	printf(" ■■■■         ■  ■");
+	gotoxy(x, y++);
+	printf("   ■   ■■       ■  ■");
+	gotoxy(x, y++);
+	printf("    ■■    ■     ■  ■");
+	gotoxy(x, y++);
+	printf("     ■■    ■     ■  ■");
+	gotoxy(x, y++);
+	printf("        ■■  ■■■■  ■");
+	gotoxy(x, y++);
+	printf("        ■■  ■        ■");
+	gotoxy(x, y++);
+	printf("       ■                 ■");
+	gotoxy(x, y++);
+	printf("      ■                  ■");
+	gotoxy(x, y++);
+	printf("     ■        ■       ■ ■");
+	gotoxy(x, y++);
+	printf("     ■        ■       ■ ■");
+	gotoxy(x, y++);
+	printf("     ■                    ■");
+	gotoxy(x, y++);
+	printf("     ■          ■■■    ■");
+	gotoxy(x, y++);
+	printf("     ■         ■■■■   ■");
+	gotoxy(x, y++);
+	printf("      ■                 ■");
+	gotoxy(x, y++);
+	printf("        ■■■■■■■■■"); // 18
 }
 void agumon() {
-	gotoxy(2, 14);
 
-	printf("          ■■■■■        	  \n");
-	printf("        ■         ■       	  \n");
-	printf("      ■     ■■  ■■     	  \n");
-	printf("      ■   ■■       ■■  	  \n");
-	printf("    ■     ■■■         ■	  \n");
-	printf("    ■      ■■          ■  	  \n");
-	printf("    ■              ■■■■	  \n");
-	printf("    ■                  ■  	  \n");
-	printf("      ■       ■■■■■   	  \n");
-	printf("      ■  ■       ■■■     	  \n");
-	printf("     ■     ■      ■ ■■ 	  \n");
-	printf("   ■■      ■     ■   ■  	  \n");
-	printf("   ■■  ■■■      ■■■ 	  \n");
-	printf("   ■    ■       ■■■		  \n");
-	printf("   ■      ■■■■    ■■■	  \n");
-	printf(" ■ ■■   ■■  ■■  ■■  ■■  \n");
-	printf(" ■ ■■   ■■  ■■  ■■  ■■  \n"); // 17
+	int x, y;
+	x = 2, y = 12;
+
+	gotoxy(x, y++);
+	printf("          ■■■■■        	  ");
+	gotoxy(x, y++);
+	printf("        ■         ■       	  ");
+	gotoxy(x, y++);
+	printf("      ■     ■■  ■■     	  ");
+	gotoxy(x, y++);
+	printf("      ■   ■■       ■■  	  ");
+	gotoxy(x, y++);
+	printf("    ■     ■■■         ■	  ");
+	gotoxy(x, y++);
+	printf("    ■      ■■          ■  	  ");
+	gotoxy(x, y++);
+	printf("    ■              ■■■■	  ");
+	gotoxy(x, y++);
+	printf("    ■                  ■  	  ");
+	gotoxy(x, y++);
+	printf("      ■       ■■■■■   	  ");
+	gotoxy(x, y++);
+	printf("      ■  ■       ■■■     	  ");
+	gotoxy(x, y++);
+	printf("     ■     ■      ■ ■■ 	  ");
+	gotoxy(x, y++);
+	printf("   ■■      ■     ■   ■  	  ");
+	gotoxy(x, y++);
+	printf("   ■■  ■■■      ■■■ 	  ");
+	gotoxy(x, y++);
+	printf("   ■    ■       ■■■		  ");
+	gotoxy(x, y++);
+	printf("   ■      ■■■■    ■■■	  ");
+	gotoxy(x, y++);
+	printf(" ■ ■■   ■■  ■■  ■■  ■■  ");
+	gotoxy(x, y++);
+	printf(" ■ ■■   ■■  ■■  ■■  ■■  "); // 17
 }
-void greymon() {
-	gotoxy(2, 11);
 
-	printf("   ■■■   ■■■■■\n");
-	printf("  ■   ■■         ■    ■■\n");
-	printf("   ■    ■■         ■   ■■\n");
-	printf("    ■       ■■    ■■■  ■\n");
-	printf("      ■■■    ■■     ■■■\n");
-	printf("        ■           ■      ■\n");
-	printf("        ■         ■■■■■\n");
-	printf("        ■         ■■■■■\n");
-	printf("      ■                 ■\n");
-	printf("      ■        ■■■■■\n");
-	printf("    ■   ■         ■\n");
-	printf("    ■     ■■       ■■\n");
-	printf(" ■■■        ■     ■  ■\n");
-	printf(" ■■■         ■     ■  ■\n");
-	printf(" ■  ■  ■      ■     ■  ■\n");
-	printf(" ■  ■   ■■■      ■■\n");
-	printf("  ■     ■         ■  ■■\n");
-	printf(" ■  ■  ■  ■■■■■   ■  ■\n");
-	printf(" ■ ■ ■■ ■■■■■   ■ ■\n");
-	printf(" ■■■■■     ■■■■■■\n"); // 20
+void greymon() {
+	int x, y;
+	x = 2, y = 12;
+
+	gotoxy(x, y++);
+	printf("   ■■■   ■■■■■");
+	gotoxy(x, y++);
+	printf("  ■   ■■         ■    ■■");
+	gotoxy(x, y++);
+	printf("   ■    ■■         ■   ■■");
+	gotoxy(x, y++);
+	printf("    ■       ■■    ■■■  ■");
+	gotoxy(x, y++);
+	printf("      ■■■    ■■     ■■■");
+	gotoxy(x, y++);
+	printf("        ■           ■      ■");
+	gotoxy(x, y++);
+	printf("        ■         ■■■■■");
+	gotoxy(x, y++);
+	printf("        ■         ■■■■■");
+	gotoxy(x, y++);
+	printf("      ■                 ■");
+	gotoxy(x, y++);
+	printf("      ■        ■■■■■");
+	gotoxy(x, y++);
+	printf("    ■   ■         ■");
+	gotoxy(x, y++);
+	printf("    ■     ■■       ■■");
+	gotoxy(x, y++);
+	printf(" ■■■        ■     ■  ■");
+	gotoxy(x, y++);
+	printf(" ■■■         ■     ■  ■");
+	gotoxy(x, y++);
+	printf(" ■  ■  ■      ■     ■  ■");
+	gotoxy(x, y++);
+	printf(" ■  ■   ■■■      ■■");
+	gotoxy(x, y++);
+	printf("  ■     ■         ■  ■■");
+	gotoxy(x, y++);
+	printf(" ■  ■  ■  ■■■■■   ■  ■");
+	gotoxy(x, y++);
+	printf(" ■ ■ ■■ ■■■■■   ■ ■");
+	gotoxy(x, y++);
+	printf(" ■■■■■     ■■■■■■"); // 20
 }
 
 void metalgreymon() {
-	gotoxy(2, 11);
+	int x, y;
+	x = 2, y = 12;
 
-	printf("   ■■■   ■■■■■\n");
-	printf("   ■    ■■■■■■■  ■■\n");
-	printf("    ■   ■■   ■■■■■ ■\n");
-	printf("    ■   ■■    ■■■■  ■\n");
-	printf("      ■■■■■   ■■■■■\n");
-	printf("        ■■■■■■■■■■\n");
-	printf("        ■■    ■■■  ■■■■\n");
-	printf("      ■■ ■            ■\n");
-	printf("      ■■  ■            ■\n");
-	printf("    ■          ■■■■■\n");
-	printf("    ■   ■    ■    ■\n");
-	printf("    ■   ■■■       ■■\n");
-	printf(" ■■■  ■      ■      ■  ■\n");
-	printf(" ■■■ ■      ■      ■  ■\n");
-	printf(" ■ ■■■      ■      ■  ■\n");
-	printf(" ■ ■   ■■■       ■■\n");
-	printf("   ■     ■         ■ ■■\n");
-	printf(" ■ ■  ■  ■■■■■   ■  ■\n");
-	printf(" ■ ■■■ ■   ■■■■■■■\n");
-	printf(" ■■■■■■    ■■■■■■\n");
+	gotoxy(x, y++);
+	printf("   ■■■   ■■■■■");
+	gotoxy(x, y++);
+	printf("   ■    ■■■■■■■  ■■");
+	gotoxy(x, y++);
+	printf("    ■   ■■   ■■■■■ ■");
+	gotoxy(x, y++);
+	printf("    ■   ■■    ■■■■  ■");
+	gotoxy(x, y++);
+	printf("      ■■■■■   ■■■■■");
+	gotoxy(x, y++);
+	printf("        ■■■■■■■■■■");
+	gotoxy(x, y++);
+	printf("        ■■    ■■■  ■■■■");
+	gotoxy(x, y++);
+	printf("      ■■ ■            ■");
+	gotoxy(x, y++);
+	printf("      ■■  ■            ■");
+	gotoxy(x, y++);
+	printf("    ■          ■■■■■");
+	gotoxy(x, y++);
+	printf("    ■   ■    ■    ■");
+	gotoxy(x, y++);
+	printf("    ■   ■■■       ■■");
+	gotoxy(x, y++);
+	printf(" ■■■  ■      ■      ■  ■");
+	gotoxy(x, y++);
+	printf(" ■■■ ■      ■      ■  ■");
+	gotoxy(x, y++);
+	printf(" ■ ■■■      ■      ■  ■");
+	gotoxy(x, y++);
+	printf(" ■ ■   ■■■       ■■");
+	gotoxy(x, y++);
+	printf("   ■     ■         ■ ■■");
+	gotoxy(x, y++);
+	printf(" ■ ■  ■  ■■■■■   ■  ■");
+	gotoxy(x, y++);
+	printf(" ■ ■■■ ■   ■■■■■■■");
+	gotoxy(x, y++);
+	printf(" ■■■■■■    ■■■■■■");
 }
 
 void wargraymon() {
-	gotoxy(2, 11);
+	int x, y;
+	x = 2, y = 12;
 
-	printf("  ■■    ■■■■■\n");
-	printf(" ■   ■■■■■■■■     ■■\n");
-	printf(" ■     ■■■   ■■■ ■ ■■\n");
-	printf(" ■       ■■    ■■■■■  ■\n");
-	printf(" ■   ■■■■■    ■■■■■■\n");
-	printf(" ■   ■  ■■■■■■■■■■\n");
-	printf(" ■   ■  ■ ■■■■■■■■■\n");
-	printf(" ■     ■     ■■       ■\n");
-	printf(" ■      ■     ■■       ■\n");
-	printf(" ■      ■       ■■■■■\n");
-	printf(" ■  ■  ■ ■        ■\n");
-	printf(" ■  ■■     ■■     ■■\n");
-	printf(" ■  ■■    ■    ■    ■  ■\n");
-	printf(" ■ ■■   ■    ■   ■  ■\n");
-	printf(" ■■  ■■ ■    ■   ■  ■\n");
-	printf(" ■  ■    ■■■■     ■■\n");
-	printf("  ■      ■         ■  ■■\n");
-	printf(" ■  ■  ■  ■■■■    ■  ■\n");
-	printf(" ■ ■  ■ ■■■■■   ■ ■■\n");
-	printf(" ■■■■■      ■■■■■■■\n");
+	gotoxy(x, y++);
+	printf("  ■■    ■■■■■");
+	gotoxy(x, y++);
+	printf(" ■   ■■■■■■■■     ■■");
+	gotoxy(x, y++);
+	printf(" ■     ■■■   ■■■ ■ ■■");
+	gotoxy(x, y++);
+	printf(" ■       ■■    ■■■■■  ■");
+	gotoxy(x, y++);
+	printf(" ■   ■■■■■    ■■■■■■");
+	gotoxy(x, y++);
+	printf(" ■   ■  ■■■■■■■■■■");
+	gotoxy(x, y++);
+	printf(" ■   ■  ■ ■■■■■■■■■");
+	gotoxy(x, y++);
+	printf(" ■     ■     ■■       ■");
+	gotoxy(x, y++);
+	printf(" ■      ■     ■■       ■");
+	gotoxy(x, y++);
+	printf(" ■      ■       ■■■■■");
+	gotoxy(x, y++);
+	printf(" ■  ■  ■ ■        ■");
+	gotoxy(x, y++);
+	printf(" ■  ■■     ■■     ■■");
+	gotoxy(x, y++);
+	printf(" ■  ■■    ■    ■    ■  ■");
+	gotoxy(x, y++);
+	printf(" ■ ■■   ■    ■   ■  ■");
+	gotoxy(x, y++);
+	printf(" ■■  ■■ ■    ■   ■  ■");
+	gotoxy(x, y++);
+	printf(" ■  ■    ■■■■     ■■");
+	gotoxy(x, y++);
+	printf("  ■      ■         ■  ■■");
+	gotoxy(x, y++);
+	printf(" ■  ■  ■  ■■■■    ■  ■");
+	gotoxy(x, y++);
+	printf(" ■ ■  ■ ■■■■■   ■ ■■");
+	gotoxy(x, y++);
+	printf(" ■■■■■      ■■■■■■■");
 }
 
 void omegamon() {
-	gotoxy(2, 11);
+	int x, y;
+	x = 2, y = 12;
 
-	printf("    ■■              ■■\n");
-	printf("    ■  ■■■■■  ■ ■\n");
-	printf("    ■     ■■■■■■ ■\n");
-	printf("     ■     ■■■■■■ ■\n");
-	printf("      ■■■■   ■■■■\n");
-	printf(" ■■    ■■■■   ■■■■  ■\n");
-	printf(" ■ ■■■ ■■■■■■■■■\n");
-	printf("   ■    ■   ■■■■■■  ■\n");
-	printf("   ■    ■   ■■ ■ ■■  ■\n");
-	printf("   ■      ■■  ■      ■  ■\n");
-	printf(" ■ ■■■   ■■■■■ ■  ■\n");
-	printf(" ■   ■              ■    ■\n");
-	printf("   ■■  ■■■■  ■■■■■\n");
-	printf(" ■   ■■ ■   ■  ■■   ■\n");
-	printf(" ■   ■■ ■   ■  ■■    ■\n");
-	printf(" ■   ■  ■  ■■  ■  ■    ■\n");
-	printf(" ■■■■■ ■   ■  ■■■■■\n");
-	printf("   ■  ■  ■■■■  ■ ■\n");
-	printf("   ■■■■■ ■■■■■■\n");
-	printf("   ■■■■■  ■■■■■\n");
+	gotoxy(x, y++);
+	printf("    ■■              ■■");
+	gotoxy(x, y++);
+	printf("    ■  ■■■■■  ■ ■");
+	gotoxy(x, y++);
+	printf("    ■     ■■■■■■ ■");
+	gotoxy(x, y++);
+	printf("     ■     ■■■■■■ ■");
+	gotoxy(x, y++);
+	printf("      ■■■■   ■■■■");
+	gotoxy(x, y++);
+	printf(" ■■    ■■■■   ■■■■  ■");
+	gotoxy(x, y++);
+	printf(" ■ ■■■ ■■■■■■■■■");
+	gotoxy(x, y++);
+	printf("   ■    ■   ■■■■■■  ■");
+	gotoxy(x, y++);
+	printf("   ■    ■   ■■ ■ ■■  ■");
+	gotoxy(x, y++);
+	printf("   ■      ■■  ■      ■  ■");
+	gotoxy(x, y++);
+	printf(" ■ ■■■   ■■■■■ ■  ■");
+	gotoxy(x, y++);
+	printf(" ■   ■              ■    ■");
+	gotoxy(x, y++);
+	printf("   ■■  ■■■■  ■■■■■");
+	gotoxy(x, y++);
+	printf(" ■   ■■ ■   ■  ■■   ■");
+	gotoxy(x, y++);
+	printf(" ■   ■■ ■   ■  ■■    ■");
+	gotoxy(x, y++);
+	printf(" ■   ■  ■  ■■  ■  ■    ■");
+	gotoxy(x, y++);
+	printf(" ■■■■■ ■   ■  ■■■■■");
+	gotoxy(x, y++);
+	printf("   ■  ■  ■■■■  ■ ■");
+	gotoxy(x, y++);
+	printf("   ■■■■■ ■■■■■■");
+	gotoxy(x, y++);
+	printf("   ■■■■■  ■■■■■");
 }
 
 void digimonDisplay(int lv) {
@@ -175,20 +299,22 @@ void enemyDisplay(int monLv) {
 	case 10: enemy10(); break;
 	}
 }
-ChStat* skillDisplay(ChStat *chStat, int selectNum) {
+ChStat* skillDisplay(ChStat *chStat, MonStat *mon, int selectNum) {
 	const int x = 40, y = 23;
 	gotoxy(x, y);
 
 	if (!strcmp(chStat->digimon, "코요몬")) {
 		if (chStat->energy >= 2) {
-			printf("몸통박치기 !!!");//*********
 			chStat->attack = coyomonSkill(chStat->attack);
 			chStat->energy = chStat->energy - 2;
+			skAt1_1_1(chStat);
+			skAt1_1_2(mon);
 		}
 		else {
 			printf("기력이 2 필요합니다 !!!");
 			gotoxy(x, y + 2);
-			printf("기력부족으로 인한 기본공격 !!!");//**************
+			baseAt1(chStat);
+			baseAt2(mon);
 		}
 	}
 
@@ -987,4 +1113,4321 @@ void enemy10(){
 	printf("  ■ ■   ■  ■  ■ ■  ■\n");
 	gotoxy(x, y++);
 	printf("  ■■■■■  ■■■■■■\n");
+}
+
+
+void damaged()
+{
+	int x, y, speed, i;
+
+	x = 15, y = 1, speed = 100, i = 1;
+
+	system("cls");
+	while (i != 4)
+	{
+		y = 1;
+		gotoxy(x, y++);
+		printf("                        .===========:");
+		gotoxy(x, y++);
+		printf("                    :===.            :===.");
+		gotoxy(x, y++);
+		printf("                 .+=                     .++");
+		gotoxy(x, y++);
+		printf("               .+:                          =+");
+		gotoxy(x, y++);
+		printf("              *:                              ++");
+		gotoxy(x, y++);
+		printf("             #        ::             :=:       .#");
+		gotoxy(x, y++);
+		printf("            #      .@@@@@@.        *@@@@@$       #");
+		gotoxy(x, y++);
+		printf("           #       @@@@@@@@       =@@@@@@@#      .+");
+		gotoxy(x, y++);
+		printf("          .+       *@@@@@@#        @@@@@@@.       #");
+		gotoxy(x, y++);
+		printf("          *         .*##*.          :*#*=         =:");
+		gotoxy(x, y++);
+		printf("          #                                       .+");
+		gotoxy(x, y++);
+		printf("          *                                       =:");
+		gotoxy(x, y++);
+		printf("          .+       .*:===:#:=====:#=======+       #");
+		gotoxy(x, y++);
+		printf("           #       .+     *       *       *      .*");
+		gotoxy(x, y++);
+		printf("            #      .#:===:$:=====:#=======+      #");
+		gotoxy(x, y++);
+		printf("             #     .+     #       *       *     #");
+		gotoxy(x, y++);
+		printf("              *:    +====:+:=====:+=======:   =+");
+		gotoxy(x, y++);
+		printf("               :+.                          :*");
+		gotoxy(x, y++);
+		printf("                 :+=                     .++.");
+		gotoxy(x, y++);
+		printf("  .==               ====             .===:             :=:");
+		gotoxy(x, y++);
+		printf("     :====:             :============.           .====:");
+		gotoxy(x, y++);
+		printf("           :====:                           =====.");
+		gotoxy(x, y++);
+		printf("                 :====.               :====:");
+		gotoxy(x, y++);
+		printf("                      .====:.   .====:");
+		gotoxy(x, y++);
+		printf("                           :+#=#+:");
+		gotoxy(x, y++);
+		printf("                     :====:       :=====");
+		gotoxy(x, y++);
+		printf("               .=====                   :====:");
+		gotoxy(x, y++);
+		printf("          =====.                              :====:");
+		gotoxy(x, y++);
+		printf("    :====:                                         .=====.");
+		Sleep(speed);
+
+
+		system("cls");
+
+		y = 1;
+		gotoxy(x, y++);
+		printf("                         :=+**##**+=.");
+		gotoxy(x, y++);
+		printf("                    .+$@@@@@@@@@@@@@@@@#+");
+		gotoxy(x, y++);
+		printf("                  *@@@@@@@@@@@@@@@@@@@@@@@@+");
+		gotoxy(x, y++);
+		printf("                $@@@@@@@@@@@@@@@@@@@@@@@@@@@@*");
+		gotoxy(x, y++);
+		printf("              *@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@=");
+		gotoxy(x, y++);
+		printf("             @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#");
+		gotoxy(x, y++);
+		printf("            @@@@@@@@+    +@@@@@@@@@@:    #@@@@@@@#");
+		gotoxy(x, y++);
+		printf("           #@@@@@@@*      +@@@@@@@@       @@@@@@@@=");
+		gotoxy(x, y++);
+		printf("           @@@@@@@@@      @@@@@@@@@#     =@@@@@@@@@");
+		gotoxy(x, y++);
+		printf("          +@@@@@@@@@@$**$@@@@@@@@@@@@$##@@@@@@@@@@@.");
+		gotoxy(x, y++);
+		printf("          *@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@=");
+		gotoxy(x, y++);
+		printf("          +@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@.");
+		gotoxy(x, y++);
+		printf("          .@@@@@@@@@*=====$=======#+======@@@@@@@@@");
+		gotoxy(x, y++);
+		printf("           #@@@@@@@@=     *       *       @@@@@@@@+");
+		gotoxy(x, y++);
+		printf("            @@@@@@@@*:===:$:=====:#=======@@@@@@@$");
+		gotoxy(x, y++);
+		printf("             @@@@@@@:     *       +       @@@@@@#");
+		gotoxy(x, y++);
+		printf("              *@@@@@$#####@#######@#######@@@@@=");
+		gotoxy(x, y++);
+		printf("               .$@@@@@@@@@@@@@@@@@@@@@@@@@@@@#");
+		gotoxy(x, y++);
+		printf("                 .*@@@@@@@@@@@@@@@@@@@@@@@@+");
+		gotoxy(x, y++);
+		printf("  .==               :*$@@@@@@@@@@@@@@@@$+.             :=:");
+		gotoxy(x, y++);
+		printf("     :====:             .:+**####*+=:            .====:");
+		gotoxy(x, y++);
+		printf("           :====:                           =====.");
+		gotoxy(x, y++);
+		printf("                 :====.               :====:");
+		gotoxy(x, y++);
+		printf("                      .====:.   .====:");
+		gotoxy(x, y++);
+		printf("                           :+#=#+:");
+		gotoxy(x, y++);
+		printf("                     :====:       :=====");
+		gotoxy(x, y++);
+		printf("               .=====                   :====:");
+		gotoxy(x, y++);
+		printf("          =====.                              :====:");
+		gotoxy(x, y++);
+		printf("    :====:                                         .=====.");
+		Sleep(speed);
+		i += 1;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//몬스터 공격
+void monAt1(MonStat *mon)
+{
+	int x, y, speed, speed2;
+	x = 46, y = 13, speed = 9;
+
+	while (1)
+	{
+
+		gotoxy(x, y++);
+		printf("     ■■■■■■■■■■");
+		gotoxy(x, y++);
+		printf("     ■■■■■■■■■■");
+		gotoxy(x, y++);
+		printf("     ■■■■■■■■■■");
+		gotoxy(x, y++);
+		printf("■■■                   ");
+		gotoxy(x, y++);
+		printf("■■■                   ");
+		gotoxy(x, y++);
+		printf("■■■                   ");
+		gotoxy(x, y++);
+		printf("■■■                   ");
+		gotoxy(x, y++);
+		printf("■■■                   ");
+		gotoxy(x, y++);
+		printf("■■■                   ");
+		gotoxy(x, y++);
+		printf("■■■                   ");
+		gotoxy(x, y++);
+		printf("■■■                   ");
+		gotoxy(x, y++);
+		printf("■■■                   ");
+		gotoxy(x, y++);
+		printf("■■■                   ");
+		gotoxy(x, y++);
+		printf("     ■■■■■■■■■■");
+		gotoxy(x, y++);
+		printf("     ■■■■■■■■■■");
+		gotoxy(x, y++);
+		printf("     ■■■■■■■■■■");
+
+		x -= 1, y = 13;
+		Sleep(speed);
+
+		if (x == 0)
+			break;
+
+
+	}
+
+	system("cls");
+	printMon(mon);
+
+	x = 1;
+	y = 13;
+	gotoxy(x, y++);
+	printf("   ■■■■■■■■■■");
+	gotoxy(x, y++);
+	printf("   ■■■■■■■■■■");
+	gotoxy(x, y++);
+	printf("   ■■■■■■■■■■");
+	gotoxy(x, y++);
+	printf("■■                   ");
+	gotoxy(x, y++);
+	printf("■■                   ");
+	gotoxy(x, y++);
+	printf("■■                   ");
+	gotoxy(x, y++);
+	printf("■■                   ");
+	gotoxy(x, y++);
+	printf("■■                   ");
+	gotoxy(x, y++);
+	printf("■■                   ");
+	gotoxy(x, y++);
+	printf("■■                   ");
+	gotoxy(x, y++);
+	printf("■■                   ");
+	gotoxy(x, y++);
+	printf("■■                   ");
+	gotoxy(x, y++);
+	printf("■■                   ");
+	gotoxy(x, y++);
+	printf("   ■■■■■■■■■■");
+	gotoxy(x, y++);
+	printf("   ■■■■■■■■■■");
+	gotoxy(x, y++);
+	printf("   ■■■■■■■■■■");
+
+	Sleep(speed);
+	system("cls");
+	printMon(mon);
+
+	y = 13;
+	gotoxy(x, y++);
+	printf(" ■■■■■■■■■■");
+	gotoxy(x, y++);
+	printf(" ■■■■■■■■■■");
+	gotoxy(x, y++);
+	printf(" ■■■■■■■■■■");
+	gotoxy(x, y++);
+	printf("■                   ");
+	gotoxy(x, y++);
+	printf("■                   ");
+	gotoxy(x, y++);
+	printf("■                   ");
+	gotoxy(x, y++);
+	printf("■                   ");
+	gotoxy(x, y++);
+	printf("■                   ");
+	gotoxy(x, y++);
+	printf("■                   ");
+	gotoxy(x, y++);
+	printf("■                   ");
+	gotoxy(x, y++);
+	printf("■                   ");
+	gotoxy(x, y++);
+	printf("■                   ");
+	gotoxy(x, y++);
+	printf("■                   ");
+	gotoxy(x, y++);
+	printf(" ■■■■■■■■■■");
+	gotoxy(x, y++);
+	printf(" ■■■■■■■■■■");
+	gotoxy(x, y++);
+	printf(" ■■■■■■■■■■");
+
+	Sleep(speed);
+	system("cls");
+	printMon(mon);
+
+
+	y = 13;
+	gotoxy(x, y++);
+	printf("■■■■■■■■■■");
+	gotoxy(x, y++);
+	printf("■■■■■■■■■■");
+	gotoxy(x, y++);
+	printf("■■■■■■■■■■");
+	gotoxy(x, y++);
+	printf("                   ");
+	gotoxy(x, y++);
+	printf("                   ");
+	gotoxy(x, y++);
+	printf("                   ");
+	gotoxy(x, y++);
+	printf("                   ");
+	gotoxy(x, y++);
+	printf("                   ");
+	gotoxy(x, y++);
+	printf("                   ");
+	gotoxy(x, y++);
+	printf("                   ");
+	gotoxy(x, y++);
+	printf("                   ");
+	gotoxy(x, y++);
+	printf("                   ");
+	gotoxy(x, y++);
+	printf("                   ");
+	gotoxy(x, y++);
+	printf("■■■■■■■■■■");
+	gotoxy(x, y++);
+	printf("■■■■■■■■■■");
+	gotoxy(x, y++);
+	printf("■■■■■■■■■■");
+
+
+	Sleep(speed);
+	system("cls");
+	printMon(mon);
+
+
+	y = 13;
+	gotoxy(x, y++);
+	printf("■■■■■■■■■");
+	gotoxy(x, y++);
+	printf("■■■■■■■■■");
+	gotoxy(x, y++);
+	printf("■■■■■■■■■");
+	gotoxy(x, y++);
+	printf("                   ");
+	gotoxy(x, y++);
+	printf("                   ");
+	gotoxy(x, y++);
+	printf("                   ");
+	gotoxy(x, y++);
+	printf("                   ");
+	gotoxy(x, y++);
+	printf("                   ");
+	gotoxy(x, y++);
+	printf("                   ");
+	gotoxy(x, y++);
+	printf("                   ");
+	gotoxy(x, y++);
+	printf("                   ");
+	gotoxy(x, y++);
+	printf("                   ");
+	gotoxy(x, y++);
+	printf("                   ");
+	gotoxy(x, y++);
+	printf("■■■■■■■■■");
+	gotoxy(x, y++);
+	printf("■■■■■■■■■");
+	gotoxy(x, y++);
+	printf("■■■■■■■■■");
+
+
+	Sleep(speed);
+	system("cls");
+	printMon(mon);
+
+
+	y = 13;
+	gotoxy(x, y++);
+	printf("■■■■■■■■");
+	gotoxy(x, y++);
+	printf("■■■■■■■■");
+	gotoxy(x, y++);
+	printf("■■■■■■■■");
+	gotoxy(x, y++);
+	printf("                   ");
+	gotoxy(x, y++);
+	printf("                   ");
+	gotoxy(x, y++);
+	printf("                   ");
+	gotoxy(x, y++);
+	printf("                   ");
+	gotoxy(x, y++);
+	printf("                   ");
+	gotoxy(x, y++);
+	printf("                   ");
+	gotoxy(x, y++);
+	printf("                   ");
+	gotoxy(x, y++);
+	printf("                   ");
+	gotoxy(x, y++);
+	printf("                   ");
+	gotoxy(x, y++);
+	printf("                   ");
+	gotoxy(x, y++);
+	printf("■■■■■■■■");
+	gotoxy(x, y++);
+	printf("■■■■■■■■");
+	gotoxy(x, y++);
+	printf("■■■■■■■■");
+
+
+	Sleep(speed);
+	system("cls");
+	printMon(mon);
+
+	y = 13;
+	gotoxy(x, y++);
+	printf("■■■■■■■");
+	gotoxy(x, y++);
+	printf("■■■■■■■");
+	gotoxy(x, y++);
+	printf("■■■■■■■");
+	gotoxy(x, y++);
+	printf("                   ");
+	gotoxy(x, y++);
+	printf("                   ");
+	gotoxy(x, y++);
+	printf("                   ");
+	gotoxy(x, y++);
+	printf("                   ");
+	gotoxy(x, y++);
+	printf("                   ");
+	gotoxy(x, y++);
+	printf("                   ");
+	gotoxy(x, y++);
+	printf("                   ");
+	gotoxy(x, y++);
+	printf("                   ");
+	gotoxy(x, y++);
+	printf("                   ");
+	gotoxy(x, y++);
+	printf("                   ");
+	gotoxy(x, y++);
+	printf("■■■■■■■");
+	gotoxy(x, y++);
+	printf("■■■■■■■");
+	gotoxy(x, y++);
+	printf("■■■■■■■");
+
+	Sleep(speed);
+	system("cls");
+	printMon(mon);
+
+	y = 13;
+	gotoxy(x, y++);
+	printf("■■■■■■");
+	gotoxy(x, y++);
+	printf("■■■■■■");
+	gotoxy(x, y++);
+	printf("■■■■■■");
+	gotoxy(x, y++);
+	printf("                   ");
+	gotoxy(x, y++);
+	printf("                   ");
+	gotoxy(x, y++);
+	printf("                   ");
+	gotoxy(x, y++);
+	printf("                   ");
+	gotoxy(x, y++);
+	printf("                   ");
+	gotoxy(x, y++);
+	printf("                   ");
+	gotoxy(x, y++);
+	printf("                   ");
+	gotoxy(x, y++);
+	printf("                   ");
+	gotoxy(x, y++);
+	printf("                   ");
+	gotoxy(x, y++);
+	printf("                   ");
+	gotoxy(x, y++);
+	printf("■■■■■■");
+	gotoxy(x, y++);
+	printf("■■■■■■");
+	gotoxy(x, y++);
+	printf("■■■■■■");
+
+	Sleep(speed);
+	system("cls");
+	printMon(mon);
+
+	y = 13;
+	gotoxy(x, y++);
+	printf("■■■■■");
+	gotoxy(x, y++);
+	printf("■■■■■");
+	gotoxy(x, y++);
+	printf("■■■■■");
+	gotoxy(x, y++);
+	printf("                   ");
+	gotoxy(x, y++);
+	printf("                   ");
+	gotoxy(x, y++);
+	printf("                   ");
+	gotoxy(x, y++);
+	printf("                   ");
+	gotoxy(x, y++);
+	printf("                   ");
+	gotoxy(x, y++);
+	printf("                   ");
+	gotoxy(x, y++);
+	printf("                   ");
+	gotoxy(x, y++);
+	printf("                   ");
+	gotoxy(x, y++);
+	printf("                   ");
+	gotoxy(x, y++);
+	printf("                   ");
+	gotoxy(x, y++);
+	printf("■■■■■");
+	gotoxy(x, y++);
+	printf("■■■■■");
+	gotoxy(x, y++);
+	printf("■■■■■");
+
+	Sleep(speed);
+	system("cls");
+	printMon(mon);
+
+	y = 13;
+	gotoxy(x, y++);
+	printf("■■■■");
+	gotoxy(x, y++);
+	printf("■■■■");
+	gotoxy(x, y++);
+	printf("■■■■");
+	gotoxy(x, y++);
+	printf("                   ");
+	gotoxy(x, y++);
+	printf("                   ");
+	gotoxy(x, y++);
+	printf("                   ");
+	gotoxy(x, y++);
+	printf("                   ");
+	gotoxy(x, y++);
+	printf("                   ");
+	gotoxy(x, y++);
+	printf("                   ");
+	gotoxy(x, y++);
+	printf("                   ");
+	gotoxy(x, y++);
+	printf("                   ");
+	gotoxy(x, y++);
+	printf("                   ");
+	gotoxy(x, y++);
+	printf("                   ");
+	gotoxy(x, y++);
+	printf("■■■■");
+	gotoxy(x, y++);
+	printf("■■■■");
+	gotoxy(x, y++);
+	printf("■■■■");
+
+	Sleep(speed);
+	system("cls");
+	printMon(mon);
+
+	y = 13;
+	gotoxy(x, y++);
+	printf("■■■");
+	gotoxy(x, y++);
+	printf("■■■");
+	gotoxy(x, y++);
+	printf("■■■");
+	gotoxy(x, y++);
+	printf("                   ");
+	gotoxy(x, y++);
+	printf("                   ");
+	gotoxy(x, y++);
+	printf("                   ");
+	gotoxy(x, y++);
+	printf("                   ");
+	gotoxy(x, y++);
+	printf("                   ");
+	gotoxy(x, y++);
+	printf("                   ");
+	gotoxy(x, y++);
+	printf("                   ");
+	gotoxy(x, y++);
+	printf("                   ");
+	gotoxy(x, y++);
+	printf("                   ");
+	gotoxy(x, y++);
+	printf("                   ");
+	gotoxy(x, y++);
+	printf("■■■");
+	gotoxy(x, y++);
+	printf("■■■");
+	gotoxy(x, y++);
+	printf("■■■");
+
+	Sleep(speed);
+	system("cls");
+	printMon(mon);
+
+	y = 13;
+	gotoxy(x, y++);
+	printf("■■");
+	gotoxy(x, y++);
+	printf("■■");
+	gotoxy(x, y++);
+	printf("■■");
+	gotoxy(x, y++);
+	printf("                   ");
+	gotoxy(x, y++);
+	printf("                   ");
+	gotoxy(x, y++);
+	printf("                   ");
+	gotoxy(x, y++);
+	printf("                   ");
+	gotoxy(x, y++);
+	printf("                   ");
+	gotoxy(x, y++);
+	printf("                   ");
+	gotoxy(x, y++);
+	printf("                   ");
+	gotoxy(x, y++);
+	printf("                   ");
+	gotoxy(x, y++);
+	printf("                   ");
+	gotoxy(x, y++);
+	printf("                   ");
+	gotoxy(x, y++);
+	printf("■■");
+	gotoxy(x, y++);
+	printf("■■");
+	gotoxy(x, y++);
+	printf("■■");
+
+	Sleep(speed);
+	system("cls");
+	printMon(mon);
+
+	y = 13;
+	gotoxy(x, y++);
+	printf("■");
+	gotoxy(x, y++);
+	printf("■");
+	gotoxy(x, y++);
+	printf("■");
+	gotoxy(x, y++);
+	printf("                   ");
+	gotoxy(x, y++);
+	printf("                   ");
+	gotoxy(x, y++);
+	printf("                   ");
+	gotoxy(x, y++);
+	printf("                   ");
+	gotoxy(x, y++);
+	printf("                   ");
+	gotoxy(x, y++);
+	printf("                   ");
+	gotoxy(x, y++);
+	printf("                   ");
+	gotoxy(x, y++);
+	printf("                   ");
+	gotoxy(x, y++);
+	printf("                   ");
+	gotoxy(x, y++);
+	printf("                   ");
+	gotoxy(x, y++);
+	printf("■");
+	gotoxy(x, y++);
+	printf("■");
+	gotoxy(x, y++);
+	printf("■");
+
+	Sleep(speed);
+	system("cls");
+	printMon(mon);
+}
+void monAt2(ChStat *chStat)
+{
+	int x, y, speed, speed2;
+	x = 98, y = 13, speed = 9;
+
+	y = 13;
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("■");
+	gotoxy(x, y++);
+	printf("■");
+	gotoxy(x, y++);
+	printf("■");
+	gotoxy(x, y++);
+	printf("■");
+	gotoxy(x, y++);
+	printf("■");
+	gotoxy(x, y++);
+	printf("■");
+	gotoxy(x, y++);
+	printf("■");
+	gotoxy(x, y++);
+	printf("■");
+	gotoxy(x, y++);
+	printf("■");
+	gotoxy(x, y++);
+	printf("■");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+
+	Sleep(speed);
+	system("cls");
+	printUser2(chStat);
+	x -= 2, y = 13;
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("■■");
+	gotoxy(x, y++);
+	printf("■■");
+	gotoxy(x, y++);
+	printf("■■");
+	gotoxy(x, y++);
+	printf("■■");
+	gotoxy(x, y++);
+	printf("■■");
+	gotoxy(x, y++);
+	printf("■■");
+	gotoxy(x, y++);
+	printf("■■");
+	gotoxy(x, y++);
+	printf("■■");
+	gotoxy(x, y++);
+	printf("■■");
+	gotoxy(x, y++);
+	printf("■■");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("   ");
+
+
+	Sleep(speed);
+	system("cls");
+	printUser2(chStat);
+	x -= 2, y = 13;
+
+	gotoxy(x, y++);
+	printf("   ");
+	gotoxy(x, y++);
+	printf("   ");
+	gotoxy(x, y++);
+	printf("   ");
+	gotoxy(x, y++);
+	printf("■■■                   ");
+	gotoxy(x, y++);
+	printf("■■■                   ");
+	gotoxy(x, y++);
+	printf("■■■                   ");
+	gotoxy(x, y++);
+	printf("■■■                   ");
+	gotoxy(x, y++);
+	printf("■■■                   ");
+	gotoxy(x, y++);
+	printf("■■■                   ");
+	gotoxy(x, y++);
+	printf("■■■                   ");
+	gotoxy(x, y++);
+	printf("■■■                   ");
+	gotoxy(x, y++);
+	printf("■■■                   ");
+	gotoxy(x, y++);
+	printf("■■■                   ");
+	gotoxy(x, y++);
+	printf("   ");
+	gotoxy(x, y++);
+	printf("   ");
+	gotoxy(x, y++);
+	printf("   ");
+
+	Sleep(speed);
+	system("cls");
+	printUser2(chStat);
+
+	x -= 1, y = 13;
+	gotoxy(x, y++);
+	printf("     ■");
+	gotoxy(x, y++);
+	printf("     ■");
+	gotoxy(x, y++);
+	printf("     ■");
+	gotoxy(x, y++);
+	printf("■■■                   ");
+	gotoxy(x, y++);
+	printf("■■■                   ");
+	gotoxy(x, y++);
+	printf("■■■                   ");
+	gotoxy(x, y++);
+	printf("■■■                   ");
+	gotoxy(x, y++);
+	printf("■■■                   ");
+	gotoxy(x, y++);
+	printf("■■■                   ");
+	gotoxy(x, y++);
+	printf("■■■                   ");
+	gotoxy(x, y++);
+	printf("■■■                   ");
+	gotoxy(x, y++);
+	printf("■■■                   ");
+	gotoxy(x, y++);
+	printf("■■■                   ");
+	gotoxy(x, y++);
+	printf("     ■");
+	gotoxy(x, y++);
+	printf("     ■");
+	gotoxy(x, y++);
+	printf("     ■");
+
+	Sleep(speed);
+	//system("cls");
+	printUser2(chStat);
+
+	x -= 2, y = 13;
+	gotoxy(x, y++);
+	printf("     ■■");
+	gotoxy(x, y++);
+	printf("     ■■");
+	gotoxy(x, y++);
+	printf("     ■■");
+	gotoxy(x, y++);
+	printf("■■■                   ");
+	gotoxy(x, y++);
+	printf("■■■                   ");
+	gotoxy(x, y++);
+	printf("■■■                   ");
+	gotoxy(x, y++);
+	printf("■■■                   ");
+	gotoxy(x, y++);
+	printf("■■■                   ");
+	gotoxy(x, y++);
+	printf("■■■                   ");
+	gotoxy(x, y++);
+	printf("■■■                   ");
+	gotoxy(x, y++);
+	printf("■■■                   ");
+	gotoxy(x, y++);
+	printf("■■■                   ");
+	gotoxy(x, y++);
+	printf("■■■                   ");
+	gotoxy(x, y++);
+	printf("     ■■");
+	gotoxy(x, y++);
+	printf("     ■■");
+	gotoxy(x, y++);
+	printf("     ■■");
+
+
+	Sleep(speed);
+	//system("cls");
+	printUser2(chStat);
+
+	x -= 2, y = 13;
+	gotoxy(x, y++);
+	printf("     ■■■");
+	gotoxy(x, y++);
+	printf("     ■■■");
+	gotoxy(x, y++);
+	printf("     ■■■");
+	gotoxy(x, y++);
+	printf("■■■                   ");
+	gotoxy(x, y++);
+	printf("■■■                   ");
+	gotoxy(x, y++);
+	printf("■■■                   ");
+	gotoxy(x, y++);
+	printf("■■■                   ");
+	gotoxy(x, y++);
+	printf("■■■                   ");
+	gotoxy(x, y++);
+	printf("■■■                   ");
+	gotoxy(x, y++);
+	printf("■■■                   ");
+	gotoxy(x, y++);
+	printf("■■■                   ");
+	gotoxy(x, y++);
+	printf("■■■                   ");
+	gotoxy(x, y++);
+	printf("■■■                   ");
+	gotoxy(x, y++);
+	printf("     ■■■");
+	gotoxy(x, y++);
+	printf("     ■■■");
+	gotoxy(x, y++);
+	printf("     ■■■");
+
+	Sleep(speed);
+	//system("cls");
+	printUser2(chStat);
+
+	x -= 2, y = 13;
+	gotoxy(x, y++);
+	printf("     ■■■■");
+	gotoxy(x, y++);
+	printf("     ■■■■");
+	gotoxy(x, y++);
+	printf("     ■■■■");
+	gotoxy(x, y++);
+	printf("■■■                   ");
+	gotoxy(x, y++);
+	printf("■■■                   ");
+	gotoxy(x, y++);
+	printf("■■■                   ");
+	gotoxy(x, y++);
+	printf("■■■                   ");
+	gotoxy(x, y++);
+	printf("■■■                   ");
+	gotoxy(x, y++);
+	printf("■■■                   ");
+	gotoxy(x, y++);
+	printf("■■■                   ");
+	gotoxy(x, y++);
+	printf("■■■                   ");
+	gotoxy(x, y++);
+	printf("■■■                   ");
+	gotoxy(x, y++);
+	printf("■■■                   ");
+	gotoxy(x, y++);
+	printf("     ■■■■");
+	gotoxy(x, y++);
+	printf("     ■■■■");
+	gotoxy(x, y++);
+	printf("     ■■■■");
+
+	Sleep(speed);
+	//system("cls");
+	printUser2(chStat);
+
+	x -= 2, y = 13;
+	gotoxy(x, y++);
+	printf("     ■■■■■");
+	gotoxy(x, y++);
+	printf("     ■■■■■");
+	gotoxy(x, y++);
+	printf("     ■■■■■");
+	gotoxy(x, y++);
+	printf("■■■                   ");
+	gotoxy(x, y++);
+	printf("■■■                   ");
+	gotoxy(x, y++);
+	printf("■■■                   ");
+	gotoxy(x, y++);
+	printf("■■■                   ");
+	gotoxy(x, y++);
+	printf("■■■                   ");
+	gotoxy(x, y++);
+	printf("■■■                   ");
+	gotoxy(x, y++);
+	printf("■■■                   ");
+	gotoxy(x, y++);
+	printf("■■■                   ");
+	gotoxy(x, y++);
+	printf("■■■                   ");
+	gotoxy(x, y++);
+	printf("■■■                   ");
+	gotoxy(x, y++);
+	printf("     ■■■■■");
+	gotoxy(x, y++);
+	printf("     ■■■■■");
+	gotoxy(x, y++);
+	printf("     ■■■■■");
+
+	Sleep(speed);
+	//system("cls");
+	printUser2(chStat);
+
+	x -= 2, y = 13;
+	gotoxy(x, y++);
+	printf("     ■■■■■■");
+	gotoxy(x, y++);
+	printf("     ■■■■■■");
+	gotoxy(x, y++);
+	printf("     ■■■■■■");
+	gotoxy(x, y++);
+	printf("■■■                   ");
+	gotoxy(x, y++);
+	printf("■■■                   ");
+	gotoxy(x, y++);
+	printf("■■■                   ");
+	gotoxy(x, y++);
+	printf("■■■                   ");
+	gotoxy(x, y++);
+	printf("■■■                   ");
+	gotoxy(x, y++);
+	printf("■■■                   ");
+	gotoxy(x, y++);
+	printf("■■■                   ");
+	gotoxy(x, y++);
+	printf("■■■                   ");
+	gotoxy(x, y++);
+	printf("■■■                   ");
+	gotoxy(x, y++);
+	printf("■■■                   ");
+	gotoxy(x, y++);
+	printf("     ■■■■■■");
+	gotoxy(x, y++);
+	printf("     ■■■■■■");
+	gotoxy(x, y++);
+	printf("     ■■■■■■");
+
+	Sleep(speed);
+	//system("cls");
+	printUser2(chStat);
+
+	x -= 2, y = 13;
+	gotoxy(x, y++);
+	printf("     ■■■■■■■");
+	gotoxy(x, y++);
+	printf("     ■■■■■■■");
+	gotoxy(x, y++);
+	printf("     ■■■■■■■");
+	gotoxy(x, y++);
+	printf("■■■                   ");
+	gotoxy(x, y++);
+	printf("■■■                   ");
+	gotoxy(x, y++);
+	printf("■■■                   ");
+	gotoxy(x, y++);
+	printf("■■■                   ");
+	gotoxy(x, y++);
+	printf("■■■                   ");
+	gotoxy(x, y++);
+	printf("■■■                   ");
+	gotoxy(x, y++);
+	printf("■■■                   ");
+	gotoxy(x, y++);
+	printf("■■■                   ");
+	gotoxy(x, y++);
+	printf("■■■                   ");
+	gotoxy(x, y++);
+	printf("■■■                   ");
+	gotoxy(x, y++);
+	printf("     ■■■■■■■");
+	gotoxy(x, y++);
+	printf("     ■■■■■■■");
+	gotoxy(x, y++);
+	printf("     ■■■■■■■");
+
+	Sleep(speed);
+	//system("cls");
+	printUser2(chStat);
+
+	x -= 2, y = 13;
+	gotoxy(x, y++);
+	printf("     ■■■■■■■■");
+	gotoxy(x, y++);
+	printf("     ■■■■■■■■");
+	gotoxy(x, y++);
+	printf("     ■■■■■■■■");
+	gotoxy(x, y++);
+	printf("■■■                   ");
+	gotoxy(x, y++);
+	printf("■■■                   ");
+	gotoxy(x, y++);
+	printf("■■■                   ");
+	gotoxy(x, y++);
+	printf("■■■                   ");
+	gotoxy(x, y++);
+	printf("■■■                   ");
+	gotoxy(x, y++);
+	printf("■■■                   ");
+	gotoxy(x, y++);
+	printf("■■■                   ");
+	gotoxy(x, y++);
+	printf("■■■                   ");
+	gotoxy(x, y++);
+	printf("■■■                   ");
+	gotoxy(x, y++);
+	printf("■■■                   ");
+	gotoxy(x, y++);
+	printf("     ■■■■■■■■");
+	gotoxy(x, y++);
+	printf("     ■■■■■■■■");
+	gotoxy(x, y++);
+	printf("     ■■■■■■■■");
+
+	Sleep(speed);
+	//system("cls");
+	printUser2(chStat);
+
+	x -= 2, y = 13;
+	gotoxy(x, y++);
+	printf("     ■■■■■■■■■");
+	gotoxy(x, y++);
+	printf("     ■■■■■■■■■");
+	gotoxy(x, y++);
+	printf("     ■■■■■■■■■");
+	gotoxy(x, y++);
+	printf("■■■                   ");
+	gotoxy(x, y++);
+	printf("■■■                   ");
+	gotoxy(x, y++);
+	printf("■■■                   ");
+	gotoxy(x, y++);
+	printf("■■■                   ");
+	gotoxy(x, y++);
+	printf("■■■                   ");
+	gotoxy(x, y++);
+	printf("■■■                   ");
+	gotoxy(x, y++);
+	printf("■■■                   ");
+	gotoxy(x, y++);
+	printf("■■■                   ");
+	gotoxy(x, y++);
+	printf("■■■                   ");
+	gotoxy(x, y++);
+	printf("■■■                   ");
+	gotoxy(x, y++);
+	printf("     ■■■■■■■■■");
+	gotoxy(x, y++);
+	printf("     ■■■■■■■■■");
+	gotoxy(x, y++);
+	printf("     ■■■■■■■■■");
+
+	Sleep(speed);
+	//system("cls");
+	printUser2(chStat);
+	x -= 2, y = 13;
+
+	while (1)
+	{
+		x -= 1, y = 13;
+		gotoxy(x, y++);
+		printf("     ■■■■■■■■■■");
+		gotoxy(x, y++);
+		printf("     ■■■■■■■■■■");
+		gotoxy(x, y++);
+		printf("     ■■■■■■■■■■");
+		gotoxy(x, y++);
+		printf("■■■                   ");
+		gotoxy(x, y++);
+		printf("■■■                   ");
+		gotoxy(x, y++);
+		printf("■■■                   ");
+		gotoxy(x, y++);
+		printf("■■■                   ");
+		gotoxy(x, y++);
+		printf("■■■                   ");
+		gotoxy(x, y++);
+		printf("■■■                   ");
+		gotoxy(x, y++);
+		printf("■■■                   ");
+		gotoxy(x, y++);
+		printf("■■■                   ");
+		gotoxy(x, y++);
+		printf("■■■                   ");
+		gotoxy(x, y++);
+		printf("■■■                   ");
+		gotoxy(x, y++);
+		printf("     ■■■■■■■■■■");
+		gotoxy(x, y++);
+		printf("     ■■■■■■■■■■");
+		gotoxy(x, y++);
+		printf("     ■■■■■■■■■■");
+
+		Sleep(speed);
+
+		if (x == 31)//유저가 맞았을때
+			break;
+	}
+}
+
+//기본공격(공통)
+void baseAt1(ChStat *chStat)
+{
+	
+	int x = 32, y = 13, speed = 9;
+
+	gotoxy(38, 19);//기존의 인터페이스를 지움(공격 방어 도망)
+	printf("                           ");
+	gotoxy(75, 25);
+	printf("                 ");//기력의 기력을 지움
+	gotoxy(83, 25);
+	printf("                 ");//기력 바
+
+	while (1)
+	{
+		y = 13;
+
+		gotoxy(x, y++);
+		printf("■■■■■■■■■■");
+		gotoxy(x, y++);
+		printf("■■■■■■■■■■");
+		gotoxy(x, y++);
+		printf("■■■■■■■■■■");
+		gotoxy(x, y++);
+		printf("                   ■■■");
+		gotoxy(x, y++);
+		printf("                   ■■■");
+		gotoxy(x, y++);
+		printf("                   ■■■");
+		gotoxy(x, y++);
+		printf("                   ■■■");
+		gotoxy(x, y++);
+		printf("                   ■■■");
+		gotoxy(x, y++);
+		printf("                   ■■■");
+		gotoxy(x, y++);
+		printf("                   ■■■");
+		gotoxy(x, y++);
+		printf("                   ■■■");
+		gotoxy(x, y++);
+		printf("                   ■■■");
+		gotoxy(x, y++);
+		printf("                   ■■■");
+		gotoxy(x, y++);
+		printf("■■■■■■■■■■");
+		gotoxy(x, y++);
+		printf("■■■■■■■■■■");
+		gotoxy(x, y++);
+		printf("■■■■■■■■■■");
+		Sleep(speed);
+
+
+		x += 1;
+
+		if (x == 75)//화면의 끝
+			break;
+	}
+
+
+	x += 2, y = 13;
+	gotoxy(x, y++);
+	printf("■■■■■■■■■■");
+	gotoxy(x, y++);
+	printf("■■■■■■■■■■");
+	gotoxy(x, y++);
+	printf("■■■■■■■■■■");
+	gotoxy(x, y++);
+	printf("                   ■■");
+	gotoxy(x, y++);
+	printf("                   ■■");
+	gotoxy(x, y++);
+	printf("                   ■■");
+	gotoxy(x, y++);
+	printf("                   ■■");
+	gotoxy(x, y++);
+	printf("                   ■■");
+	gotoxy(x, y++);
+	printf("                   ■■");
+	gotoxy(x, y++);
+	printf("                   ■■");
+	gotoxy(x, y++);
+	printf("                   ■■");
+	gotoxy(x, y++);
+	printf("                   ■■");
+	gotoxy(x, y++);
+	printf("                   ■■");
+	gotoxy(x, y++);
+	printf("■■■■■■■■■■");
+	gotoxy(x, y++);
+	printf("■■■■■■■■■■");
+	gotoxy(x, y++);
+	printf("■■■■■■■■■■");
+	Sleep(speed);
+
+	system("cls");
+	printUser2(chStat);
+
+	x += 2;
+
+
+	y = 13;
+	gotoxy(x, y++);
+	printf("■■■■■■■■■■");
+	gotoxy(x, y++);
+	printf("■■■■■■■■■■");
+	gotoxy(x, y++);
+	printf("■■■■■■■■■■");
+	gotoxy(x, y++);
+	printf("                   ■");
+	gotoxy(x, y++);
+	printf("                   ■");
+	gotoxy(x, y++);
+	printf("                   ■");
+	gotoxy(x, y++);
+	printf("                   ■");
+	gotoxy(x, y++);
+	printf("                   ■");
+	gotoxy(x, y++);
+	printf("                   ■");
+	gotoxy(x, y++);
+	printf("                   ■");
+	gotoxy(x, y++);
+	printf("                   ■");
+	gotoxy(x, y++);
+	printf("                   ■");
+	gotoxy(x, y++);
+	printf("                   ■");
+	gotoxy(x, y++);
+	printf("■■■■■■■■■■");
+	gotoxy(x, y++);
+	printf("■■■■■■■■■■");
+	gotoxy(x, y++);
+	printf("■■■■■■■■■■");
+	Sleep(speed);
+
+	system("cls");
+	printUser2(chStat);
+	x += 1;
+
+
+
+	y = 13;
+	gotoxy(x, y++);
+	printf("■■■■■■■■■■");
+	gotoxy(x, y++);
+	printf("■■■■■■■■■■");
+	gotoxy(x, y++);
+	printf("■■■■■■■■■■");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("■■■■■■■■■■");
+	gotoxy(x, y++);
+	printf("■■■■■■■■■■");
+	gotoxy(x, y++);
+	printf("■■■■■■■■■■");
+	Sleep(speed);
+
+	system("cls");
+	printUser2(chStat);
+	x += 2;
+
+
+	y = 13;
+	gotoxy(x, y++);
+	printf("■■■■■■■■■");
+	gotoxy(x, y++);
+	printf("■■■■■■■■■");
+	gotoxy(x, y++);
+	printf("■■■■■■■■■");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("■■■■■■■■■");
+	gotoxy(x, y++);
+	printf("■■■■■■■■■");
+	gotoxy(x, y++);
+	printf("■■■■■■■■■");
+	Sleep(speed);
+
+	system("cls");
+	printUser2(chStat);
+	x += 2;
+
+	y = 13;
+	gotoxy(x, y++);
+	printf("■■■■■■■■");
+	gotoxy(x, y++);
+	printf("■■■■■■■■");
+	gotoxy(x, y++);
+	printf("■■■■■■■■");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("■■■■■■■■");
+	gotoxy(x, y++);
+	printf("■■■■■■■■");
+	gotoxy(x, y++);
+	printf("■■■■■■■■");
+	Sleep(speed);
+
+
+	system("cls");
+	printUser2(chStat);
+	x += 2;
+
+
+	y = 13;
+	gotoxy(x, y++);
+	printf("■■■■■■■");
+	gotoxy(x, y++);
+	printf("■■■■■■■");
+	gotoxy(x, y++);
+	printf("■■■■■■■");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("■■■■■■■");
+	gotoxy(x, y++);
+	printf("■■■■■■■");
+	gotoxy(x, y++);
+	printf("■■■■■■■");
+	Sleep(speed);
+
+
+	system("cls");
+	printUser2(chStat);
+	x += 2;
+
+	y = 13;
+	gotoxy(x, y++);
+	printf("■■■■■■");
+	gotoxy(x, y++);
+	printf("■■■■■■");
+	gotoxy(x, y++);
+	printf("■■■■■■");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("■■■■■■");
+	gotoxy(x, y++);
+	printf("■■■■■■");
+	gotoxy(x, y++);
+	printf("■■■■■■");
+	Sleep(speed);
+
+	system("cls");
+	printUser2(chStat);
+	x += 2;
+
+
+
+	y = 13;
+	gotoxy(x, y++);
+	printf("■■■■■");
+	gotoxy(x, y++);
+	printf("■■■■■");
+	gotoxy(x, y++);
+	printf("■■■■■");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("■■■■■");
+	gotoxy(x, y++);
+	printf("■■■■■");
+	gotoxy(x, y++);
+	printf("■■■■■");
+	Sleep(speed);
+
+	system("cls");
+	printUser2(chStat);
+	x += 2;
+
+
+
+	y = 13;
+	gotoxy(x, y++);
+	printf("■■■■");
+	gotoxy(x, y++);
+	printf("■■■■");
+	gotoxy(x, y++);
+	printf("■■■■");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("■■■■");
+	gotoxy(x, y++);
+	printf("■■■■");
+	gotoxy(x, y++);
+	printf("■■■■");
+	Sleep(speed);
+
+	system("cls");
+	printUser2(chStat);
+	x += 2;
+
+
+	y = 13;
+	gotoxy(x, y++);
+	printf("■■■");
+	gotoxy(x, y++);
+	printf("■■■");
+	gotoxy(x, y++);
+	printf("■■■");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("■■■");
+	gotoxy(x, y++);
+	printf("■■■");
+	gotoxy(x, y++);
+	printf("■■■");
+	Sleep(speed);
+
+	system("cls");
+	printUser2(chStat);
+	x += 2;
+
+
+	y = 13;
+	gotoxy(x, y++);
+	printf("■■");
+	gotoxy(x, y++);
+	printf("■■");
+	gotoxy(x, y++);
+	printf("■■");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("■■");
+	gotoxy(x, y++);
+	printf("■■");
+	gotoxy(x, y++);
+	printf("■■");
+	Sleep(speed);
+
+
+	system("cls");
+	printUser2(chStat);
+	x += 2;
+
+	y = 13;
+	gotoxy(x, y++);
+	printf("■");
+	gotoxy(x, y++);
+	printf("■");
+	gotoxy(x, y++);
+	printf("■");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("■");
+	gotoxy(x, y++);
+	printf("■");
+	gotoxy(x, y++);
+	printf("■");
+	Sleep(speed);
+
+	system("cls");
+	printUser2(chStat);
+
+/*
+int x = 32, y = 13, speed = 36, speed2 = 9;
+
+gotoxy(38, 19);//기존의 인터페이스를 지움(공격 방어 도망)
+printf("                           ");
+
+
+while (1)
+{
+	y = 13;
+
+	gotoxy(x, y++);
+	printf("■■■■■■■■■■");
+	gotoxy(x, y++);
+	printf("■■■■■■■■■■");
+	gotoxy(x, y++);
+	printf("■■■■■■■■■■");
+	gotoxy(x, y++);
+	printf("                   ■■■");
+	gotoxy(x, y++);
+	printf("                   ■■■");
+	gotoxy(x, y++);
+	printf("                   ■■■");
+	gotoxy(x, y++);
+	printf("                   ■■■");
+	gotoxy(x, y++);
+	printf("                   ■■■");
+	gotoxy(x, y++);
+	printf("                   ■■■");
+	gotoxy(x, y++);
+	printf("                   ■■■");
+	gotoxy(x, y++);
+	printf("                   ■■■");
+	gotoxy(x, y++);
+	printf("                   ■■■");
+	gotoxy(x, y++);
+	printf("                   ■■■");
+	gotoxy(x, y++);
+	printf("■■■■■■■■■■");
+	gotoxy(x, y++);
+	printf("■■■■■■■■■■");
+	gotoxy(x, y++);
+	printf("■■■■■■■■■■");
+	Sleep(speed2);
+
+
+	y = 13;
+	gotoxy(x, y++);
+	printf("                    ");
+	gotoxy(x, y++);
+	printf("                    ");
+	gotoxy(x, y++);
+	printf("                    ");
+	gotoxy(x, y++);
+	printf("                         ");
+	gotoxy(x, y++);
+	printf("                         ");
+	gotoxy(x, y++);
+	printf("                         ");
+	gotoxy(x, y++);
+	printf("                         ");
+	gotoxy(x, y++);
+	printf("                         ");
+	gotoxy(x, y++);
+	printf("                         ");
+	gotoxy(x, y++);
+	printf("                         ");
+	gotoxy(x, y++);
+	printf("                         ");
+	gotoxy(x, y++);
+	printf("                         ");
+	gotoxy(x, y++);
+	printf("                         ");
+	gotoxy(x, y++);
+	printf("                    ");
+	gotoxy(x, y++);
+	printf("                    ");
+	gotoxy(x, y++);
+	printf("                    ");
+
+
+
+
+
+
+
+
+
+
+	//system("cls");
+	////printUser2(chStat);
+
+	x += 1;
+
+	if (x == 75)//화면의 끝
+		break;
+}
+
+
+x += 2, y = 13;
+gotoxy(x, y++);
+printf("■■■■■■■■■");
+gotoxy(x, y++);
+printf("■■■■■■■■■");
+gotoxy(x, y++);
+printf("■■■■■■■■■");
+gotoxy(x, y++);
+printf("                   ■■");
+gotoxy(x, y++);
+printf("                   ■■");
+gotoxy(x, y++);
+printf("                   ■■");
+gotoxy(x, y++);
+printf("                   ■■");
+gotoxy(x, y++);
+printf("                   ■■");
+gotoxy(x, y++);
+printf("                   ■■");
+gotoxy(x, y++);
+printf("                   ■■");
+gotoxy(x, y++);
+printf("                   ■■");
+gotoxy(x, y++);
+printf("                   ■■");
+gotoxy(x, y++);
+printf("                   ■■");
+gotoxy(x, y++);
+printf("■■■■■■■■■");
+gotoxy(x, y++);
+printf("■■■■■■■■■");
+gotoxy(x, y++);
+printf("■■■■■■■■■");
+Sleep(speed);
+
+y = 13;
+gotoxy(x, y++);
+printf("                    ");
+gotoxy(x, y++);
+printf("                    ");
+gotoxy(x, y++);
+printf("                    ");
+gotoxy(x, y++);
+printf("                         ");
+gotoxy(x, y++);
+printf("                         ");
+gotoxy(x, y++);
+printf("                         ");
+gotoxy(x, y++);
+printf("                         ");
+gotoxy(x, y++);
+printf("                         ");
+gotoxy(x, y++);
+printf("                         ");
+gotoxy(x, y++);
+printf("                         ");
+gotoxy(x, y++);
+printf("                         ");
+gotoxy(x, y++);
+printf("                         ");
+gotoxy(x, y++);
+printf("                         ");
+gotoxy(x, y++);
+printf("                    ");
+gotoxy(x, y++);
+printf("                    ");
+gotoxy(x, y++);
+printf("                    ");
+
+//system("cls");
+////printUser2(chStat);
+
+
+
+
+x += 2, y = 13;
+gotoxy(x, y++);
+printf("■■■■■■■■■");
+gotoxy(x, y++);
+printf("■■■■■■■■■");
+gotoxy(x, y++);
+printf("■■■■■■■■■");
+gotoxy(x, y++);
+printf("                   ■");
+gotoxy(x, y++);
+printf("                   ■");
+gotoxy(x, y++);
+printf("                   ■");
+gotoxy(x, y++);
+printf("                   ■");
+gotoxy(x, y++);
+printf("                   ■");
+gotoxy(x, y++);
+printf("                   ■");
+gotoxy(x, y++);
+printf("                   ■");
+gotoxy(x, y++);
+printf("                   ■");
+gotoxy(x, y++);
+printf("                   ■");
+gotoxy(x, y++);
+printf("                   ■");
+gotoxy(x, y++);
+printf("■■■■■■■■■");
+gotoxy(x, y++);
+printf("■■■■■■■■■");
+gotoxy(x, y++);
+printf("■■■■■■■■■");
+Sleep(speed);
+
+
+y = 13;
+gotoxy(x, y++);
+printf("                    ");
+gotoxy(x, y++);
+printf("                    ");
+gotoxy(x, y++);
+printf("                    ");
+gotoxy(x, y++);
+printf("                         ");
+gotoxy(x, y++);
+printf("                         ");
+gotoxy(x, y++);
+printf("                         ");
+gotoxy(x, y++);
+printf("                         ");
+gotoxy(x, y++);
+printf("                         ");
+gotoxy(x, y++);
+printf("                         ");
+gotoxy(x, y++);
+printf("                         ");
+gotoxy(x, y++);
+printf("                         ");
+gotoxy(x, y++);
+printf("                         ");
+gotoxy(x, y++);
+printf("                         ");
+gotoxy(x, y++);
+printf("                    ");
+gotoxy(x, y++);
+printf("                    ");
+gotoxy(x, y++);
+printf("                    ");
+//system("cls");
+//////printUser2(chStat);
+
+
+x += 3, y = 13;
+gotoxy(x, y++);
+printf("■■■■■■■■■");
+gotoxy(x, y++);
+printf("■■■■■■■■■");
+gotoxy(x, y++);
+printf("■■■■■■■■■");
+gotoxy(x, y++);
+printf("");
+gotoxy(x, y++);
+printf("");
+gotoxy(x, y++);
+printf("");
+gotoxy(x, y++);
+printf("");
+gotoxy(x, y++);
+printf("");
+gotoxy(x, y++);
+printf("");
+gotoxy(x, y++);
+printf("");
+gotoxy(x, y++);
+printf("");
+gotoxy(x, y++);
+printf("");
+gotoxy(x, y++);
+printf("");
+gotoxy(x, y++);
+printf("■■■■■■■■■");
+gotoxy(x, y++);
+printf("■■■■■■■■■");
+gotoxy(x, y++);
+printf("■■■■■■■■■");
+Sleep(speed);
+
+
+y = 13;
+gotoxy(x, y++);
+printf("                    ");
+gotoxy(x, y++);
+printf("                    ");
+gotoxy(x, y++);
+printf("                    ");
+gotoxy(x, y++);
+printf("                         ");
+gotoxy(x, y++);
+printf("                         ");
+gotoxy(x, y++);
+printf("                         ");
+gotoxy(x, y++);
+printf("                         ");
+gotoxy(x, y++);
+printf("                         ");
+gotoxy(x, y++);
+printf("                         ");
+gotoxy(x, y++);
+printf("                         ");
+gotoxy(x, y++);
+printf("                         ");
+gotoxy(x, y++);
+printf("                         ");
+gotoxy(x, y++);
+printf("                         ");
+gotoxy(x, y++);
+printf("                    ");
+gotoxy(x, y++);
+printf("                    ");
+gotoxy(x, y++);
+printf("                    ");
+
+//system("cls");
+//////printUser2(chStat);
+
+
+x += 2, y = 13;
+gotoxy(x, y++);
+printf("■■■■■■■■");
+gotoxy(x, y++);
+printf("■■■■■■■■");
+gotoxy(x, y++);
+printf("■■■■■■■■");
+gotoxy(x, y++);
+printf("");
+gotoxy(x, y++);
+printf("");
+gotoxy(x, y++);
+printf("");
+gotoxy(x, y++);
+printf("");
+gotoxy(x, y++);
+printf("");
+gotoxy(x, y++);
+printf("");
+gotoxy(x, y++);
+printf("");
+gotoxy(x, y++);
+printf("");
+gotoxy(x, y++);
+printf("");
+gotoxy(x, y++);
+printf("");
+gotoxy(x, y++);
+printf("■■■■■■■■");
+gotoxy(x, y++);
+printf("■■■■■■■■");
+gotoxy(x, y++);
+printf("■■■■■■■■");
+Sleep(speed);
+
+
+
+y = 13;
+gotoxy(x, y++);
+printf("                    ");
+gotoxy(x, y++);
+printf("                    ");
+gotoxy(x, y++);
+printf("                    ");
+gotoxy(x, y++);
+printf("                         ");
+gotoxy(x, y++);
+printf("                         ");
+gotoxy(x, y++);
+printf("                         ");
+gotoxy(x, y++);
+printf("                         ");
+gotoxy(x, y++);
+printf("                         ");
+gotoxy(x, y++);
+printf("                         ");
+gotoxy(x, y++);
+printf("                         ");
+gotoxy(x, y++);
+printf("                         ");
+gotoxy(x, y++);
+printf("                         ");
+gotoxy(x, y++);
+printf("                         ");
+gotoxy(x, y++);
+printf("                    ");
+gotoxy(x, y++);
+printf("                    ");
+gotoxy(x, y++);
+printf("                    ");
+//system("cls");
+////printUser2(chStat);
+
+
+
+x += 2, y = 13;
+gotoxy(x, y++);
+printf("■■■■■■■");
+gotoxy(x, y++);
+printf("■■■■■■■");
+gotoxy(x, y++);
+printf("■■■■■■■");
+gotoxy(x, y++);
+printf("");
+gotoxy(x, y++);
+printf("");
+gotoxy(x, y++);
+printf("");
+gotoxy(x, y++);
+printf("");
+gotoxy(x, y++);
+printf("");
+gotoxy(x, y++);
+printf("");
+gotoxy(x, y++);
+printf("");
+gotoxy(x, y++);
+printf("");
+gotoxy(x, y++);
+printf("");
+gotoxy(x, y++);
+printf("");
+gotoxy(x, y++);
+printf("■■■■■■■");
+gotoxy(x, y++);
+printf("■■■■■■■");
+gotoxy(x, y++);
+printf("■■■■■■■");
+Sleep(speed);
+
+
+
+y = 13;
+gotoxy(x, y++);
+printf("                    ");
+gotoxy(x, y++);
+printf("                    ");
+gotoxy(x, y++);
+printf("                    ");
+gotoxy(x, y++);
+printf("                         ");
+gotoxy(x, y++);
+printf("                         ");
+gotoxy(x, y++);
+printf("                         ");
+gotoxy(x, y++);
+printf("                         ");
+gotoxy(x, y++);
+printf("                         ");
+gotoxy(x, y++);
+printf("                         ");
+gotoxy(x, y++);
+printf("                         ");
+gotoxy(x, y++);
+printf("                         ");
+gotoxy(x, y++);
+printf("                         ");
+gotoxy(x, y++);
+printf("                         ");
+gotoxy(x, y++);
+printf("                    ");
+gotoxy(x, y++);
+printf("                    ");
+gotoxy(x, y++);
+printf("                    ");
+//system("cls");
+////printUser2(chStat);
+
+x += 2, y = 13;
+gotoxy(x, y++);
+printf("■■■■■■");
+gotoxy(x, y++);
+printf("■■■■■■");
+gotoxy(x, y++);
+printf("■■■■■■");
+gotoxy(x, y++);
+printf("");
+gotoxy(x, y++);
+printf("");
+gotoxy(x, y++);
+printf("");
+gotoxy(x, y++);
+printf("");
+gotoxy(x, y++);
+printf("");
+gotoxy(x, y++);
+printf("");
+gotoxy(x, y++);
+printf("");
+gotoxy(x, y++);
+printf("");
+gotoxy(x, y++);
+printf("");
+gotoxy(x, y++);
+printf("");
+gotoxy(x, y++);
+printf("■■■■■■");
+gotoxy(x, y++);
+printf("■■■■■■");
+gotoxy(x, y++);
+printf("■■■■■■");
+Sleep(speed);
+
+
+y = 13;
+gotoxy(x, y++);
+printf("                    ");
+gotoxy(x, y++);
+printf("                    ");
+gotoxy(x, y++);
+printf("                    ");
+gotoxy(x, y++);
+printf("                         ");
+gotoxy(x, y++);
+printf("                         ");
+gotoxy(x, y++);
+printf("                         ");
+gotoxy(x, y++);
+printf("                         ");
+gotoxy(x, y++);
+printf("                         ");
+gotoxy(x, y++);
+printf("                         ");
+gotoxy(x, y++);
+printf("                         ");
+gotoxy(x, y++);
+printf("                         ");
+gotoxy(x, y++);
+printf("                         ");
+gotoxy(x, y++);
+printf("                         ");
+gotoxy(x, y++);
+printf("                    ");
+gotoxy(x, y++);
+printf("                    ");
+gotoxy(x, y++);
+printf("                    ");
+//system("cls");
+////printUser2(chStat);
+
+
+x += 2, y = 13;
+gotoxy(x, y++);
+printf("■■■■■");
+gotoxy(x, y++);
+printf("■■■■■");
+gotoxy(x, y++);
+printf("■■■■■");
+gotoxy(x, y++);
+printf("");
+gotoxy(x, y++);
+printf("");
+gotoxy(x, y++);
+printf("");
+gotoxy(x, y++);
+printf("");
+gotoxy(x, y++);
+printf("");
+gotoxy(x, y++);
+printf("");
+gotoxy(x, y++);
+printf("");
+gotoxy(x, y++);
+printf("");
+gotoxy(x, y++);
+printf("");
+gotoxy(x, y++);
+printf("");
+gotoxy(x, y++);
+printf("■■■■■");
+gotoxy(x, y++);
+printf("■■■■■");
+gotoxy(x, y++);
+printf("■■■■■");
+Sleep(speed);
+
+
+y = 13;
+gotoxy(x, y++);
+printf("                    ");
+gotoxy(x, y++);
+printf("                    ");
+gotoxy(x, y++);
+printf("                    ");
+gotoxy(x, y++);
+printf("                         ");
+gotoxy(x, y++);
+printf("                         ");
+gotoxy(x, y++);
+printf("                         ");
+gotoxy(x, y++);
+printf("                         ");
+gotoxy(x, y++);
+printf("                         ");
+gotoxy(x, y++);
+printf("                         ");
+gotoxy(x, y++);
+printf("                         ");
+gotoxy(x, y++);
+printf("                         ");
+gotoxy(x, y++);
+printf("                         ");
+gotoxy(x, y++);
+printf("                         ");
+gotoxy(x, y++);
+printf("                    ");
+gotoxy(x, y++);
+printf("                    ");
+gotoxy(x, y++);
+printf("                    ");
+//system("cls");
+////printUser2(chStat);
+
+
+x += 2, y = 13;
+gotoxy(x, y++);
+printf("■■■■");
+gotoxy(x, y++);
+printf("■■■■");
+gotoxy(x, y++);
+printf("■■■■");
+gotoxy(x, y++);
+printf("");
+gotoxy(x, y++);
+printf("");
+gotoxy(x, y++);
+printf("");
+gotoxy(x, y++);
+printf("");
+gotoxy(x, y++);
+printf("");
+gotoxy(x, y++);
+printf("");
+gotoxy(x, y++);
+printf("");
+gotoxy(x, y++);
+printf("");
+gotoxy(x, y++);
+printf("");
+gotoxy(x, y++);
+printf("");
+gotoxy(x, y++);
+printf("■■■■");
+gotoxy(x, y++);
+printf("■■■■");
+gotoxy(x, y++);
+printf("■■■■");
+Sleep(speed);
+
+y = 13;
+gotoxy(x, y++);
+printf("                    ");
+gotoxy(x, y++);
+printf("                    ");
+gotoxy(x, y++);
+printf("                    ");
+gotoxy(x, y++);
+printf("                         ");
+gotoxy(x, y++);
+printf("                         ");
+gotoxy(x, y++);
+printf("                         ");
+gotoxy(x, y++);
+printf("                         ");
+gotoxy(x, y++);
+printf("                         ");
+gotoxy(x, y++);
+printf("                         ");
+gotoxy(x, y++);
+printf("                         ");
+gotoxy(x, y++);
+printf("                         ");
+gotoxy(x, y++);
+printf("                         ");
+gotoxy(x, y++);
+printf("                         ");
+gotoxy(x, y++);
+printf("                    ");
+gotoxy(x, y++);
+printf("                    ");
+gotoxy(x, y++);
+printf("                    ");
+//system("cls");
+////printUser2(chStat);
+
+
+x += 2, y = 13;
+gotoxy(x, y++);
+printf("■■■");
+gotoxy(x, y++);
+printf("■■■");
+gotoxy(x, y++);
+printf("■■■");
+gotoxy(x, y++);
+printf("");
+gotoxy(x, y++);
+printf("");
+gotoxy(x, y++);
+printf("");
+gotoxy(x, y++);
+printf("");
+gotoxy(x, y++);
+printf("");
+gotoxy(x, y++);
+printf("");
+gotoxy(x, y++);
+printf("");
+gotoxy(x, y++);
+printf("");
+gotoxy(x, y++);
+printf("");
+gotoxy(x, y++);
+printf("");
+gotoxy(x, y++);
+printf("■■■");
+gotoxy(x, y++);
+printf("■■■");
+gotoxy(x, y++);
+printf("■■■");
+Sleep(speed);
+
+
+y = 13;
+gotoxy(x, y++);
+printf("                    ");
+gotoxy(x, y++);
+printf("                    ");
+gotoxy(x, y++);
+printf("                    ");
+gotoxy(x, y++);
+printf("                         ");
+gotoxy(x, y++);
+printf("                         ");
+gotoxy(x, y++);
+printf("                         ");
+gotoxy(x, y++);
+printf("                         ");
+gotoxy(x, y++);
+printf("                         ");
+gotoxy(x, y++);
+printf("                         ");
+gotoxy(x, y++);
+printf("                         ");
+gotoxy(x, y++);
+printf("                         ");
+gotoxy(x, y++);
+printf("                         ");
+gotoxy(x, y++);
+printf("                         ");
+gotoxy(x, y++);
+printf("                    ");
+gotoxy(x, y++);
+printf("                    ");
+gotoxy(x, y++);
+printf("                    ");
+//system("cls");
+////printUser2(chStat);
+
+
+x += 2, y = 13;
+gotoxy(x, y++);
+printf("■■");
+gotoxy(x, y++);
+printf("■■");
+gotoxy(x, y++);
+printf("■■");
+gotoxy(x, y++);
+printf("");
+gotoxy(x, y++);
+printf("");
+gotoxy(x, y++);
+printf("");
+gotoxy(x, y++);
+printf("");
+gotoxy(x, y++);
+printf("");
+gotoxy(x, y++);
+printf("");
+gotoxy(x, y++);
+printf("");
+gotoxy(x, y++);
+printf("");
+gotoxy(x, y++);
+printf("");
+gotoxy(x, y++);
+printf("");
+gotoxy(x, y++);
+printf("■■");
+gotoxy(x, y++);
+printf("■■");
+gotoxy(x, y++);
+printf("■■");
+Sleep(speed);
+
+
+y = 13;
+gotoxy(x, y++);
+printf("                    ");
+gotoxy(x, y++);
+printf("                    ");
+gotoxy(x, y++);
+printf("                    ");
+gotoxy(x, y++);
+printf("                         ");
+gotoxy(x, y++);
+printf("                         ");
+gotoxy(x, y++);
+printf("                         ");
+gotoxy(x, y++);
+printf("                         ");
+gotoxy(x, y++);
+printf("                         ");
+gotoxy(x, y++);
+printf("                         ");
+gotoxy(x, y++);
+printf("                         ");
+gotoxy(x, y++);
+printf("                         ");
+gotoxy(x, y++);
+printf("                         ");
+gotoxy(x, y++);
+printf("                         ");
+gotoxy(x, y++);
+printf("                    ");
+gotoxy(x, y++);
+printf("                    ");
+gotoxy(x, y++);
+printf("                    ");
+//system("cls");
+////printUser2(chStat);
+
+
+x += 2, y = 13;
+gotoxy(x, y++);
+printf("■");
+gotoxy(x, y++);
+printf("■");
+gotoxy(x, y++);
+printf("■");
+gotoxy(x, y++);
+printf("");
+gotoxy(x, y++);
+printf("");
+gotoxy(x, y++);
+printf("");
+gotoxy(x, y++);
+printf("");
+gotoxy(x, y++);
+printf("");
+gotoxy(x, y++);
+printf("");
+gotoxy(x, y++);
+printf("");
+gotoxy(x, y++);
+printf("");
+gotoxy(x, y++);
+printf("");
+gotoxy(x, y++);
+printf("");
+gotoxy(x, y++);
+printf("■");
+gotoxy(x, y++);
+printf("■");
+gotoxy(x, y++);
+printf("■");
+Sleep(speed);
+
+
+y = 13;
+gotoxy(x, y++);
+printf("                    ");
+gotoxy(x, y++);
+printf("                    ");
+gotoxy(x, y++);
+printf("                    ");
+gotoxy(x, y++);
+printf("                         ");
+gotoxy(x, y++);
+printf("                         ");
+gotoxy(x, y++);
+printf("                         ");
+gotoxy(x, y++);
+printf("                         ");
+gotoxy(x, y++);
+printf("                         ");
+gotoxy(x, y++);
+printf("                         ");
+gotoxy(x, y++);
+printf("                         ");
+gotoxy(x, y++);
+printf("                         ");
+gotoxy(x, y++);
+printf("                         ");
+gotoxy(x, y++);
+printf("                         ");
+gotoxy(x, y++);
+printf("                    ");
+gotoxy(x, y++);
+printf("                    ");
+gotoxy(x, y++);
+printf("                    ");
+
+*/
+
+}//기공 1,2
+void baseAt2(MonStat *mon)
+{
+	
+	int x, y, speed, speed2;
+
+	x = 1, y = 13, speed = 9;
+
+
+	y = 13;
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("■");
+	gotoxy(x, y++);
+	printf("■");
+	gotoxy(x, y++);
+	printf("■");
+	gotoxy(x, y++);
+	printf("■");
+	gotoxy(x, y++);
+	printf("■");
+	gotoxy(x, y++);
+	printf("■");
+	gotoxy(x, y++);
+	printf("■");
+	gotoxy(x, y++);
+	printf("■");
+	gotoxy(x, y++);
+	printf("■");
+	gotoxy(x, y++);
+	printf("■");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	Sleep(speed);
+
+	system("cls");
+	printMon(mon);
+
+	y = 13;
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("■■");
+	gotoxy(x, y++);
+	printf("■■");
+	gotoxy(x, y++);
+	printf("■■");
+	gotoxy(x, y++);
+	printf("■■");
+	gotoxy(x, y++);
+	printf("■■");
+	gotoxy(x, y++);
+	printf("■■");
+	gotoxy(x, y++);
+	printf("■■");
+	gotoxy(x, y++);
+	printf("■■");
+	gotoxy(x, y++);
+	printf("■■");
+	gotoxy(x, y++);
+	printf("■■");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	Sleep(speed);
+
+	system("cls");
+	printMon(mon);
+
+	y = 13;
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("■■■");
+	gotoxy(x, y++);
+	printf("■■■");
+	gotoxy(x, y++);
+	printf("■■■");
+	gotoxy(x, y++);
+	printf("■■■");
+	gotoxy(x, y++);
+	printf("■■■");
+	gotoxy(x, y++);
+	printf("■■■");
+	gotoxy(x, y++);
+	printf("■■■");
+	gotoxy(x, y++);
+	printf("■■■");
+	gotoxy(x, y++);
+	printf("■■■");
+	gotoxy(x, y++);
+	printf("■■■");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	Sleep(speed);
+
+	system("cls");
+	printMon(mon);
+
+	y = 13;
+	gotoxy(x, y++);
+	printf("■");
+	gotoxy(x, y++);
+	printf("■");
+	gotoxy(x, y++);
+	printf("■");
+	gotoxy(x, y++);
+	printf(" ■■■");
+	gotoxy(x, y++);
+	printf(" ■■■");
+	gotoxy(x, y++);
+	printf(" ■■■");
+	gotoxy(x, y++);
+	printf(" ■■■");
+	gotoxy(x, y++);
+	printf(" ■■■");
+	gotoxy(x, y++);
+	printf(" ■■■");
+	gotoxy(x, y++);
+	printf(" ■■■");
+	gotoxy(x, y++);
+	printf(" ■■■");
+	gotoxy(x, y++);
+	printf(" ■■■");
+	gotoxy(x, y++);
+	printf(" ■■■");
+	gotoxy(x, y++);
+	printf("■");
+	gotoxy(x, y++);
+	printf("■");
+	gotoxy(x, y++);
+	printf("■");
+	Sleep(speed);
+
+	system("cls");
+	printMon(mon);	
+
+	y = 13;
+	gotoxy(x, y++);
+	printf("■■");
+	gotoxy(x, y++);
+	printf("■■");
+	gotoxy(x, y++);
+	printf("■■");
+	gotoxy(x, y++);
+	printf("   ■■■");
+	gotoxy(x, y++);
+	printf("   ■■■");
+	gotoxy(x, y++);
+	printf("   ■■■");
+	gotoxy(x, y++);
+	printf("   ■■■");
+	gotoxy(x, y++);
+	printf("   ■■■");
+	gotoxy(x, y++);
+	printf("   ■■■");
+	gotoxy(x, y++);
+	printf("   ■■■");
+	gotoxy(x, y++);
+	printf("   ■■■");
+	gotoxy(x, y++);
+	printf("   ■■■");
+	gotoxy(x, y++);
+	printf("   ■■■");
+	gotoxy(x, y++);
+	printf("■■");
+	gotoxy(x, y++);
+	printf("■■");
+	gotoxy(x, y++);
+	printf("■■");
+	Sleep(speed);
+
+	system("cls");
+	printMon(mon);	
+
+	y = 13;
+	gotoxy(x, y++);
+	printf("■■■");
+	gotoxy(x, y++);
+	printf("■■■");
+	gotoxy(x, y++);
+	printf("■■■");
+	gotoxy(x, y++);
+	printf("     ■■■");
+	gotoxy(x, y++);
+	printf("     ■■■");
+	gotoxy(x, y++);
+	printf("     ■■■");
+	gotoxy(x, y++);
+	printf("     ■■■");
+	gotoxy(x, y++);
+	printf("     ■■■");
+	gotoxy(x, y++);
+	printf("     ■■■");
+	gotoxy(x, y++);
+	printf("     ■■■");
+	gotoxy(x, y++);
+	printf("     ■■■");
+	gotoxy(x, y++);
+	printf("     ■■■");
+	gotoxy(x, y++);
+	printf("     ■■■");
+	gotoxy(x, y++);
+	printf("■■■");
+	gotoxy(x, y++);
+	printf("■■■");
+	gotoxy(x, y++);
+	printf("■■■");
+	Sleep(speed);
+
+	system("cls");
+	printMon(mon);	
+
+	y = 13;
+	gotoxy(x, y++);
+	printf("■■■■");
+	gotoxy(x, y++);
+	printf("■■■■");
+	gotoxy(x, y++);
+	printf("■■■■");
+	gotoxy(x, y++);
+	printf("       ■■■");
+	gotoxy(x, y++);
+	printf("       ■■■");
+	gotoxy(x, y++);
+	printf("       ■■■");
+	gotoxy(x, y++);
+	printf("       ■■■");
+	gotoxy(x, y++);
+	printf("       ■■■");
+	gotoxy(x, y++);
+	printf("       ■■■");
+	gotoxy(x, y++);
+	printf("       ■■■");
+	gotoxy(x, y++);
+	printf("       ■■■");
+	gotoxy(x, y++);
+	printf("       ■■■");
+	gotoxy(x, y++);
+	printf("       ■■■");
+	gotoxy(x, y++);
+	printf("■■■■");
+	gotoxy(x, y++);
+	printf("■■■■");
+	gotoxy(x, y++);
+	printf("■■■■");
+	Sleep(speed);
+
+	system("cls");
+	printMon(mon);
+
+	y = 13;
+	gotoxy(x, y++);
+	printf("■■■■■");
+	gotoxy(x, y++);
+	printf("■■■■■");
+	gotoxy(x, y++);
+	printf("■■■■■");
+	gotoxy(x, y++);
+	printf("         ■■■");
+	gotoxy(x, y++);
+	printf("         ■■■");
+	gotoxy(x, y++);
+	printf("         ■■■");
+	gotoxy(x, y++);
+	printf("         ■■■");
+	gotoxy(x, y++);
+	printf("         ■■■");
+	gotoxy(x, y++);
+	printf("         ■■■");
+	gotoxy(x, y++);
+	printf("         ■■■");
+	gotoxy(x, y++);
+	printf("         ■■■");
+	gotoxy(x, y++);
+	printf("         ■■■");
+	gotoxy(x, y++);
+	printf("         ■■■");
+	gotoxy(x, y++);
+	printf("■■■■■");
+	gotoxy(x, y++);
+	printf("■■■■■");
+	gotoxy(x, y++);
+	printf("■■■■■");
+	Sleep(speed);
+
+	system("cls");
+	printMon(mon);
+
+	y = 13;
+	gotoxy(x, y++);
+	printf("■■■■■■");
+	gotoxy(x, y++);
+	printf("■■■■■■");
+	gotoxy(x, y++);
+	printf("■■■■■■");
+	gotoxy(x, y++);
+	printf("           ■■■");
+	gotoxy(x, y++);
+	printf("           ■■■");
+	gotoxy(x, y++);
+	printf("           ■■■");
+	gotoxy(x, y++);
+	printf("           ■■■");
+	gotoxy(x, y++);
+	printf("           ■■■");
+	gotoxy(x, y++);
+	printf("           ■■■");
+	gotoxy(x, y++);
+	printf("           ■■■");
+	gotoxy(x, y++);
+	printf("           ■■■");
+	gotoxy(x, y++);
+	printf("           ■■■");
+	gotoxy(x, y++);
+	printf("           ■■■");
+	gotoxy(x, y++);
+	printf("■■■■■■");
+	gotoxy(x, y++);
+	printf("■■■■■■");
+	gotoxy(x, y++);
+	printf("■■■■■■");
+	Sleep(speed);
+
+	system("cls");
+	printMon(mon);
+
+	y = 13;
+	gotoxy(x, y++);
+	printf("■■■■■■■");
+	gotoxy(x, y++);
+	printf("■■■■■■■");
+	gotoxy(x, y++);
+	printf("■■■■■■■");
+	gotoxy(x, y++);
+	printf("             ■■■");
+	gotoxy(x, y++);
+	printf("             ■■■");
+	gotoxy(x, y++);
+	printf("             ■■■");
+	gotoxy(x, y++);
+	printf("             ■■■");
+	gotoxy(x, y++);
+	printf("             ■■■");
+	gotoxy(x, y++);
+	printf("             ■■■");
+	gotoxy(x, y++);
+	printf("             ■■■");
+	gotoxy(x, y++);
+	printf("             ■■■");
+	gotoxy(x, y++);
+	printf("             ■■■");
+	gotoxy(x, y++);
+	printf("             ■■■");
+	gotoxy(x, y++);
+	printf("■■■■■■■");
+	gotoxy(x, y++);
+	printf("■■■■■■■");
+	gotoxy(x, y++);
+	printf("■■■■■■■");
+	Sleep(speed);
+
+	system("cls");
+	printMon(mon);
+
+	y = 13;
+	gotoxy(x, y++);
+	printf("■■■■■■■■");
+	gotoxy(x, y++);
+	printf("■■■■■■■■");
+	gotoxy(x, y++);
+	printf("■■■■■■■■");
+	gotoxy(x, y++);
+	printf("               ■■■");
+	gotoxy(x, y++);
+	printf("               ■■■");
+	gotoxy(x, y++);
+	printf("               ■■■");
+	gotoxy(x, y++);
+	printf("               ■■■");
+	gotoxy(x, y++);
+	printf("               ■■■");
+	gotoxy(x, y++);
+	printf("               ■■■");
+	gotoxy(x, y++);
+	printf("               ■■■");
+	gotoxy(x, y++);
+	printf("               ■■■");
+	gotoxy(x, y++);
+	printf("               ■■■");
+	gotoxy(x, y++);
+	printf("               ■■■");
+	gotoxy(x, y++);
+	printf("■■■■■■■■");
+	gotoxy(x, y++);
+	printf("■■■■■■■■");
+	gotoxy(x, y++);
+	printf("■■■■■■■■");
+	Sleep(speed);
+
+	system("cls");
+	printMon(mon);
+
+	y = 13;
+	gotoxy(x, y++);
+	printf("■■■■■■■■■");
+	gotoxy(x, y++);
+	printf("■■■■■■■■■");
+	gotoxy(x, y++);
+	printf("■■■■■■■■■");
+	gotoxy(x, y++);
+	printf("                 ■■■");
+	gotoxy(x, y++);
+	printf("                 ■■■");
+	gotoxy(x, y++);
+	printf("                 ■■■");
+	gotoxy(x, y++);
+	printf("                 ■■■");
+	gotoxy(x, y++);
+	printf("                 ■■■");
+	gotoxy(x, y++);
+	printf("                 ■■■");
+	gotoxy(x, y++);
+	printf("                 ■■■");
+	gotoxy(x, y++);
+	printf("                 ■■■");
+	gotoxy(x, y++);
+	printf("                 ■■■");
+	gotoxy(x, y++);
+	printf("                 ■■■");
+	gotoxy(x, y++);
+	printf("■■■■■■■■■");
+	gotoxy(x, y++);
+	printf("■■■■■■■■■");
+	gotoxy(x, y++);
+	printf("■■■■■■■■■");
+	Sleep(speed);
+
+	system("cls");
+	printMon(mon);
+
+	y = 13;
+	gotoxy(x, y++);
+	printf("■■■■■■■■■■");
+	gotoxy(x, y++);
+	printf("■■■■■■■■■■");
+	gotoxy(x, y++);
+	printf("■■■■■■■■■■");
+	gotoxy(x, y++);
+	printf("                   ■■■");
+	gotoxy(x, y++);
+	printf("                   ■■■");
+	gotoxy(x, y++);
+	printf("                   ■■■");
+	gotoxy(x, y++);
+	printf("                   ■■■");
+	gotoxy(x, y++);
+	printf("                   ■■■");
+	gotoxy(x, y++);
+	printf("                   ■■■");
+	gotoxy(x, y++);
+	printf("                   ■■■");
+	gotoxy(x, y++);
+	printf("                   ■■■");
+	gotoxy(x, y++);
+	printf("                   ■■■");
+	gotoxy(x, y++);
+	printf("                   ■■■");
+	gotoxy(x, y++);
+	printf("■■■■■■■■■■");
+	gotoxy(x, y++);
+	printf("■■■■■■■■■■");
+	gotoxy(x, y++);
+	printf("■■■■■■■■■■");
+	Sleep(speed);
+
+	system("cls");
+	printMon(mon);
+
+	while (1)
+	{
+		x += 1;
+		y = 13;
+		gotoxy(x, y++);
+		printf("■■■■■■■■■■");
+		gotoxy(x, y++);
+		printf("■■■■■■■■■■");
+		gotoxy(x, y++);
+		printf("■■■■■■■■■■");
+		gotoxy(x, y++);
+		printf("                   ■■■");
+		gotoxy(x, y++);
+		printf("                   ■■■");
+		gotoxy(x, y++);
+		printf("                   ■■■");
+		gotoxy(x, y++);
+		printf("                   ■■■");
+		gotoxy(x, y++);
+		printf("                   ■■■");
+		gotoxy(x, y++);
+		printf("                   ■■■");
+		gotoxy(x, y++);
+		printf("                   ■■■");
+		gotoxy(x, y++);
+		printf("                   ■■■");
+		gotoxy(x, y++);
+		printf("                   ■■■");
+		gotoxy(x, y++);
+		printf("                   ■■■");
+		gotoxy(x, y++);
+		printf("■■■■■■■■■■");
+		gotoxy(x, y++);
+		printf("■■■■■■■■■■");
+		gotoxy(x, y++);
+		printf("■■■■■■■■■■");
+		Sleep(speed);
+
+
+		if (x == 46)
+			break;
+	}
+}
+
+
+//코로몬 스킬
+void skAt1_1_1(ChStat *chStat)
+{
+	int x = 32, y = 13, speed = 8;
+
+	gotoxy(38, 19);//기존의 인터페이스를 지움(공격 방어 도망)
+	printf("                           ");
+	gotoxy(75, 25);
+	printf("                 ");//기력의 기력을 지움
+	gotoxy(83, 25);
+	printf("                 ");//기력 바
+
+	while (1)
+	{
+		y = 13;
+
+		gotoxy(x, y++);
+		printf("■■■■■■■■■■");
+		gotoxy(x, y++);
+		printf("■■■■■■■■■■");
+		gotoxy(x, y++);
+		printf("■■■■■■■■■■");
+		gotoxy(x, y++);
+		printf("                   ■■■");
+		gotoxy(x, y++);
+		printf("         ■        ■■■");
+		gotoxy(x, y++);
+		printf("          ■       ■■■");
+		gotoxy(x, y++);
+		printf("     ■■■■      ■■■");
+		gotoxy(x, y++);
+		printf("          ■       ■■■");
+		gotoxy(x, y++);
+		printf("         ■        ■■■");
+		gotoxy(x, y++);
+		printf("                   ■■■");
+		gotoxy(x, y++);
+		printf("           ■■■■■■■");
+		gotoxy(x, y++);
+		printf("                   ■■■");
+		gotoxy(x, y++);
+		printf("                   ■■■");
+		gotoxy(x, y++);
+		printf("■■■■■■■■■■");
+		gotoxy(x, y++);
+		printf("■■■■■■■■■■");
+		gotoxy(x, y++);
+		printf("■■■■■■■■■■");
+		Sleep(speed);
+
+		x += 1;
+
+		if (x == 75)//화면의 끝
+			break;
+	}
+
+
+	x += 2, y = 13;
+	gotoxy(x, y++);
+	printf("■■■■■■■■■");
+	gotoxy(x, y++);
+	printf("■■■■■■■■■");
+	gotoxy(x, y++);
+	printf("■■■■■■■■■");
+	gotoxy(x, y++);
+	printf("                   ■■");
+	gotoxy(x, y++);
+	printf("         ■        ■■");
+	gotoxy(x, y++);
+	printf("          ■       ■■");
+	gotoxy(x, y++);
+	printf("     ■■■■      ■■");
+	gotoxy(x, y++);
+	printf("          ■       ■■");
+	gotoxy(x, y++);
+	printf("         ■        ■■");
+	gotoxy(x, y++);
+	printf("                   ■■");
+	gotoxy(x, y++);
+	printf("           ■■■■■■");
+	gotoxy(x, y++);
+	printf("                   ■■");
+	gotoxy(x, y++);
+	printf("                   ■■");
+	gotoxy(x, y++);
+	printf("■■■■■■■■■");
+	gotoxy(x, y++);
+	printf("■■■■■■■■■");
+	gotoxy(x, y++);
+	printf("■■■■■■■■■");
+	Sleep(speed);
+
+	system("cls");
+	printUser2(chStat);
+
+	x += 2;
+
+
+	y = 13;
+	gotoxy(x, y++);
+	printf("■■■■■■■■■");
+	gotoxy(x, y++);
+	printf("■■■■■■■■■");
+	gotoxy(x, y++);
+	printf("■■■■■■■■■");
+	gotoxy(x, y++);
+	printf("                   ■");
+	gotoxy(x, y++);
+	printf("         ■        ■");
+	gotoxy(x, y++);
+	printf("          ■       ■");
+	gotoxy(x, y++);
+	printf("     ■■■■      ■");
+	gotoxy(x, y++);
+	printf("          ■       ■");
+	gotoxy(x, y++);
+	printf("         ■        ■");
+	gotoxy(x, y++);
+	printf("                   ■");
+	gotoxy(x, y++);
+	printf("           ■■■■■");
+	gotoxy(x, y++);
+	printf("                   ■");
+	gotoxy(x, y++);
+	printf("                   ■");
+	gotoxy(x, y++);
+	printf("■■■■■■■■■");
+	gotoxy(x, y++);
+	printf("■■■■■■■■■");
+	gotoxy(x, y++);
+	printf("■■■■■■■■■");
+	Sleep(speed);
+
+	system("cls");
+	printUser2(chStat);
+	x += 3;
+
+
+
+	y = 13;
+	gotoxy(x, y++);
+	printf("■■■■■■■■■");
+	gotoxy(x, y++);
+	printf("■■■■■■■■■");
+	gotoxy(x, y++);
+	printf("■■■■■■■■■");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("         ■");
+	gotoxy(x, y++);
+	printf("          ■");
+	gotoxy(x, y++);
+	printf("     ■■■■");
+	gotoxy(x, y++);
+	printf("          ■");
+	gotoxy(x, y++);
+	printf("         ■");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("          ■■■■");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("■■■■■■■■■");
+	gotoxy(x, y++);
+	printf("■■■■■■■■■");
+	gotoxy(x, y++);
+	printf("■■■■■■■■■");
+	Sleep(speed);
+
+	system("cls");
+	printUser2(chStat);
+	x += 2;
+
+	y = 13;
+	gotoxy(x, y++);
+	printf("■■■■■■■■");
+	gotoxy(x, y++);
+	printf("■■■■■■■■");
+	gotoxy(x, y++);
+	printf("■■■■■■■■");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("         ■");
+	gotoxy(x, y++);
+	printf("          ■");
+	gotoxy(x, y++);
+	printf("     ■■■■");
+	gotoxy(x, y++);
+	printf("          ■");
+	gotoxy(x, y++);
+	printf("         ■");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("          ■■■");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("■■■■■■■■");
+	gotoxy(x, y++);
+	printf("■■■■■■■■");
+	gotoxy(x, y++);
+	printf("■■■■■■■■");
+	Sleep(speed);
+
+
+	system("cls");
+	printUser2(chStat);
+	x += 2;
+
+
+	y = 13;
+	gotoxy(x, y++);
+	printf("■■■■■■■");
+	gotoxy(x, y++);
+	printf("■■■■■■■");
+	gotoxy(x, y++);
+	printf("■■■■■■■");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("         ■");
+	gotoxy(x, y++);
+	printf("          ■");
+	gotoxy(x, y++);
+	printf("     ■■■■");
+	gotoxy(x, y++);
+	printf("          ■");
+	gotoxy(x, y++);
+	printf("         ■");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("          ■■");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("■■■■■■■");
+	gotoxy(x, y++);
+	printf("■■■■■■■");
+	gotoxy(x, y++);
+	printf("■■■■■■■");
+	Sleep(speed);
+
+
+	system("cls");
+	printUser2(chStat);
+	x += 2;
+
+	y = 13;
+	gotoxy(x, y++);
+	printf("■■■■■■");
+	gotoxy(x, y++);
+	printf("■■■■■■");
+	gotoxy(x, y++);
+	printf("■■■■■■");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("         ■");
+	gotoxy(x, y++);
+	printf("          ■");
+	gotoxy(x, y++);
+	printf("     ■■■■");
+	gotoxy(x, y++);
+	printf("          ■");
+	gotoxy(x, y++);
+	printf("         ■");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("          ■");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("■■■■■■");
+	gotoxy(x, y++);
+	printf("■■■■■■");
+	gotoxy(x, y++);
+	printf("■■■■■■");
+	Sleep(speed);
+
+	system("cls");
+	printUser2(chStat);
+	x += 2;
+
+
+
+	y = 13;
+	gotoxy(x, y++);
+	printf("■■■■■");
+	gotoxy(x, y++);
+	printf("■■■■■");
+	gotoxy(x, y++);
+	printf("■■■■■");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("         ■");
+	gotoxy(x, y++);
+	printf("          ");
+	gotoxy(x, y++);
+	printf("     ■■■");
+	gotoxy(x, y++);
+	printf("          ");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("■■■■■");
+	gotoxy(x, y++);
+	printf("■■■■■");
+	gotoxy(x, y++);
+	printf("■■■■■");
+	Sleep(speed);
+
+	system("cls");
+	printUser2(chStat);
+	x += 2;
+
+
+
+	y = 13;
+	gotoxy(x, y++);
+	printf("■■■■");
+	gotoxy(x, y++);
+	printf("■■■■");
+	gotoxy(x, y++);
+	printf("■■■■");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("     ■");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("■■■■");
+	gotoxy(x, y++);
+	printf("■■■■");
+	gotoxy(x, y++);
+	printf("■■■■");
+	Sleep(speed);
+
+	system("cls");
+	printUser2(chStat);
+	x += 2;
+
+
+	y = 13;
+	gotoxy(x, y++);
+	printf("■■■");
+	gotoxy(x, y++);
+	printf("■■■");
+	gotoxy(x, y++);
+	printf("■■■");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	gotoxy(x, y++);
+	printf("■■■");
+	gotoxy(x, y++);
+	printf("■■■");
+	gotoxy(x, y++);
+	printf("■■■");
+	Sleep(speed);
+
+	system("cls");
+	printUser2(chStat);
+	x += 2;
+
+
+	y = 13;
+	gotoxy(x, y++);
+	printf("■■");
+	gotoxy(x, y++);
+	printf("■■");
+	gotoxy(x, y++);
+	printf("■■");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("■■");
+	gotoxy(x, y++);
+	printf("■■");
+	gotoxy(x, y++);
+	printf("■■");
+	Sleep(speed);
+
+
+	system("cls");
+	printUser2(chStat);
+	x += 2;
+
+	y = 13;
+	gotoxy(x, y++);
+	printf("■");
+	gotoxy(x, y++);
+	printf("■");
+	gotoxy(x, y++);
+	printf("■");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("■");
+	gotoxy(x, y++);
+	printf("■");
+	gotoxy(x, y++);
+	printf("■");
+	Sleep(speed);
+
+	system("cls");
+	printUser2(chStat);
+}
+void skAt1_1_2(MonStat *mon)
+{
+
+	int x, y, speed, speed2;
+
+	x = 1, y = 13, speed = 8;
+
+
+	y = 13;
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("■");
+	gotoxy(x, y++);
+	printf("■");
+	gotoxy(x, y++);
+	printf("■");
+	gotoxy(x, y++);
+	printf("■");
+	gotoxy(x, y++);
+	printf("■");
+	gotoxy(x, y++);
+	printf("■");
+	gotoxy(x, y++);
+	printf("■");
+	gotoxy(x, y++);
+	printf("■");
+	gotoxy(x, y++);
+	printf("■");
+	gotoxy(x, y++);
+	printf("■");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	Sleep(speed);
+
+	system("cls");
+	printMon(mon);
+
+	y = 13;
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("■■");
+	gotoxy(x, y++);
+	printf("■■");
+	gotoxy(x, y++);
+	printf("■■");
+	gotoxy(x, y++);
+	printf("■■");
+	gotoxy(x, y++);
+	printf("■■");
+	gotoxy(x, y++);
+	printf("■■");
+	gotoxy(x, y++);
+	printf("■■");
+	gotoxy(x, y++);
+	printf("■■");
+	gotoxy(x, y++);
+	printf("■■");
+	gotoxy(x, y++);
+	printf("■■");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	Sleep(speed);
+
+	system("cls");
+	printMon(mon);
+
+	y = 13;
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("■■■");
+	gotoxy(x, y++);
+	printf("■■■");
+	gotoxy(x, y++);
+	printf("■■■");
+	gotoxy(x, y++);
+	printf("■■■");
+	gotoxy(x, y++);
+	printf("■■■");
+	gotoxy(x, y++);
+	printf("■■■");
+	gotoxy(x, y++);
+	printf("■■■");
+	gotoxy(x, y++);
+	printf("■■■");
+	gotoxy(x, y++);
+	printf("■■■");
+	gotoxy(x, y++);
+	printf("■■■");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	gotoxy(x, y++);
+	printf("");
+	Sleep(speed);
+
+	system("cls");
+	printMon(mon);
+
+	y = 13;
+	gotoxy(x, y++);
+	printf("■");
+	gotoxy(x, y++);
+	printf("■");
+	gotoxy(x, y++);
+	printf("■");
+	gotoxy(x, y++);
+	printf(" ■■■");
+	gotoxy(x, y++);
+	printf(" ■■■");
+	gotoxy(x, y++);
+	printf(" ■■■");
+	gotoxy(x, y++);
+	printf(" ■■■");
+	gotoxy(x, y++);
+	printf(" ■■■");
+	gotoxy(x, y++);
+	printf(" ■■■");
+	gotoxy(x, y++);
+	printf(" ■■■");
+	gotoxy(x, y++);
+	printf(" ■■■");
+	gotoxy(x, y++);
+	printf(" ■■■");
+	gotoxy(x, y++);
+	printf(" ■■■");
+	gotoxy(x, y++);
+	printf("■");
+	gotoxy(x, y++);
+	printf("■");
+	gotoxy(x, y++);
+	printf("■");
+	Sleep(speed);
+
+	system("cls");
+	printMon(mon);
+
+	y = 13;
+	gotoxy(x, y++);
+	printf("■■");
+	gotoxy(x, y++);
+	printf("■■");
+	gotoxy(x, y++);
+	printf("■■");
+	gotoxy(x, y++);
+	printf("   ■■■");
+	gotoxy(x, y++);
+	printf("   ■■■");
+	gotoxy(x, y++);
+	printf("   ■■■");
+	gotoxy(x, y++);
+	printf("   ■■■");
+	gotoxy(x, y++);
+	printf("   ■■■");
+	gotoxy(x, y++);
+	printf("   ■■■");
+	gotoxy(x, y++);
+	printf("   ■■■");
+	gotoxy(x, y++);
+	printf(" ■■■■");
+	gotoxy(x, y++);
+	printf("   ■■■");
+	gotoxy(x, y++);
+	printf("   ■■■");
+	gotoxy(x, y++);
+	printf("■■");
+	gotoxy(x, y++);
+	printf("■■");
+	gotoxy(x, y++);
+	printf("■■");
+	Sleep(speed);
+
+	system("cls");
+	printMon(mon);
+
+	y = 13;
+	gotoxy(x, y++);
+	printf("■■■");
+	gotoxy(x, y++);
+	printf("■■■");
+	gotoxy(x, y++);
+	printf("■■■");
+	gotoxy(x, y++);
+	printf("     ■■■");
+	gotoxy(x, y++);
+	printf("     ■■■");
+	gotoxy(x, y++);
+	printf("     ■■■");
+	gotoxy(x, y++);
+	printf("     ■■■");
+	gotoxy(x, y++);
+	printf("     ■■■");
+	gotoxy(x, y++);
+	printf("     ■■■");
+	gotoxy(x, y++);
+	printf("     ■■■");
+	gotoxy(x, y++);
+	printf(" ■■■■■");
+	gotoxy(x, y++);
+	printf("     ■■■");
+	gotoxy(x, y++);
+	printf("     ■■■");
+	gotoxy(x, y++);
+	printf("■■■");
+	gotoxy(x, y++);
+	printf("■■■");
+	gotoxy(x, y++);
+	printf("■■■");
+	Sleep(speed);
+
+	system("cls");
+	printMon(mon);
+
+	y = 13;
+	gotoxy(x, y++);
+	printf("■■■■");
+	gotoxy(x, y++);
+	printf("■■■■");
+	gotoxy(x, y++);
+	printf("■■■■");
+	gotoxy(x, y++);
+	printf("       ■■■");
+	gotoxy(x, y++);
+	printf("       ■■■");
+	gotoxy(x, y++);
+	printf("       ■■■");
+	gotoxy(x, y++);
+	printf("       ■■■");
+	gotoxy(x, y++);
+	printf("       ■■■");
+	gotoxy(x, y++);
+	printf("       ■■■");
+	gotoxy(x, y++);
+	printf("       ■■■");
+	gotoxy(x, y++);
+	printf(" ■■■■■■");
+	gotoxy(x, y++);
+	printf("       ■■■");
+	gotoxy(x, y++);
+	printf("       ■■■");
+	gotoxy(x, y++);
+	printf("■■■■");
+	gotoxy(x, y++);
+	printf("■■■■");
+	gotoxy(x, y++);
+	printf("■■■■");
+	Sleep(speed);
+
+	system("cls");
+	printMon(mon);
+
+	y = 13;
+	gotoxy(x, y++);
+	printf("■■■■■");
+	gotoxy(x, y++);
+	printf("■■■■■");
+	gotoxy(x, y++);
+	printf("■■■■■");
+	gotoxy(x, y++);
+	printf("         ■■■");
+	gotoxy(x, y++);
+	printf("         ■■■");
+	gotoxy(x, y++);
+	printf("■       ■■■");
+	gotoxy(x, y++);
+	printf(" ■      ■■■");
+	gotoxy(x, y++);
+	printf("■       ■■■");
+	gotoxy(x, y++);
+	printf("         ■■■");
+	gotoxy(x, y++);
+	printf("         ■■■");
+	gotoxy(x, y++);
+	printf(" ■■■■■■■");
+	gotoxy(x, y++);
+	printf("         ■■■");
+	gotoxy(x, y++);
+	printf("         ■■■");
+	gotoxy(x, y++);
+	printf("■■■■■");
+	gotoxy(x, y++);
+	printf("■■■■■");
+	gotoxy(x, y++);
+	printf("■■■■■");
+	Sleep(speed);
+
+	system("cls");
+	printMon(mon);
+
+	y = 13;
+	gotoxy(x, y++);
+	printf("■■■■■■");
+	gotoxy(x, y++);
+	printf("■■■■■■");
+	gotoxy(x, y++);
+	printf("■■■■■■");
+	gotoxy(x, y++);
+	printf("           ■■■");
+	gotoxy(x, y++);
+	printf(" ■        ■■■");
+	gotoxy(x, y++);
+	printf("  ■       ■■■");
+	gotoxy(x, y++);
+	printf(" ■■      ■■■");
+	gotoxy(x, y++);
+	printf("  ■       ■■■");
+	gotoxy(x, y++);
+	printf(" ■        ■■■");
+	gotoxy(x, y++);
+	printf("           ■■■");
+	gotoxy(x, y++);
+	printf("   ■■■■■■■");
+	gotoxy(x, y++);
+	printf("           ■■■");
+	gotoxy(x, y++);
+	printf("           ■■■");
+	gotoxy(x, y++);
+	printf("■■■■■■");
+	gotoxy(x, y++);
+	printf("■■■■■■");
+	gotoxy(x, y++);
+	printf("■■■■■■");
+	Sleep(speed);
+
+	system("cls");
+	printMon(mon);
+
+	y = 13;
+	gotoxy(x, y++);
+	printf("■■■■■■■");
+	gotoxy(x, y++);
+	printf("■■■■■■■");
+	gotoxy(x, y++);
+	printf("■■■■■■■");
+	gotoxy(x, y++);
+	printf("             ■■■");
+	gotoxy(x, y++);
+	printf("   ■        ■■■");
+	gotoxy(x, y++);
+	printf("    ■       ■■■");
+	gotoxy(x, y++);
+	printf(" ■■■      ■■■");
+	gotoxy(x, y++);
+	printf("    ■       ■■■");
+	gotoxy(x, y++);
+	printf("   ■        ■■■");
+	gotoxy(x, y++);
+	printf("             ■■■");
+	gotoxy(x, y++);
+	printf("     ■■■■■■■");
+	gotoxy(x, y++);
+	printf("             ■■■");
+	gotoxy(x, y++);
+	printf("             ■■■");
+	gotoxy(x, y++);
+	printf("■■■■■■■");
+	gotoxy(x, y++);
+	printf("■■■■■■■");
+	gotoxy(x, y++);
+	printf("■■■■■■■");
+	Sleep(speed);
+
+	system("cls");
+	printMon(mon);
+
+	y = 13;
+	gotoxy(x, y++);
+	printf("■■■■■■■■");
+	gotoxy(x, y++);
+	printf("■■■■■■■■");
+	gotoxy(x, y++);
+	printf("■■■■■■■■");
+	gotoxy(x, y++);
+	printf("               ■■■");
+	gotoxy(x, y++);
+	printf("     ■        ■■■");
+	gotoxy(x, y++);
+	printf("      ■       ■■■");
+	gotoxy(x, y++);
+	printf(" ■■■■      ■■■");
+	gotoxy(x, y++);
+	printf("      ■       ■■■");
+	gotoxy(x, y++);
+	printf("     ■        ■■■");
+	gotoxy(x, y++);
+	printf("               ■■■");
+	gotoxy(x, y++);
+	printf("       ■■■■■■■");
+	gotoxy(x, y++);
+	printf("               ■■■");
+	gotoxy(x, y++);
+	printf("               ■■■");
+	gotoxy(x, y++);
+	printf("■■■■■■■■");
+	gotoxy(x, y++);
+	printf("■■■■■■■■");
+	gotoxy(x, y++);
+	printf("■■■■■■■■");
+	Sleep(speed);
+
+	system("cls");
+	printMon(mon);
+
+	y = 13;
+	gotoxy(x, y++);
+	printf("■■■■■■■■■");
+	gotoxy(x, y++);
+	printf("■■■■■■■■■");
+	gotoxy(x, y++);
+	printf("■■■■■■■■■");
+	gotoxy(x, y++);
+	printf("                 ■■■");
+	gotoxy(x, y++);
+	printf("       ■        ■■■");
+	gotoxy(x, y++);
+	printf("        ■       ■■■");
+	gotoxy(x, y++);
+	printf("   ■■■■      ■■■");
+	gotoxy(x, y++);
+	printf("        ■       ■■■");
+	gotoxy(x, y++);
+	printf("       ■        ■■■");
+	gotoxy(x, y++);
+	printf("                 ■■■");
+	gotoxy(x, y++);
+	printf("         ■■■■■■■");
+	gotoxy(x, y++);
+	printf("                 ■■■");
+	gotoxy(x, y++);
+	printf("                 ■■■");
+	gotoxy(x, y++);
+	printf("■■■■■■■■■");
+	gotoxy(x, y++);
+	printf("■■■■■■■■■");
+	gotoxy(x, y++);
+	printf("■■■■■■■■■");
+	Sleep(speed);
+
+	system("cls");
+	printMon(mon);
+
+	y = 13;
+	gotoxy(x, y++);
+	printf("■■■■■■■■■■");
+	gotoxy(x, y++);
+	printf("■■■■■■■■■■");
+	gotoxy(x, y++);
+	printf("■■■■■■■■■■");
+	gotoxy(x, y++);
+	printf("                   ■■■");
+	gotoxy(x, y++);
+	printf("         ■        ■■■");
+	gotoxy(x, y++);
+	printf("          ■       ■■■");
+	gotoxy(x, y++);
+	printf("     ■■■■      ■■■");
+	gotoxy(x, y++);
+	printf("          ■       ■■■");
+	gotoxy(x, y++);
+	printf("         ■        ■■■");
+	gotoxy(x, y++);
+	printf("                   ■■■");
+	gotoxy(x, y++);
+	printf("           ■■■■■■■");
+	gotoxy(x, y++);
+	printf("                   ■■■");
+	gotoxy(x, y++);
+	printf("                   ■■■");
+	gotoxy(x, y++);
+	printf("■■■■■■■■■■");
+	gotoxy(x, y++);
+	printf("■■■■■■■■■■");
+	gotoxy(x, y++);
+	printf("■■■■■■■■■■");
+	Sleep(speed);
+
+	system("cls");
+	printMon(mon);
+
+	while (1)
+	{
+		x += 1;
+		y = 13;
+		gotoxy(x, y++);
+		printf("■■■■■■■■■■");
+		gotoxy(x, y++);
+		printf("■■■■■■■■■■");
+		gotoxy(x, y++);
+		printf("■■■■■■■■■■");
+		gotoxy(x, y++);
+		printf("                   ■■■");
+		gotoxy(x, y++);
+		printf("         ■        ■■■");
+		gotoxy(x, y++);
+		printf("          ■       ■■■");
+		gotoxy(x, y++);
+		printf("     ■■■■      ■■■");
+		gotoxy(x, y++);
+		printf("          ■       ■■■");
+		gotoxy(x, y++);
+		printf("         ■        ■■■");
+		gotoxy(x, y++);
+		printf("                   ■■■");
+		gotoxy(x, y++);
+		printf("           ■■■■■■■");
+		gotoxy(x, y++);
+		printf("                   ■■■");
+		gotoxy(x, y++);
+		printf("                   ■■■");
+		gotoxy(x, y++);
+		printf("■■■■■■■■■■");
+		gotoxy(x, y++);
+		printf("■■■■■■■■■■");
+		gotoxy(x, y++);
+		printf("■■■■■■■■■■");
+		Sleep(speed);
+
+		if (x == 46)
+			break;
+	}
+}
+
+//아구몬 스킬
+void skAt2_1_1(ChStat *chStat)
+{
+
+}
+void skAt2_1_2(MonStat *mon)
+{
+
+}
+
+void skAt2_2_1(ChStat *chStat)
+{
+
+}
+void skAt2_2_2(MonStat *mon)
+{
+
+}
+
+//그레이몬 스킬
+void skAt3_1_1(ChStat *chStat)
+{
+
+}
+void skAt3_1_2(MonStat *mon)
+{
+
+}
+
+void skAt3_2_1(ChStat *chStat)
+{
+
+}
+void skAt3_2_2(MonStat *mon)
+{
+
+}
+
+//메탈 그레이몬 스킬
+void skAt4_1_1(ChStat *chStat)
+{
+
+}
+void skAt4_1_2(MonStat *mon)
+{
+
+}
+
+void skAt4_2_1(ChStat *chStat)
+{
+
+}
+void skAt4_2_2(MonStat *mon)
+{
+
+}
+
+//워그레이몬 스킬
+void skAt5_1_1(ChStat *chStat)
+{
+
+}
+void skAt5_1_2(MonStat *mon)
+{
+
+}
+
+void skAt5_2_1(ChStat *chStat)
+{
+
+}
+void skAt5_2_2(MonStat *mon)
+{
+
+}
+
+//오메가몬 스킬
+void skAt6_1_1(ChStat *chStat)
+{
+
+}
+void skAt6_1_2(MonStat *mon)
+{
+
+}
+
+void skAt6_2_1(ChStat *chStat)
+{
+
+}
+void skAt6_2_2(MonStat *mon)
+{
+
 }
