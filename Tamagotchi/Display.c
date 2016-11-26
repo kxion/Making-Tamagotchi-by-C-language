@@ -5430,4 +5430,4 @@ void skAt6_2_1(ChStat *chStat)
 void skAt6_2_2(MonStat *mon)
 {
 
-}
+}//??
