@@ -13,6 +13,7 @@
 #include"Monster.h"
 
 int fight(ChStat *chStat, int monLv); // 몬스터 사냥
+int onlineFight(ChStat *myStat, ChStat *enemyStat);
 
 #endif // #ifndef FIGHT_H 종료
 

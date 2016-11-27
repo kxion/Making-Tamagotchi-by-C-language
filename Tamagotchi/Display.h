@@ -10,6 +10,7 @@
 */
 
 #include"Character.h"
+#include"Monster.h"
 
 void coyomon(); // 코요몬 이미지
 void agumon(); // 아구몬 이미지
@@ -20,7 +21,7 @@ void omegamon(); // 오메가몬 이미지
 
 void digimonDisplay(int lv);
 void enemyDisplay(int monLv);
-ChStat* skillDisplay(ChStat *chStat, int selectNum);
+ChStat* skillDisplay(ChStat *chStat, MonStat *mon, int selectNum);
 void skillDescription(ChStat *chStat);
 void printWin();//윈 이미지
 void printLose();//로즈 이미지
@@ -37,6 +38,40 @@ void enemy8(); // 적 8
 void enemy9(); // 적 9
 void enemy10(); // 적 10
 
+void damaged();
 
+void monAt1(MonStat *mon);
+void monAt2(ChStat *chStat);
+
+void baseAt1(ChStat *chStat);
+void baseAt2(MonStat *mon);
+
+void skAt1_1_1(ChStat *chStat);
+void skAt1_1_2(MonStat *mon);
+
+void skAt2_1_1(ChStat *chStat);
+void skAt2_1_2(MonStat *mon);
+void skAt2_2_1(ChStat *chStat);
+void skAt2_2_2(MonStat *mon);
+
+void skAt3_1_1(ChStat *chStat);
+void skAt3_1_2(MonStat *mon);
+void skAt3_2_1(ChStat *chStat);
+void skAt3_2_2(MonStat *mon);
+
+void skAt4_1_1(ChStat *chStat);
+void skAt4_1_2(MonStat *mon);
+void skAt4_2_1(ChStat *chStat);
+void skAt4_2_2(MonStat *mon);
+
+void skAt5_1_1(ChStat *chStat);
+void skAt5_1_2(MonStat *mon);
+void skAt5_2_1(ChStat *chStat);
+void skAt5_2_2(MonStat *mon);
+
+void skAt6_1_1(ChStat *chStat);
+void skAt6_1_2(MonStat *mon);
+void skAt6_2_1(ChStat *chStat);
+void skAt6_2_2(MonStat *mon);
 #endif // #ifndef DISPLAY_H 종료
 

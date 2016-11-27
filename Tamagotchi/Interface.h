@@ -24,15 +24,25 @@ typedef struct name {
 #define RIGHT 77 // 아스키값 선언
 #define LEFT 75 // 아스키값 선언
 
+
+
+
 void interfaceMain();
 int selectStart(); // 게임 초기 인터페이스 동작
 int selectMove(); // 게임상 메인 인터페이스 동작
 int selectAdventure(int lv); // 모험선택 인터페이스
-void fightInterface(ChStat *chStat, MonStat *mon); // 싸움시 인터페이스
+//void fightInterface(ChStat *chStat, MonStat *mon); // 싸움시 인터페이스
 int selectMotion(); // 공격, 스킬, 도망 인터페이스
 int selectSkill(ChStat* chStat); // 스킬 선택 인터페이스
 int selectSave(int lv);
 int selectLoad(ChStat *chStat);
+
+void printUser(ChStat *chStat);// 오프라인 대전시 유저 디스플레이 2016 11 25 한진오 수정
+void printUser2(ChStat *chStat);//기력 표시가 안되는, 디스플레이 
+void printMon(MonStat *mon);//오프라인 대전시 몬스터 디스플레이 2016 11 25 한진오 수정
+
+void printEnemy(ChStat *enemyStat);
+
 void menu(ChStat* chStat);
 void printTitle();
 void wait(); // 엔터 전까지 기다리는 함수

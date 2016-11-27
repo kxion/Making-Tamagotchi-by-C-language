@@ -22,12 +22,14 @@
 
 */
 
+
 void interfaceMain() {
 	int select = 0, save = 0;
 	const int x = 40, y = 15;
 	ChStat *chStat;
 
-	system("cls");
+	//system("color F");//출력문을 흰색으로 변경(옥색에서)
+
 	select = selectStart(); // 메인 인터페이스에서 선택
 
 	if (select == 1) {
@@ -73,8 +75,9 @@ void menu(ChStat* chStat) {
 		switch (number) {
 		case 1:
 			monLv = selectAdventure(chStat->lv);
-
+			
 			exp = fight(chStat, monLv);
+			if (exp < 0) exp = 0;
 			chStat->exp += exp;
 			addExp(chStat->exp);
 			chStat = levelUp(chStat->lv);
@@ -100,7 +103,6 @@ void menu(ChStat* chStat) {
 			break;
 		case 5:
 			digimonDisplay(chStat->lv);
-			showStat();
 			client(chStat);
 			system("cls");
 			break;
@@ -503,7 +505,7 @@ int selectMotion() {
 		int key = 1; // 초기화를 안하면 if문에서 에러가 나므로, 아무 값이나 초기화.
 
 		if (_kbhit()) // 키 입력 여부 확인 ->http://showmiso.tistory.com/8
-			key = _getch(); // 키를 입력 받음. 이하는 키에따른 처리 출처
+			key = _getch();	// 키를 입력 받음. 이하는 키에따른 처리 출처
 
 		if (key == LEFT) {
 			if (selectNum > 1) // selectNum이 1보다 클경우(1 이상)
@@ -515,11 +517,9 @@ int selectMotion() {
 				selectNum += 1;
 			else continue; // 아니면 계속 진행
 		}
-		else if (key == ENTER) { // 엔터의 아스키값. 엔터가 입력되었을시, 타이틀을 탈출. 및 selectNum에 해당하는 동작 수행
-								 //system("cls"); // 메뉴 겹침 방지
+		else if (key == ENTER) // 엔터의 아스키값. 엔터가 입력되었을시, 타이틀을 탈출. 및 selectNum에 해당하는 동작 수행
 			break;
-		}
-
+		
 		gotoxy(x, y);
 
 		switch (selectNum) {
@@ -858,6 +858,7 @@ void printTitle()
 		}
 	}
 }
+/*
 void fightInterface(ChStat *chStat, MonStat *mon) { // 싸움시 디스플레이
 	const int chX = 50, chY = 27, monX = 5, monY = 2; // hp바 위치 고정
 	int i = 0;
@@ -884,6 +885,75 @@ void fightInterface(ChStat *chStat, MonStat *mon) { // 싸움시 디스플레이
 	for (i = 1; i <= chStat->energy; i++)
 		printf("■");
 }
+*/
+void printUser(ChStat *chStat) { // 오프라인 대전시 유저 디스플레이 2016 11 25 한진오 수정
+	const int chX = 5, chY = 2; // hp바 위치 고정
+	int i = 0;
+
+
+	digimonDisplay(chStat->lv);
+
+	gotoxy(chX, chY);
+	printf("%s hp : ", chStat->digimon);
+
+	gotoxy(chX + 12, chY);
+	for (i = 1; i <= chStat->hp; i++) {
+		printf("l");
+		if (i == 50)
+			gotoxy(chX, chY + 1);
+	}
+
+
+	gotoxy(73, 26);
+	printf("기력 : ");
+	gotoxy(81, 26);
+	for (i = 1; i <= chStat->energy; i++)
+		printf("■");
+}
+void printUser2(ChStat *chStat) { // 기력 표시 안되는, 유저 디스플레이 2016 11 25 한진오 수정
+	const int chX = 5, chY = 2; // hp바 위치 고정
+	int i = 0;
+
+	digimonDisplay(chStat->lv);
+
+	gotoxy(chX, chY);
+	printf("%s hp : ", chStat->digimon);
+
+	gotoxy(chX + 12, chY);
+	for (i = 1; i <= chStat->hp; i++) {
+		printf("l");
+		if (i == 50)
+			gotoxy(chX, chY + 1);
+	}
+}
+void printMon(MonStat *mon)//오프라인 대전시 몬스터 디스플레이 2016 11 25 한진오 수정
+{
+	const int monX = 5, monY = 2;
+	int i = 0;
+
+	enemyDisplay(mon->lv);//**
+
+	gotoxy(monX, monY);//**
+	printf("몬스터 hp : ");
+	gotoxy(monX + 12, monY);
+	for (i = 1; i <= mon->hp; i++)
+		printf("l");//**
+
+}
+
+void printEnemy(ChStat *enemyStat) {
+	const int enemyX = 5, enemyY = 2;
+	int i = 0;
+
+	enemyDisplay(enemyStat->lv);//**
+
+	gotoxy(enemyX, enemyY);//**
+	printf("%s hp : ", enemyStat->name);
+	gotoxy(enemyX + 12, enemyY);
+	for (i = 1; i <= enemyStat->hp; i++)
+		printf("l");//**
+}
+
 void disappear() { // goto사용시 깜박이는 콘솔의 커서 제거, 참고문헌 http://tip.daum.net/question/39372106
 	HANDLE hConsole; // 콘솔 핸들
 	CONSOLE_CURSOR_INFO ConsoleCursor; // 콘솔커서 정보 구조체
