@@ -19,6 +19,7 @@ void ErrorHandling(char* msg);
 
 ChStat *myStat;
 char msg[BUF_SIZE];
+static int count = 0; // count가 1일 때 0일 때 기능 명시를 위한 static 선언
 
 void client(ChStat *chStat) {
 	WSADATA wsaData;
@@ -84,6 +85,11 @@ unsigned WINAPI SendMsg(void* arg) { // 전송용 쓰레드함수
 			myStat->energy, myStat->exp, myStat->money, myStat->attack, myStat->agility, myStat->health); // clientMsg에 메시지를 전달한다.
 		
 		send(sock, clientMsg, strlen(clientMsg), 0); // clientMsg를 서버에게 전송한다.
+
+		if (count == 1) { // recv함수 종료시 send도 종료
+			closesocket(sock);
+			break;
+		}
 	}
 	return 0;
 }
@@ -106,19 +112,14 @@ unsigned WINAPI RecvMsg(void* arg) {
 		if (strLen == -1)
 			return -1;
 		recvMsg[strLen] = 0; // 문자열의 끝을 알리기 위해 설정
-		if (!strcmp(recvMsg, "q")) {
-			printf("left the chat\n");
-			closesocket(sock);
-			exit(0);
-		}
+		
 		i = 0;
 		tokMsg = strtok(recvMsg, " "); // tok 참고문헌 http://huneyboy.blogspot.kr/2013/08/cstrtok.html
 		while (tokMsg != NULL) {
-			strcpy(stat[i++], tokMsg);
-			//printf("%s ", tokMsg);
+			strcpy(stat[i++], tokMsg); // tok를 사용하여, 서버에서 받아온 메세지 자르기
 			tokMsg = strtok(NULL, " ");
 		}
-		strcpy(buffer, stat[0]);
+		strcpy(buffer, stat[0]); // 맨처음 엔터 비워주기
 		strcpy(enemyStat->name, stat[1]); // 이름 저장
 		strcpy(enemyStat->condition, stat[2]); // 성장
 		strcpy(enemyStat->digimon, stat[3]); // 디지몬
@@ -131,9 +132,11 @@ unsigned WINAPI RecvMsg(void* arg) {
 		enemyStat->agility = atoi(&stat[10]); // 민첩
 		enemyStat->health = atoi(&stat[11]); // 건강
 
-		if (onlineFight(myStat, enemyStat)) {
+		if (onlineFight(myStat, enemyStat)) { // onlineFight이 1을 반환하면 종료
 			Sleep(1000);
-			menu(myStat);
+			count = 1;
+			closesocket(sock);
+			break;
 		}
 		digimonDisplay(myStat->lv);
 		gotoxy(x, y);
@@ -141,7 +144,7 @@ unsigned WINAPI RecvMsg(void* arg) {
 	}
 	return 0;
 }
-void ErrorHandling(char* msg) {
+void ErrorHandling(char* msg) { // 클라이언트와 서버 소켓연결 실패시
 	fputs(msg, stderr);
 	fputc('\n', stderr);
 	exit(1);

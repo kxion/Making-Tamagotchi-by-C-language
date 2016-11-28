@@ -11,8 +11,8 @@
 */
 #include"Character.h"
 
-void SaveGame(ChStat *chStat, int number);
-ChStat* LoadGame(ChStat *chStat, int number);
+void SaveGame(ChStat *chStat, int number); // 세이브
+ChStat* LoadGame(ChStat *chStat, int number); // 불러오기
 
 #endif // #ifndef CHARACTER_H 종료
 

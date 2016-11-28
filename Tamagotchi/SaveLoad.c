@@ -18,7 +18,7 @@ void SaveGame(ChStat *chStat, int number) {
 		case 3: fp = fopen("save3.txt", "wt"); break;
 	}
 	fprintf(fp, "%s %s %s %d %d %d %d %d %d %d %d", chStat->name, chStat->condition, chStat->digimon, chStat->lv, chStat->hp, chStat->energy,
-		chStat->exp, chStat->money, chStat->attack, chStat->health, chStat->agility);
+		chStat->exp, chStat->money, chStat->attack, chStat->health, chStat->agility); // 스텟들 저장
 	fclose(fp);
 }
 ChStat* LoadGame(ChStat *chStat, int number) {
@@ -40,10 +40,10 @@ ChStat* LoadGame(ChStat *chStat, int number) {
 			strcpy(chStat->condition, chStat->name);
 			strcpy(chStat->name, " ");
 			fscanf(fp, "%s %d %d %d %d %d %d %d %d", chStat->digimon, &chStat->lv, &chStat->hp, &chStat->energy, &chStat->exp, &chStat->money,
-			&chStat->attack, &chStat->health, &chStat->agility);
+			&chStat->attack, &chStat->health, &chStat->agility); // 스텟에 값 불러오기
 		}
 		else fscanf(fp, "%s %s %d %d %d %d %d %d %d %d", chStat->condition, chStat->digimon, &chStat->lv, &chStat->hp, &chStat->energy,
-			&chStat->exp, &chStat->money,&chStat->attack, &chStat->health, &chStat->agility);
+			&chStat->exp, &chStat->money,&chStat->attack, &chStat->health, &chStat->agility); // 스텟에 값 불러오기
 		fclose(fp);
 	}
 	return chStat;

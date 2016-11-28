@@ -19,10 +19,10 @@ void metalgreymon(); // 메탈그레이몬 이미지
 void wargraymon(); // 워그레이몬 이미지
 void omegamon(); // 오메가몬 이미지
 
-void digimonDisplay(int lv);
-void enemyDisplay(int monLv);
-ChStat* skillDisplay(ChStat *chStat, MonStat *mon, int selectNum);
-void skillDescription(ChStat *chStat);
+void digimonDisplay(int lv); // 디지몬 이미지
+void enemyDisplay(int monLv); // 적 이미지
+ChStat* skillDisplay(ChStat *chStat, MonStat *mon, int selectNum); // 스킬 선택
+void skillDescription(ChStat *chStat); // 디지몬명에 따른 스킬 선택
 void printWin();//윈 이미지
 void printLose();//로즈 이미지
 void printLvUp();//레벨업 이미지
@@ -50,6 +50,7 @@ void skAt1_1_1(ChStat *chStat);
 void skAt1_1_2(MonStat *mon);
 
 void onlineAttack(ChStat *enemyStat);
+void onlineAttack2(ChStat *chStat);
 
 void skAt2_1_1(ChStat *chStat);
 void skAt2_1_2(MonStat *mon);

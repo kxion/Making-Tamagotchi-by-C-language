@@ -11,17 +11,17 @@
 
 
 typedef struct chStat { // 캐릭터들 스텟
-	char name[20];
-	char condition[30];
-	char digimon[30];
-	int lv;
-	int attack;
-	int health;
-	int hp;
-	int agility;
-	int energy;
-	int exp;
-	int money;
+	char name[20]; // 이름
+	char condition[30]; // 성장
+	char digimon[30]; // 디지몬명
+	int lv; // 레벨
+	int attack; // 공격
+	int health; // 방어력
+	int hp; // 체력
+	int agility; // 크리티컬
+	int energy; // 기력
+	int exp; // 경험치
+	int money; // 돈
 }ChStat;
 
 ChStat* character(int lv); //  디지몬 레벨에 해당하는 스텟

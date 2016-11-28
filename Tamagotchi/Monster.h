@@ -10,11 +10,11 @@
 */
 
 typedef struct monStat { // 몬스터들 스텟
-	int lv;
-	int attack;
-	int sheild;
-	int hp;
-	int critical;
+	int lv; // 레벨
+	int attack; // 공격
+	int sheild; // 방어
+	int hp; // 체력
+	int critical; // 크리티컬
 }MonStat;
 
 MonStat* monster(int lv); // 몬스터 레벨에 맞는 스텟

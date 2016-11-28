@@ -27,9 +27,6 @@ int main(int argc, char **argv) {
 	int clientAddrSize;
 	HANDLE hThread;
 
-	//printf("Input port number : ");
-	//gets(port);
-
 	/*
 	if(argc!=2){
 	printf("Usage : %s <port>\n",argv[0]);

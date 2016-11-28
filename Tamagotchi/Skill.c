@@ -8,7 +8,9 @@
 
 #include"Skill.h"
 
-int coyomonSkill(int attack) {
+// 스킬데미지
+
+int coyomonSkill(int attack) { 
 	return attack + 1;
 }
 int agumonSkill_1(int attack) {

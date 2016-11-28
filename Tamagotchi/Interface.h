@@ -27,7 +27,7 @@ typedef struct name {
 
 
 
-void interfaceMain();
+void interfaceMain(); // 인터페이스
 int selectStart(); // 게임 초기 인터페이스 동작
 int selectMove(); // 게임상 메인 인터페이스 동작
 int selectAdventure(int lv); // 모험선택 인터페이스
@@ -46,10 +46,10 @@ void printUser(ChStat *chStat);// 오프라인 대전시 유저 디스플레이 2016 11 25 한�
 void printUser2(ChStat *chStat);//기력 표시가 안되는, 디스플레이 
 void printMon(MonStat *mon);//오프라인 대전시 몬스터 디스플레이 2016 11 25 한진오 수정
 
-void printEnemy(ChStat *enemyStat);
+void printEnemy(ChStat *enemyStat); // 온라인 이미지
 
-void menu(ChStat* chStat);
-void printTitle();
+void menu(ChStat* chStat); // 메뉴 인터페이스
+void printTitle();  // 다마고치 타이틀
 void wait(); // 엔터 전까지 기다리는 함수
 void disappear(); // goto사용시 깜박이는 콘솔의 커서 제거
 void gotoxy(int x, int y); // goto 함수 선언

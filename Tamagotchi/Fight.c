@@ -15,7 +15,7 @@
 
 #pragma warning(disable:4996) // warning C4996을 잡기 위한 코드, 참고문헌 http://blog.naver.com/PostView.nhn?blogId=sorkelf&logNo=40137167266
 
-int fight(ChStat *chStat, int monLv) {
+int fight(ChStat *chStat, int monLv) { // 2012244009 이대웅
 	const int x = 38, y = 23;
 	int chSelect = 0, money = 0, skSelect = 0, monHp = 0, chHp = 0, chAttack = 0, monAttack = 0, speed = 500;
 
@@ -25,37 +25,38 @@ int fight(ChStat *chStat, int monLv) {
 		time_h에서 unsigned int 데이터 손실 경고, 참고문헌 http://m.cafe.daum.net/dotax/D8UA/274782?q=D_LhkOVB62tSZesOix-5K71w00&
 	 */
 
-	MonStat *mon = monster(monLv);
+	MonStat *mon = monster(monLv); // 몬스터 스텟 설정
 
 	monHp = mon->hp; // hp 초기화
 	chHp = chStat->hp; // hp 초기화
 	chAttack = chStat->attack; // 공격값 초기화
-	monAttack = mon->attack;
+	monAttack = mon->attack; // 몬스터 공격값 초기화
 
 	while (mon->hp > 0 && chStat->hp > 0) { // 몬스터, 유저중 hp가 0이 되면 종료
 		
 		printUser(chStat);// 오프라인 대전시 유저 디스플레이 2016 11 25 한진오 수정
-		chSelect = selectMotion();
+
+		chSelect = selectMotion(); // 공격,스킬,도망 선택
 		
-		switch (chSelect) {
-		case 1:
-			baseAt1(chStat);
-			baseAt2(mon);
+		switch (chSelect) { 
+		case 1: 
+			baseAt1(chStat); // 모션
+			baseAt2(mon); // 모션
 			if (chStat->energy < 5)
-				chStat->energy = chStat->energy + 1;
+				chStat->energy = chStat->energy + 1; // 공격시 기력추가
 			break;
 		case 2:
-			skSelect = selectSkill(chStat);
-			chStat = skillDisplay(chStat, mon, skSelect);
+			skSelect = selectSkill(chStat); // 스킬 선택
+			chStat = skillDisplay(chStat, mon, skSelect); // 스킬데미지 반환
 			break;
 		case 3:
-			menu(chStat);
+			menu(chStat); // 돌아가기
 			break;
 		}
 		
 		gotoxy(x, y);
 		if (rand() % 100 < mon->sheild) { // 방어율보다 낮은 난수 발생시 방어 성공
-			system("cls");//공격모션 지움
+			system("cls"); // 공격모션 지움
 			printMon(mon);
 			gotoxy(x, y);
 			printf("몬스터 방어성공 !!!\n\n");
@@ -94,7 +95,7 @@ int fight(ChStat *chStat, int monLv) {
 				printf("데미지 : %2d", chStat->attack - mon->sheild);
 				Sleep(speed);
 				gotoxy(x, y);
-				printf("              ");//데미지 출력 초기화(한진오)
+				printf("              ");//데미지 출력 초기화
 			}
 		}
 
@@ -143,7 +144,7 @@ int fight(ChStat *chStat, int monLv) {
 				printf("데미지 : %2d", mon->attack - chStat->health);
 				Sleep(speed);
 				gotoxy(x, y);
-				printf("              ");//데미지 출력 초기화(한진오)
+				printf("              ");//데미지 출력 초기화
 			}
 		}
 
@@ -158,33 +159,30 @@ int fight(ChStat *chStat, int monLv) {
 		mon->attack = monAttack;
 	}
 
-	//chStat->attack = chAttack;
-	//mon->attack = monAttack;
-
 	if (mon->hp <= 0) {
-		printWin();//win 이미지
-		chStat->money += 500 * monLv;
-		mon->hp = monHp;
-		chStat->hp = chHp;
-		chStat->energy = 0;
+		printWin(); // win 이미지
+		chStat->money += 500 * monLv; // 몬스터 레벨이 비례하여 돈 획득
+		mon->hp = monHp; // hp 초기화
+		chStat->hp = chHp; // hp 초기화
+		chStat->energy = 0; // 기력 초기화
 		return 20 * monLv; // 몬스터 레벨에 알맞은 경험치 반환
 	}
 	else if (mon->hp < 0 && chStat->hp < 0) {
 		printf("무승부....\n");
-		mon->hp = monHp;
-		chStat->hp = chHp;
-		chStat->energy = 0;
+		mon->hp = monHp; // hp 초기화
+		chStat->hp = chHp; // hp 초기화
+		chStat->energy = 0; // 기력 초기화
 		return 0;
 	}
 	else {
-		printLose();//lose 이미지
-		mon->hp = monHp;
-		chStat->hp = chHp;
-		chStat->energy = 0;
+		printLose(); // lose 이미지
+		mon->hp = monHp; // hp 초기화
+		chStat->hp = chHp; // hp 초기화
+		chStat->energy = 0; // 기력 초기화
 		return -30 * monLv; // 몬스터 레벨에 알맞은 -경험치 반환
 	}
 }
-int onlineFight(ChStat *myStat, ChStat *enemyStat) {
+int onlineFight(ChStat *myStat, ChStat *enemyStat) { // 온라인 대전
 	const int x = 38, y = 23;
 	int mySelect = 0, money = 0, skSelect = 0, enemyHp = 0, myHp = 0, myAttack = 0, enemyAttack = 0, speed = 300;
 
@@ -197,41 +195,22 @@ int onlineFight(ChStat *myStat, ChStat *enemyStat) {
 	enemyHp = enemyStat->hp; // hp 초기화
 	myHp = myStat->hp; // hp 초기화
 	myAttack = myStat->attack; // 공격값 초기화
-	enemyAttack = enemyStat->attack;
+	enemyAttack = enemyStat->attack; // 적 공격력 초기화
 	
 	system("cls");
 
 	if (enemyStat->hp > 0 && myStat->hp > 0) { // 몬스터, 유저중 hp가 0이 되면 종료
 
 		printUser(myStat);// 오프라인 대전시 유저 디스플레이 2016 11 25 한진오 수정
-	/*	mySelect = selectMotion();
-
-		switch (mySelect) {
-		case 1:
-			baseAt1(myStat);
-			baseAt2(enemyStat);
-			if (myStat->energy < 5)
-				myStat->energy = myStat->energy + 1;
-			break;
-		case 2:
-			skSelect = selectSkill(myStat);
-			myStat = skillDisplay(myStat, enemyStat, skSelect);
-			break;
-		case 3: // 도망가면 클라이언트 아웃
-			//menu(chStat);
-			break;
-		}
-*/
-		baseAt1(myStat);
-		onlineAttack(enemyStat);
+		baseAt1(myStat); // 공격모션
+		onlineAttack(enemyStat); // 온라인에 해당하는 모션
 
 		if (myStat->energy < 5)
-			myStat->energy = myStat->energy + 1;
+			myStat->energy = myStat->energy + 1; // 기력이 5이하일 경우 기력 증가
 		
 		gotoxy(x, y);
 		if (rand() % 100 < enemyStat->health) { // 방어율보다 낮은 난수 발생시 방어 성공
 			system("cls");//공격모션 지움
-		//	digimonDisplay(enemyStat->lv);
 			printEnemy(enemyStat);
 
 			gotoxy(x, y);
@@ -246,8 +225,7 @@ int onlineFight(ChStat *myStat, ChStat *enemyStat) {
 
 				damaged();// 해골 모양 출력
 				system("cls");
-				//enemyDisplay(10);
-				printEnemy(enemyStat);
+				printEnemy(enemyStat); // 적 이미지
 				
 				gotoxy(x - 10, y);
 				printf("크리티컬 발생!!!\n\n");
@@ -264,7 +242,7 @@ int onlineFight(ChStat *myStat, ChStat *enemyStat) {
 
 				damaged();
 				system("cls");
-				printEnemy(enemyStat);
+				printEnemy(enemyStat); // 적 이미지
 				
 				gotoxy(x, y);
 				printf("데미지 : %2d", myStat->attack - enemyStat->health);
@@ -275,16 +253,12 @@ int onlineFight(ChStat *myStat, ChStat *enemyStat) {
 		}
 
 		Sleep(speed);
-
 		if (enemyStat->hp <= 0 && myStat->hp > 0) {
 			printWin();// win 이미지
-			enemyStat->hp = enemyHp;
-			myStat->hp = myHp;
-			myStat->energy = 0;
 			return 1; 
 		}
 		
-		monAt1(enemyStat); //2016 11 25 한진오 수정
+		enemyAt1(enemyStat); //2016 11 25 한진오 수정
 		system("cls");
 		printUser(myStat); // 오프라인 대전시 유저 디스플레이 2016 11 25 한진오 수정
 		monAt2(myStat);
@@ -338,23 +312,20 @@ int onlineFight(ChStat *myStat, ChStat *enemyStat) {
 			}
 		}
 		
-		myStat->energy;
 		if (myStat->energy < 5)
 			myStat->energy = myStat->energy + 1;
 		Sleep(speed);
 		system("cls");
 
-		myStat->attack = myAttack;
-		enemyStat->attack = enemyAttack;
-
-		return 0;
+		myStat->attack = myAttack; // 공격력 초기화
+		enemyStat->attack = enemyAttack; // 공격력 초기화
 	}
-		
 	if (enemyStat->hp <= 0 && myStat->hp <= 0) {
 		printf("무승부....\n");
-		enemyStat->hp = enemyHp;
-		myStat->hp = myHp;
-		myStat->energy = 0;
+		enemyStat->hp = enemyHp; // hp 초기화
+		myStat->hp = myHp; // hp 초기화
+		myStat->energy = 0; // 기력 초기화
 		return 1;
 	}
+	return 0;
 }

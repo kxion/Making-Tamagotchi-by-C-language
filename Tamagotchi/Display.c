@@ -5,9 +5,14 @@
 #include"Interface.h"
 #include"Skill.h"
 #include"Monster.h"
+/*
+2012244009 이대웅
+2012244063 한진오
 
+게임상 디스플레이에 필요한 코드들
+*/
 
-void coyomon() {
+void coyomon() { // 코요몬
 	gotoxy(2, 12);
 
 	printf("                 ■\n");
@@ -27,9 +32,9 @@ void coyomon() {
 	printf("     ■          ■■■    ■\n");
 	printf("     ■         ■■■■   ■\n");
 	printf("      ■                 ■\n");
-	printf("        ■■■■■■■■■\n"); // 18
+	printf("        ■■■■■■■■■\n");
 }
-void agumon() {
+void agumon() { // 아구몬
 	gotoxy(2, 12);
 
 	printf("          ■■■■■        	  \n");
@@ -48,9 +53,9 @@ void agumon() {
 	printf("   ■    ■       ■■■		  \n");
 	printf("   ■      ■■■■    ■■■	  \n");
 	printf(" ■ ■■   ■■  ■■  ■■  ■■  \n");
-	printf(" ■ ■■   ■■  ■■  ■■  ■■  \n"); // 17
+	printf(" ■ ■■   ■■  ■■  ■■  ■■  \n");
 }
-void greymon() {
+void greymon() { // 그레이몬
 	gotoxy(2, 10);
 
 	printf("   ■■■   ■■■■■\n");
@@ -72,9 +77,9 @@ void greymon() {
 	printf("  ■     ■         ■  ■■\n");
 	printf(" ■  ■  ■  ■■■■■   ■  ■\n");
 	printf(" ■ ■ ■■ ■■■■■   ■ ■\n");
-	printf(" ■■■■■     ■■■■■■\n"); // 20
+	printf(" ■■■■■     ■■■■■■\n");
 }
-void metalgreymon() {
+void metalgreymon() { // 메탈그레이몬
 	gotoxy(2, 10);
 
 	printf("   ■■■   ■■■■■\n");
@@ -98,7 +103,7 @@ void metalgreymon() {
 	printf(" ■ ■■■ ■   ■■■■■■■\n");
 	printf(" ■■■■■■    ■■■■■■\n");
 }
-void wargraymon() {
+void wargraymon() { // 워그레이몬
 	gotoxy(2, 10);
 
 	printf("  ■■    ■■■■■\n");
@@ -122,7 +127,7 @@ void wargraymon() {
 	printf(" ■ ■  ■ ■■■■■   ■ ■■\n");
 	printf(" ■■■■■      ■■■■■■■\n");
 }
-void omegamon() {
+void omegamon() { // 오메가몬
 	gotoxy(2, 10);
 
 	printf("    ■■              ■■\n");
@@ -147,7 +152,7 @@ void omegamon() {
 	printf("   ■■■■■  ■■■■■\n");
 }
 
-void digimonDisplay(int lv) {
+void digimonDisplay(int lv) { // lv에 따라 불러오는 디지몬 이미지 2012244009 이대웅
 	if (lv >= 1 && lv < 5)
 		coyomon();
 	else if (lv >= 5 && lv < 10)
@@ -160,7 +165,7 @@ void digimonDisplay(int lv) {
 		wargraymon();
 	else omegamon();
 }
-void enemyDisplay(int monLv) {
+void enemyDisplay(int monLv) { // 몬스터 레벨에 따른 몬스터 이미지 2012244009 이대웅
 	switch (monLv) {
 	case 1: enemy1(); break;
 	case 2: enemy2(); break;
@@ -174,16 +179,16 @@ void enemyDisplay(int monLv) {
 	case 10: enemy10(); break;
 	}
 }
-ChStat* skillDisplay(ChStat *chStat, MonStat *mon, int selectNum) {
+ChStat* skillDisplay(ChStat *chStat, MonStat *mon, int selectNum) { // 디지몬에 따라 각각 다른 스킬명들 2012244009 이대웅
 	const int x = 40, y = 23, speed = 1000;
 	gotoxy(x, y);
 
 	if (!strcmp(chStat->digimon, "코요몬")) {
 		if (chStat->energy >= 2) {
-			chStat->attack = coyomonSkill(chStat->attack);
-			chStat->energy = chStat->energy - 2;
-			skAt1_1_1(chStat);
-			skAt1_1_2(mon);
+			chStat->attack = coyomonSkill(chStat->attack); // 스킬데미지
+			chStat->energy = chStat->energy - 2; // 기력감소
+			skAt1_1_1(chStat); // 모션
+			skAt1_1_2(mon); // 모션
 		}
 		else {
 			gotoxy(40, 25);
@@ -193,17 +198,17 @@ ChStat* skillDisplay(ChStat *chStat, MonStat *mon, int selectNum) {
 			gotoxy(x, y + 2);
 			printf("기력부족으로 인한 기본공격 !!!");
 			Sleep(speed);
-			baseAt1(chStat);
-			baseAt2(mon);
+			baseAt1(chStat); // 모션
+			baseAt2(mon); // 모션
 		}
 	}
 
 	if(!strcmp(chStat->digimon, "아구몬")) {
 		if (selectNum == 1 && chStat->energy >= 2) {
-			chStat->attack = agumonSkill_1(chStat->attack);
-			chStat->energy = chStat->energy - 2;
-			skAt2_1_1(chStat);
-			skAt2_1_2(mon);
+			chStat->attack = agumonSkill_1(chStat->attack); // 스킬데미지
+			chStat->energy = chStat->energy - 2; // 기력감소
+			skAt2_1_1(chStat); // 모션
+			skAt2_1_2(mon); // 모션
 		}
 		else if (selectNum == 1 && chStat->energy < 2) {
 			gotoxy(40, 25);
@@ -213,14 +218,14 @@ ChStat* skillDisplay(ChStat *chStat, MonStat *mon, int selectNum) {
 			gotoxy(x, y + 2);
 			printf("기력부족으로 인한 기본공격 !!!");
 			Sleep(speed);
-			baseAt1(chStat);
-			baseAt2(mon);
+			baseAt1(chStat); // 모션
+			baseAt2(mon); // 모션
 		}
 		else if (selectNum == 2 && chStat->energy >= 4) {
-			chStat->attack = agumonSkill_2(chStat->attack);
-			chStat->energy = chStat->energy - 4;
-			skAt2_2_1(chStat);
-			skAt2_2_2(mon);
+			chStat->attack = agumonSkill_2(chStat->attack); // 스킬데미지
+			chStat->energy = chStat->energy - 4; // 기력감소
+			skAt2_2_1(chStat); // 모션
+			skAt2_2_2(mon); // 모션
 		}
 		else if (selectNum == 2 && chStat->energy < 4) {
 			gotoxy(40, 25);
@@ -230,16 +235,16 @@ ChStat* skillDisplay(ChStat *chStat, MonStat *mon, int selectNum) {
 			gotoxy(x, y + 2);
 			printf("기력부족으로 인한 기본공격 !!!");
 			Sleep(speed);
-			baseAt1(chStat);
-			baseAt2(mon);
+			baseAt1(chStat); // 모션
+			baseAt2(mon); // 모션
 		}
 	}
 	else if (!strcmp(chStat->digimon, "그레이몬")) {
 		if (selectNum == 1 && chStat->energy >= 2) {
-			chStat->attack = greymonSkill_1(chStat->attack);
-			chStat->energy = chStat->energy - 2;
-			skAt3_1_1(chStat);
-			skAt3_1_2(mon);
+			chStat->attack = greymonSkill_1(chStat->attack); // 스킬데미지
+			chStat->energy = chStat->energy - 2; // 기력감소
+			skAt3_1_1(chStat); // 모션
+			skAt3_1_2(mon); // 모션
 		}
 		else if(selectNum == 1 && chStat->energy < 2){
 			gotoxy(40, 25);
@@ -249,14 +254,14 @@ ChStat* skillDisplay(ChStat *chStat, MonStat *mon, int selectNum) {
 			gotoxy(x, y + 2);
 			printf("기력부족으로 인한 기본공격 !!!");
 			Sleep(speed);
-			baseAt1(chStat);
-			baseAt2(mon);
+			baseAt1(chStat); // 모션
+			baseAt2(mon); // 모션
 		}
 		else if (selectNum == 2 && chStat->energy >= 4) {
-			chStat->attack = greymonSkill_2(chStat->attack);
-			chStat->energy = chStat->energy - 4;
-			skAt3_2_1(chStat);
-			skAt3_2_2(mon);
+			chStat->attack = greymonSkill_2(chStat->attack); // 스킬데미지
+			chStat->energy = chStat->energy - 4; // 기력감소
+			skAt3_2_1(chStat); // 모션
+			skAt3_2_2(mon); // 모션
 		}
 		else if (selectNum == 2 && chStat->energy < 4){
 			gotoxy(40, 25);
@@ -266,16 +271,16 @@ ChStat* skillDisplay(ChStat *chStat, MonStat *mon, int selectNum) {
 			gotoxy(x, y + 2);
 			printf("기력부족으로 인한 기본공격 !!!");
 			Sleep(speed);
-			baseAt1(chStat);
-			baseAt2(mon);
+			baseAt1(chStat); // 모션
+			baseAt2(mon); // 모션
 		}
 	}
 	else if (!strcmp(chStat->digimon, "메탈그레이몬")) {
 		if (selectNum == 1 && chStat->energy >= 2) {
-			chStat->attack = metalGreymonSkill_1(chStat->attack);
-			chStat->energy = chStat->energy - 2;
-			skAt4_1_1(chStat);
-			skAt4_1_2(mon);
+			chStat->attack = metalGreymonSkill_1(chStat->attack); // 스킬데미지
+			chStat->energy = chStat->energy - 2; // 기력감소
+			skAt4_1_1(chStat); // 모션
+			skAt4_1_2(mon); // 모션
 		}
 		else if (selectNum == 1 && chStat->energy < 2) {
 			gotoxy(40, 25);
@@ -285,14 +290,14 @@ ChStat* skillDisplay(ChStat *chStat, MonStat *mon, int selectNum) {
 			gotoxy(x, y + 2);
 			printf("기력부족으로 인한 기본공격 !!!");
 			Sleep(speed);
-			baseAt1(chStat);
-			baseAt2(mon);
+			baseAt1(chStat); // 모션
+			baseAt2(mon); // 모션
 		}
 		else if (selectNum == 2 && chStat->energy >= 4) {
-			chStat->attack = metalGreymonSkill_2(chStat->attack);
-			chStat->energy = chStat->energy - 4;
-			skAt4_2_1(chStat);
-			skAt4_2_2(mon);
+			chStat->attack = metalGreymonSkill_2(chStat->attack); // 스킬데미지
+			chStat->energy = chStat->energy - 4; // 기력감소
+			skAt4_2_1(chStat); // 모션
+			skAt4_2_2(mon); // 모션
 		}
 		else if (selectNum == 2 && chStat->energy < 4) {
 			gotoxy(40, 25);
@@ -302,16 +307,16 @@ ChStat* skillDisplay(ChStat *chStat, MonStat *mon, int selectNum) {
 			gotoxy(x, y + 2);
 			printf("기력부족으로 인한 기본공격 !!!");
 			Sleep(speed);
-			baseAt1(chStat);
-			baseAt2(mon);
+			baseAt1(chStat); // 모션
+			baseAt2(mon); // 모션
 		}
 	}
 	else if (!strcmp(chStat->digimon, "워그레이몬")) {
 		if (selectNum == 1 && chStat->energy >= 2) {
-			chStat->attack = wargraymonSkill_1(chStat->attack);
-			chStat->energy = chStat->energy - 2;
-			skAt5_1_1(chStat);
-			skAt5_1_2(mon);
+			chStat->attack = wargraymonSkill_1(chStat->attack); // 스킬데미지
+			chStat->energy = chStat->energy - 2; // 기력감소
+			skAt5_1_1(chStat); // 모션
+			skAt5_1_2(mon); // 모션
 		}
 		else if (selectNum == 1 && chStat->energy < 2) {
 			gotoxy(40, 25);
@@ -321,14 +326,14 @@ ChStat* skillDisplay(ChStat *chStat, MonStat *mon, int selectNum) {
 			gotoxy(x, y + 2);
 			printf("기력부족으로 인한 기본공격 !!!");
 			Sleep(speed);
-			baseAt1(chStat);
-			baseAt2(mon);
+			baseAt1(chStat); // 모션
+			baseAt2(mon); // 모션
 		}
 		else if (selectNum == 2 && chStat->energy >= 4) {
-			chStat->attack = wargraymonSkill_2(chStat->attack);
-			chStat->energy = chStat->energy - 4;
-			skAt5_2_1(chStat);
-			skAt5_2_2(mon);
+			chStat->attack = wargraymonSkill_2(chStat->attack); // 스킬데미지
+			chStat->energy = chStat->energy - 4; // 기력감소
+			skAt5_2_1(chStat); // 모션
+			skAt5_2_2(mon); // 모션
 		}
 		else if (selectNum == 2 && chStat->energy < 4) {
 			gotoxy(40, 25);
@@ -338,16 +343,16 @@ ChStat* skillDisplay(ChStat *chStat, MonStat *mon, int selectNum) {
 			gotoxy(x, y + 2);
 			printf("기력부족으로 인한 기본공격 !!!");
 			Sleep(speed);
-			baseAt1(chStat);
-			baseAt2(mon);
+			baseAt1(chStat); // 모션
+			baseAt2(mon); // 모션
 		}
 	}
 	else if (!strcmp(chStat->digimon, "오메가몬")) {
 		if (selectNum == 1 && chStat->energy >= 2) {
-			chStat->attack = omegaMonSKill_1(chStat->attack);
-			chStat->energy = chStat->energy - 2;
-			skAt6_1_1(chStat);
-			skAt6_1_2(mon);
+			chStat->attack = omegaMonSKill_1(chStat->attack); // 스킬데미지
+			chStat->energy = chStat->energy - 2; // 기력감소
+			skAt6_1_1(chStat); // 모션
+			skAt6_1_2(mon); // 모션
 		}
 		else if (selectNum == 1 && chStat->energy < 2) {
 			gotoxy(40, 25);
@@ -357,14 +362,14 @@ ChStat* skillDisplay(ChStat *chStat, MonStat *mon, int selectNum) {
 			gotoxy(x, y + 2);
 			printf("기력부족으로 인한 기본공격 !!!");
 			Sleep(speed);
-			baseAt1(chStat);
-			baseAt2(mon);
+			baseAt1(chStat); // 모션
+			baseAt2(mon); // 모션
 		}
 		else if(selectNum == 2 && chStat->energy >= 4){
-			chStat->attack = omegaMonSKill_2(chStat->attack);
-			chStat->energy = chStat->energy - 4;
-			skAt6_2_1(chStat);
-			skAt6_2_2(mon);
+			chStat->attack = omegaMonSKill_2(chStat->attack); // 스킬데미지
+			chStat->energy = chStat->energy - 4; // 기력감소
+			skAt6_2_1(chStat); // 모션
+			skAt6_2_2(mon); // 모션
 		}
 		else if (selectNum == 2 && chStat->energy < 4) {
 			gotoxy(40, 25);
@@ -374,13 +379,13 @@ ChStat* skillDisplay(ChStat *chStat, MonStat *mon, int selectNum) {
 			gotoxy(x, y + 2);
 			printf("기력부족으로 인한 기본공격 !!!");
 			Sleep(speed);
-			baseAt1(chStat);
-			baseAt2(mon);
+			baseAt1(chStat); // 모션
+			baseAt2(mon); // 모션
 		}
 	}
 	return chStat;
 }
-void skillDescription(ChStat *chStat) {
+void skillDescription(ChStat *chStat) { // 디지몬명에 따른 스킬 선택 2012244009 이대웅
 	const int x = 60, y = 10;
 	int selectNum = 1;
 
@@ -482,7 +487,7 @@ void skillDescription(ChStat *chStat) {
 		}
 	}
 }
-void printWin(){
+void printWin(){ // 승리시
 	int x = 20, y = 4;
 	gotoxy(x, y++);
 	printf("$bcccccccccccccccccccccccccccccccccccccccccccccccccccccccccccbB\n");
@@ -533,7 +538,7 @@ void printWin(){
 
 	Sleep(1000);
 }
-void printLose() {
+void printLose() { // 패배시
 	int x = 20, y = 4;
 	gotoxy(x, y++);
 	printf("@############################################################@\n");
@@ -584,7 +589,7 @@ void printLose() {
 
 	Sleep(1000);
 }
-void printLvUp() {
+void printLvUp() { // 승리시
 	int x = 20, y = 1;
 	gotoxy(x, y++);
 	printf("@************************************************************@\n");
@@ -648,7 +653,7 @@ void printLvUp() {
 	Sleep(1000);
 }
 
-void enemy1()
+void enemy1() // 2012244063 한진오 디자인, 2012244009 이대웅 위치선언
 {
 	int x = 70, y = 13;
 	gotoxy(x,y);
@@ -686,7 +691,7 @@ void enemy1()
 	gotoxy(x, y+16);
 	printf("     ■■   ■■■■   ■■\n");
 }
-void enemy2() {
+void enemy2() {  // 2012244063 한진오 디자인, 2012244009 이대웅 위치선언
 	int x = 70, y = 14;
 
 	gotoxy(x, y);
@@ -724,7 +729,7 @@ void enemy2() {
 	gotoxy(x, y+16);
 	printf("     ■■■■■■■■■\n");
 }
-void enemy3() {
+void enemy3() { // 2012244063 한진오 디자인, 2012244009 이대웅 위치선언
 	int x = 70, y = 10;
 
 	gotoxy(x, y);
@@ -768,7 +773,7 @@ void enemy3() {
 	gotoxy(x, y + 19);
 	printf("    ■■■■■■■■■■\n");
 }
-void enemy4() {
+void enemy4() { // 2012244063 한진오 디자인, 2012244009 이대웅 위치선언
 	int x = 70, y = 10;
 
 	gotoxy(x, y );
@@ -812,7 +817,7 @@ void enemy4() {
 	gotoxy(x, y + 19);
 	printf("    ■■■■  ■■■■■\n");
 }
-void enemy5() {
+void enemy5() { // 2012244063 한진오 디자인, 2012244009 이대웅 위치선언
 	int x = 70, y = 11;
 
 	gotoxy(x, y++);
@@ -854,7 +859,7 @@ void enemy5() {
 	gotoxy(x, y++);
 	printf("           ■■■■■■■\n");
 }
-void enemy6() {
+void enemy6() { // 2012244063 한진오 디자인, 2012244009 이대웅 위치선언
 	int x = 70, y = 11;
 
 	gotoxy(x, y++);
@@ -896,7 +901,7 @@ void enemy6() {
 	gotoxy(x, y++);
 	printf("  ■■■■■    ■■■■■■\n");
 }
-void enemy7(){
+void enemy7(){ // 2012244063 한진오 디자인, 2012244009 이대웅 위치선언
 	int x = 70, y = 11;
 
 	gotoxy(x, y++);
@@ -938,7 +943,7 @@ void enemy7(){
 	gotoxy(x, y++);
 	printf("    ■■■■■  ■■■■■\n");
 }
-void enemy8() {
+void enemy8() { // 2012244063 한진오 디자인, 2012244009 이대웅 위치선언
 	int x = 70, y = 11;
 
 	gotoxy(x, y++);
@@ -980,7 +985,7 @@ void enemy8() {
 	gotoxy(x, y++);
 	printf("  ■■■■■  ■■■■■■\n");
 }
-void enemy9() {
+void enemy9() { // 2012244063 한진오 디자인, 2012244009 이대웅 위치선언
 	int x = 70, y = 11;
 
 	gotoxy(x, y++);
@@ -1022,7 +1027,7 @@ void enemy9() {
 	gotoxy(x, y++);
 	printf("     ■■■■■■■■\n");
 }
-void enemy10(){
+void enemy10(){ // 2012244063 한진오 디자인, 2012244009 이대웅 위치선언
 	int x = 70, y = 11;
 
 	gotoxy(x, y++);
@@ -1064,6 +1069,7 @@ void enemy10(){
 	gotoxy(x, y++);
 	printf("  ■■■■■  ■■■■■■\n");
 }
+// 공격을 맞을 시
 void damaged()
 {
 	int x, y, speed, i;
@@ -1200,7 +1206,6 @@ void damaged()
 		i += 1;
 	}
 }
-
 //몬스터 공격
 void monAt1(MonStat *mon)
 {
@@ -3667,7 +3672,6 @@ void baseAt1(ChStat *chStat)
 }//기공 1,2
 void baseAt2(MonStat *mon)
 {
-
 	int x = 1, y = 13, speed = 8;
 	
 	gotoxy(x, y++);
@@ -4207,7 +4211,521 @@ void baseAt2(MonStat *mon)
 	}
 }
 
-void onlineAttack(ChStat *enemyStat) {
+void enemyAt1(ChStat *enemyStat) { // 온라인 대전시 적 이미지 및 모션 2012244009 이대웅
+		int x, y, speed;
+		x = 46, y = 13, speed = 8;
+
+		system("cls");
+		printEnemy(enemyStat);
+		while (1)
+		{
+			gotoxy(x, y++);
+			printf("     ■■■■■■■■■■");
+			gotoxy(x, y++);
+			printf("     ■■■■■■■■■■");
+			gotoxy(x, y++);
+			printf("     ■■■■■■■■■■");
+			gotoxy(x, y++);
+			printf("■■■                   ");
+			gotoxy(x, y++);
+			printf("■■■                   ");
+			gotoxy(x, y++);
+			printf("■■■                   ");
+			gotoxy(x, y++);
+			printf("■■■                   ");
+			gotoxy(x, y++);
+			printf("■■■                   ");
+			gotoxy(x, y++);
+			printf("■■■                   ");
+			gotoxy(x, y++);
+			printf("■■■                   ");
+			gotoxy(x, y++);
+			printf("■■■                   ");
+			gotoxy(x, y++);
+			printf("■■■                   ");
+			gotoxy(x, y++);
+			printf("■■■                   ");
+			gotoxy(x, y++);
+			printf("     ■■■■■■■■■■");
+			gotoxy(x, y++);
+			printf("     ■■■■■■■■■■");
+			gotoxy(x, y++);
+			printf("     ■■■■■■■■■■");
+
+			x -= 1, y = 13;
+			Sleep(speed);
+
+			if (x == 0)
+				break;
+		}
+
+		system("cls");
+		printEnemy(enemyStat);
+
+		x = 1;
+		y = 13;
+		gotoxy(x, y++);
+		printf("   ■■■■■■■■■■");
+		gotoxy(x, y++);
+		printf("   ■■■■■■■■■■");
+		gotoxy(x, y++);
+		printf("   ■■■■■■■■■■");
+		gotoxy(x, y++);
+		printf("■■                   ");
+		gotoxy(x, y++);
+		printf("■■                   ");
+		gotoxy(x, y++);
+		printf("■■                   ");
+		gotoxy(x, y++);
+		printf("■■                   ");
+		gotoxy(x, y++);
+		printf("■■                   ");
+		gotoxy(x, y++);
+		printf("■■                   ");
+		gotoxy(x, y++);
+		printf("■■                   ");
+		gotoxy(x, y++);
+		printf("■■                   ");
+		gotoxy(x, y++);
+		printf("■■                   ");
+		gotoxy(x, y++);
+		printf("■■                   ");
+		gotoxy(x, y++);
+		printf("   ■■■■■■■■■■");
+		gotoxy(x, y++);
+		printf("   ■■■■■■■■■■");
+		gotoxy(x, y++);
+		printf("   ■■■■■■■■■■");
+
+		Sleep(speed);
+		system("cls");
+		printEnemy(enemyStat);
+
+		y = 13;
+		gotoxy(x, y++);
+		printf(" ■■■■■■■■■■");
+		gotoxy(x, y++);
+		printf(" ■■■■■■■■■■");
+		gotoxy(x, y++);
+		printf(" ■■■■■■■■■■");
+		gotoxy(x, y++);
+		printf("■                   ");
+		gotoxy(x, y++);
+		printf("■                   ");
+		gotoxy(x, y++);
+		printf("■                   ");
+		gotoxy(x, y++);
+		printf("■                   ");
+		gotoxy(x, y++);
+		printf("■                   ");
+		gotoxy(x, y++);
+		printf("■                   ");
+		gotoxy(x, y++);
+		printf("■                   ");
+		gotoxy(x, y++);
+		printf("■                   ");
+		gotoxy(x, y++);
+		printf("■                   ");
+		gotoxy(x, y++);
+		printf("■                   ");
+		gotoxy(x, y++);
+		printf(" ■■■■■■■■■■");
+		gotoxy(x, y++);
+		printf(" ■■■■■■■■■■");
+		gotoxy(x, y++);
+		printf(" ■■■■■■■■■■");
+
+		Sleep(speed);
+		system("cls");
+		printEnemy(enemyStat);
+
+
+		y = 13;
+		gotoxy(x, y++);
+		printf("■■■■■■■■■■");
+		gotoxy(x, y++);
+		printf("■■■■■■■■■■");
+		gotoxy(x, y++);
+		printf("■■■■■■■■■■");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("■■■■■■■■■■");
+		gotoxy(x, y++);
+		printf("■■■■■■■■■■");
+		gotoxy(x, y++);
+		printf("■■■■■■■■■■");
+
+
+		Sleep(speed);
+		system("cls");
+		printEnemy(enemyStat);
+
+
+		y = 13;
+		gotoxy(x, y++);
+		printf("■■■■■■■■■");
+		gotoxy(x, y++);
+		printf("■■■■■■■■■");
+		gotoxy(x, y++);
+		printf("■■■■■■■■■");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("■■■■■■■■■");
+		gotoxy(x, y++);
+		printf("■■■■■■■■■");
+		gotoxy(x, y++);
+		printf("■■■■■■■■■");
+
+
+		Sleep(speed);
+		system("cls");
+		printEnemy(enemyStat);
+
+
+		y = 13;
+		gotoxy(x, y++);
+		printf("■■■■■■■■");
+		gotoxy(x, y++);
+		printf("■■■■■■■■");
+		gotoxy(x, y++);
+		printf("■■■■■■■■");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("■■■■■■■■");
+		gotoxy(x, y++);
+		printf("■■■■■■■■");
+		gotoxy(x, y++);
+		printf("■■■■■■■■");
+
+
+		Sleep(speed);
+		system("cls");
+		printEnemy(enemyStat);
+
+		y = 13;
+		gotoxy(x, y++);
+		printf("■■■■■■■");
+		gotoxy(x, y++);
+		printf("■■■■■■■");
+		gotoxy(x, y++);
+		printf("■■■■■■■");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("■■■■■■■");
+		gotoxy(x, y++);
+		printf("■■■■■■■");
+		gotoxy(x, y++);
+		printf("■■■■■■■");
+
+		Sleep(speed);
+		system("cls");
+		printEnemy(enemyStat);
+
+		y = 13;
+		gotoxy(x, y++);
+		printf("■■■■■■");
+		gotoxy(x, y++);
+		printf("■■■■■■");
+		gotoxy(x, y++);
+		printf("■■■■■■");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("■■■■■■");
+		gotoxy(x, y++);
+		printf("■■■■■■");
+		gotoxy(x, y++);
+		printf("■■■■■■");
+
+		Sleep(speed);
+		system("cls");
+		printEnemy(enemyStat);
+
+		y = 13;
+		gotoxy(x, y++);
+		printf("■■■■■");
+		gotoxy(x, y++);
+		printf("■■■■■");
+		gotoxy(x, y++);
+		printf("■■■■■");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("■■■■■");
+		gotoxy(x, y++);
+		printf("■■■■■");
+		gotoxy(x, y++);
+		printf("■■■■■");
+
+		Sleep(speed);
+		system("cls");
+		printEnemy(enemyStat);
+
+		y = 13;
+		gotoxy(x, y++);
+		printf("■■■■");
+		gotoxy(x, y++);
+		printf("■■■■");
+		gotoxy(x, y++);
+		printf("■■■■");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("■■■■");
+		gotoxy(x, y++);
+		printf("■■■■");
+		gotoxy(x, y++);
+		printf("■■■■");
+
+		Sleep(speed);
+		system("cls");
+		printEnemy(enemyStat);
+
+		y = 13;
+		gotoxy(x, y++);
+		printf("■■■");
+		gotoxy(x, y++);
+		printf("■■■");
+		gotoxy(x, y++);
+		printf("■■■");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("■■■");
+		gotoxy(x, y++);
+		printf("■■■");
+		gotoxy(x, y++);
+		printf("■■■");
+
+		Sleep(speed);
+		system("cls");
+		printEnemy(enemyStat);
+
+		y = 13;
+		gotoxy(x, y++);
+		printf("■■");
+		gotoxy(x, y++);
+		printf("■■");
+		gotoxy(x, y++);
+		printf("■■");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("■■");
+		gotoxy(x, y++);
+		printf("■■");
+		gotoxy(x, y++);
+		printf("■■");
+
+		Sleep(speed);
+		system("cls");
+		printEnemy(enemyStat);
+
+		y = 13;
+		gotoxy(x, y++);
+		printf("■");
+		gotoxy(x, y++);
+		printf("■");
+		gotoxy(x, y++);
+		printf("■");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("■");
+		gotoxy(x, y++);
+		printf("■");
+		gotoxy(x, y++);
+		printf("■");
+
+		Sleep(speed);
+		system("cls");
+		printEnemy(enemyStat);
+}
+void onlineAttack(ChStat *enemyStat) { // 온라인 대전시 적 이미지 및 모션 2012244009 이대웅
 		int x = 1, y = 13, speed = 8;
 
 		gotoxy(x, y++);
@@ -4744,6 +5262,520 @@ void onlineAttack(ChStat *enemyStat) {
 			if (x == 46)
 				break;
 		}
+}
+void onlineAttack2(ChStat *chStat) { // 온라인 대전시 자기자신 이미지 및 모션 2012244009 이대웅
+		int x = 46, y = 13, speed = 8;
+		x = 46, y = 13, speed = 8;
+
+		system("cls");
+		
+		while (1)
+		{
+			gotoxy(x, y++);
+			printf("     ■■■■■■■■■■");
+			gotoxy(x, y++);
+			printf("     ■■■■■■■■■■");
+			gotoxy(x, y++);
+			printf("     ■■■■■■■■■■");
+			gotoxy(x, y++);
+			printf("■■■                   ");
+			gotoxy(x, y++);
+			printf("■■■                   ");
+			gotoxy(x, y++);
+			printf("■■■                   ");
+			gotoxy(x, y++);
+			printf("■■■                   ");
+			gotoxy(x, y++);
+			printf("■■■                   ");
+			gotoxy(x, y++);
+			printf("■■■                   ");
+			gotoxy(x, y++);
+			printf("■■■                   ");
+			gotoxy(x, y++);
+			printf("■■■                   ");
+			gotoxy(x, y++);
+			printf("■■■                   ");
+			gotoxy(x, y++);
+			printf("■■■                   ");
+			gotoxy(x, y++);
+			printf("     ■■■■■■■■■■");
+			gotoxy(x, y++);
+			printf("     ■■■■■■■■■■");
+			gotoxy(x, y++);
+			printf("     ■■■■■■■■■■");
+
+			x -= 1, y = 13;
+			Sleep(speed);
+
+			if (x == 0)
+				break;
+		}
+
+		system("cls");
+		digimonDisplay(chStat->lv);
+
+		x = 1;
+		y = 13;
+		gotoxy(x, y++);
+		printf("   ■■■■■■■■■■");
+		gotoxy(x, y++);
+		printf("   ■■■■■■■■■■");
+		gotoxy(x, y++);
+		printf("   ■■■■■■■■■■");
+		gotoxy(x, y++);
+		printf("■■                   ");
+		gotoxy(x, y++);
+		printf("■■                   ");
+		gotoxy(x, y++);
+		printf("■■                   ");
+		gotoxy(x, y++);
+		printf("■■                   ");
+		gotoxy(x, y++);
+		printf("■■                   ");
+		gotoxy(x, y++);
+		printf("■■                   ");
+		gotoxy(x, y++);
+		printf("■■                   ");
+		gotoxy(x, y++);
+		printf("■■                   ");
+		gotoxy(x, y++);
+		printf("■■                   ");
+		gotoxy(x, y++);
+		printf("■■                   ");
+		gotoxy(x, y++);
+		printf("   ■■■■■■■■■■");
+		gotoxy(x, y++);
+		printf("   ■■■■■■■■■■");
+		gotoxy(x, y++);
+		printf("   ■■■■■■■■■■");
+
+		Sleep(speed);
+		system("cls");
+		digimonDisplay(chStat->lv);
+
+		y = 13;
+		gotoxy(x, y++);
+		printf(" ■■■■■■■■■■");
+		gotoxy(x, y++);
+		printf(" ■■■■■■■■■■");
+		gotoxy(x, y++);
+		printf(" ■■■■■■■■■■");
+		gotoxy(x, y++);
+		printf("■                   ");
+		gotoxy(x, y++);
+		printf("■                   ");
+		gotoxy(x, y++);
+		printf("■                   ");
+		gotoxy(x, y++);
+		printf("■                   ");
+		gotoxy(x, y++);
+		printf("■                   ");
+		gotoxy(x, y++);
+		printf("■                   ");
+		gotoxy(x, y++);
+		printf("■                   ");
+		gotoxy(x, y++);
+		printf("■                   ");
+		gotoxy(x, y++);
+		printf("■                   ");
+		gotoxy(x, y++);
+		printf("■                   ");
+		gotoxy(x, y++);
+		printf(" ■■■■■■■■■■");
+		gotoxy(x, y++);
+		printf(" ■■■■■■■■■■");
+		gotoxy(x, y++);
+		printf(" ■■■■■■■■■■");
+
+		Sleep(speed);
+		system("cls");
+		digimonDisplay(chStat->lv);
+
+
+		y = 13;
+		gotoxy(x, y++);
+		printf("■■■■■■■■■■");
+		gotoxy(x, y++);
+		printf("■■■■■■■■■■");
+		gotoxy(x, y++);
+		printf("■■■■■■■■■■");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("■■■■■■■■■■");
+		gotoxy(x, y++);
+		printf("■■■■■■■■■■");
+		gotoxy(x, y++);
+		printf("■■■■■■■■■■");
+
+
+		Sleep(speed);
+		system("cls");
+		digimonDisplay(chStat->lv);
+
+
+		y = 13;
+		gotoxy(x, y++);
+		printf("■■■■■■■■■");
+		gotoxy(x, y++);
+		printf("■■■■■■■■■");
+		gotoxy(x, y++);
+		printf("■■■■■■■■■");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("■■■■■■■■■");
+		gotoxy(x, y++);
+		printf("■■■■■■■■■");
+		gotoxy(x, y++);
+		printf("■■■■■■■■■");
+
+
+		Sleep(speed);
+		system("cls");
+		digimonDisplay(chStat->lv);
+
+
+		y = 13;
+		gotoxy(x, y++);
+		printf("■■■■■■■■");
+		gotoxy(x, y++);
+		printf("■■■■■■■■");
+		gotoxy(x, y++);
+		printf("■■■■■■■■");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("■■■■■■■■");
+		gotoxy(x, y++);
+		printf("■■■■■■■■");
+		gotoxy(x, y++);
+		printf("■■■■■■■■");
+
+
+		Sleep(speed);
+		system("cls");
+		digimonDisplay(chStat->lv);
+
+		y = 13;
+		gotoxy(x, y++);
+		printf("■■■■■■■");
+		gotoxy(x, y++);
+		printf("■■■■■■■");
+		gotoxy(x, y++);
+		printf("■■■■■■■");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("■■■■■■■");
+		gotoxy(x, y++);
+		printf("■■■■■■■");
+		gotoxy(x, y++);
+		printf("■■■■■■■");
+
+		Sleep(speed);
+		system("cls");
+		digimonDisplay(chStat->lv);
+
+		y = 13;
+		gotoxy(x, y++);
+		printf("■■■■■■");
+		gotoxy(x, y++);
+		printf("■■■■■■");
+		gotoxy(x, y++);
+		printf("■■■■■■");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("■■■■■■");
+		gotoxy(x, y++);
+		printf("■■■■■■");
+		gotoxy(x, y++);
+		printf("■■■■■■");
+
+		Sleep(speed);
+		system("cls");
+		digimonDisplay(chStat->lv);
+
+		y = 13;
+		gotoxy(x, y++);
+		printf("■■■■■");
+		gotoxy(x, y++);
+		printf("■■■■■");
+		gotoxy(x, y++);
+		printf("■■■■■");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("■■■■■");
+		gotoxy(x, y++);
+		printf("■■■■■");
+		gotoxy(x, y++);
+		printf("■■■■■");
+
+		Sleep(speed);
+		system("cls");
+		digimonDisplay(chStat->lv);
+
+		y = 13;
+		gotoxy(x, y++);
+		printf("■■■■");
+		gotoxy(x, y++);
+		printf("■■■■");
+		gotoxy(x, y++);
+		printf("■■■■");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("■■■■");
+		gotoxy(x, y++);
+		printf("■■■■");
+		gotoxy(x, y++);
+		printf("■■■■");
+
+		Sleep(speed);
+		system("cls");
+		digimonDisplay(chStat->lv);
+
+		y = 13;
+		gotoxy(x, y++);
+		printf("■■■");
+		gotoxy(x, y++);
+		printf("■■■");
+		gotoxy(x, y++);
+		printf("■■■");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("■■■");
+		gotoxy(x, y++);
+		printf("■■■");
+		gotoxy(x, y++);
+		printf("■■■");
+
+		Sleep(speed);
+		system("cls");
+		digimonDisplay(chStat->lv);
+
+		y = 13;
+		gotoxy(x, y++);
+		printf("■■");
+		gotoxy(x, y++);
+		printf("■■");
+		gotoxy(x, y++);
+		printf("■■");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("■■");
+		gotoxy(x, y++);
+		printf("■■");
+		gotoxy(x, y++);
+		printf("■■");
+
+		Sleep(speed);
+		system("cls");
+		digimonDisplay(chStat->lv);
+
+		y = 13;
+		gotoxy(x, y++);
+		printf("■");
+		gotoxy(x, y++);
+		printf("■");
+		gotoxy(x, y++);
+		printf("■");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("                   ");
+		gotoxy(x, y++);
+		printf("■");
+		gotoxy(x, y++);
+		printf("■");
+		gotoxy(x, y++);
+		printf("■");
+
+		Sleep(speed);
+		system("cls");
+		digimonDisplay(chStat->lv);
 }
 //코로몬 스킬
 void skAt1_1_1(ChStat *chStat)

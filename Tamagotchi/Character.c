@@ -14,6 +14,7 @@
 #include"Character.h"
 #include"Interface.h"
 #include"BinaryTree.h"
+#include"Display.h"
 
 ChStat chStat; // 캐릭터 스텟을 저장할 구조체 변수
 ChStat *pChStat = &chStat; // 캐릭터 포인터 구조체 변수
@@ -27,8 +28,8 @@ ChStat* character(int lv) { // 캐릭터 레벨에 해당하는 스텟
 	chStat.agility = 0 + lv; // 크리티컬 확률
 	chStat.energy = 0; // 게이지 0으로 초기화
 	
-	hp = chStat.hp;
-	exp = chStat.lv * 50;
+	hp = chStat.hp; // hp 저장
+	exp = chStat.lv * 50; // 경험치량 
 
 	return pChStat;
 }
@@ -40,22 +41,30 @@ void delExp(int exp) { // 사냥 실패시 경험치 손실
 }
 ChStat* levelUp(int lv) { // 렙업 유무 확인
 	TreeNode *name;
+	int i = 0;
 
 	if (chStat.exp >= lv * 1) {
 		printLvUp();
+		for (i = 0; i < 3; i++) { // 렙업 임팩트
+			system("cls");
+			Sleep(500);
+			digimonDisplay(lv);
+			Sleep(500);
+		}
+		
 		++lv;
 		chStat.exp = 0;
-		name = searchName(lv);
-		strcpy(pChStat->condition, name->name);
-		strcpy(pChStat->digimon, name->digimon);
-		character(lv);
+		name = searchName(lv); // 성장,디지몬명 찾기
+		strcpy(pChStat->condition, name->name); // 찾은 성장 스텟에 저장
+		strcpy(pChStat->digimon, name->digimon); // 찾은 디지몬명 스텟에 저장
+		character(lv); // 캐릭터 불러오기
 	}
 	else if (lv == 30) // 최대레벨 10으로 설정
 		lv = 30;
 
 	return pChStat;
 }
-void showStat() {
+void showStat() { // 대략적인 스텟창
 	const int x = 35, y = 18;
 
 	gotoxy(x, y);
@@ -82,7 +91,7 @@ void showStat() {
 	gotoxy(x, y + 7);
 	printf("소지금 : %d", chStat.money);
 }
-void showAllStat() {
+void showAllStat() { // 세부적인 스텟창
 	const int x = 50, y = 13, i = 1;
 
 	gotoxy(x+5, y);

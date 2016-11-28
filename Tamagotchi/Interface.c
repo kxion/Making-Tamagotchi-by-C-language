@@ -22,8 +22,7 @@
 
 */
 
-
-void interfaceMain() {
+void interfaceMain() { // 2012244009 이대웅
 	int select = 0, save = 0;
 	const int x = 40, y = 15;
 	ChStat *chStat;
@@ -37,7 +36,7 @@ void interfaceMain() {
 		gotoxy(x, y);
 		printf("닉네임을 입력하세요 : ");
 		gotoxy(x + 25, y);
-		fgets(chStat->name, 20, stdin); // 이름제한
+		fgets(chStat->name, 20, stdin); // 이름 길이제한
 
 		strcpy(chStat->condition, "유년기");
 		strcpy(chStat->digimon, "코요몬");
@@ -47,10 +46,11 @@ void interfaceMain() {
 
 	else if (select == 2) { // 이어하기시 불러오기
 		chStat = character(1); // 초기화
-		save = selectLoad(chStat);
-		chStat = LoadGame(chStat, save);
-		if (!chStat->agility) {
+		save = selectLoad(chStat); // 몇번 슬롯 불러올것인지 파악
+		chStat = LoadGame(chStat, save); // 해당슬롯 불러오기
+		if (!chStat->agility) { // 빈슬롯일 시
 			wait();
+			system("cls");
 			interfaceMain();
 			wait();
 		}
@@ -60,57 +60,59 @@ void interfaceMain() {
 		}
 	}
 }
-void menu(ChStat* chStat) {
-	int monLv = 0, number = 0, exp = 0, save = 0;
+void menu(ChStat* chStat) { // 2012244009 이대웅
+	int monLv = 0, number = 0, exp = 0, save = 0, hp = 0;
 	const int x = 35, y = 15;
 
 	system("cls");
 
 	while (1) {
-		digimonDisplay(chStat->lv);
-		showStat();
+		digimonDisplay(chStat->lv); // 디지몬 이미지
+		showStat(); // 스텟
 
-		number = selectMove();
+		number = selectMove(); // 모험, 대전등 인터페이스 설정
 
 		switch (number) {
 		case 1:
-			monLv = selectAdventure(chStat->lv);
+			monLv = selectAdventure(chStat->lv); // 모험선택
 			
-			exp = fight(chStat, monLv);
+			exp = fight(chStat, monLv); // 대전
 			if (exp < 0) exp = 0;
 			chStat->exp += exp;
 			addExp(chStat->exp);
-			chStat = levelUp(chStat->lv);
+			chStat = levelUp(chStat->lv); // 렙업
 
 			Sleep(1000);
 			system("cls");
 			break;
 		case 2:
-			save = selectSave(chStat->lv);
-			SaveGame(chStat, save);
+			save = selectSave(chStat->lv); // 세이브슬롯 선택
+			SaveGame(chStat, save); // 세이브
 			break;
 		case 3:
 			digimonDisplay(chStat->lv);
 			showStat();
-			skillDescription(chStat);
+			skillDescription(chStat); // 스킬설명
 			system("cls");
 			break;
 		case 4:
 			digimonDisplay(chStat->lv);
-			showAllStat();
+			showAllStat(); // 세부적 스텟 
 			wait();
 			system("cls");
 			break;
 		case 5:
+			hp = chStat->hp;
 			digimonDisplay(chStat->lv);
-			client(chStat);
+			client(chStat); // 온라인 대전
+			chStat->hp = hp;
 			system("cls");
 			break;
 		case 6:
-			printf("종료되었습니다\n");
+			printf("종료되었습니다\n"); // 종료
 			exit(0);
 		case 7:
-			save = selectLoad(chStat);
+			save = selectLoad(chStat); // 불러오기
 			chStat = LoadGame(chStat, save);
 			if (!chStat->agility) {
 				wait();
@@ -120,7 +122,7 @@ void menu(ChStat* chStat) {
 		}
 	}
 }
-int selectStart() { // 게임 초기 인터페이스 동작
+int selectStart() { // 게임 초기 인터페이스 동작  2012244009 이대웅
 	const int x = 45, y = 15; // 임의의 좌표;
 	int selectNum = 1;
 
@@ -162,13 +164,12 @@ int selectStart() { // 게임 초기 인터페이스 동작
 	}
 	return selectNum;
 }
-int selectMove(){ // 게임상 메인 인터페이스 동작
+int selectMove(){ // 게임상 메인 인터페이스 동작  2012244009 이대웅
 	const int x = 60, y = 10;
 	int selectNum = 1;
 	
 	while (1) {
 		int key = 1; // 초기화를 안하면 if문에서 에러가 나므로, 아무 값이나 초기화.
-
 		if (_kbhit()) // 키 입력 여부 확인 ->http://showmiso.tistory.com/8
 			key = _getch(); // 키를 입력 받음. 이하는 키에따른 처리 출처
 
@@ -178,7 +179,7 @@ int selectMove(){ // 게임상 메인 인터페이스 동작
 			else continue; // 아니면 계속 진행
 		}
 		else if (key == DOWN) { // 아래 80
-			if (selectNum <= 4) // selectNUm이 4,5,6보다 작은 경우
+			if (selectNum <= 4)  // selectNUm이 4,5,6보다 작은 경우
 				selectNum += 3;
 			else continue; // 아니면 계속 진행
 		}
@@ -253,7 +254,7 @@ int selectMove(){ // 게임상 메인 인터페이스 동작
 	}
 	return selectNum;
 }
-int selectAdventure(int lv) { // 모험선택 인터페이스, 이대웅 추가
+int selectAdventure(int lv) { // 모험선택 인터페이스, 2012244009 이대웅 
 	digimonDisplay(lv);
 	showStat();
 	int selectNum = 1;
@@ -497,7 +498,7 @@ int selectAdventure(int lv) { // 모험선택 인터페이스, 이대웅 추가
 	}
 	return selectNum;
 }
-int selectMotion() {
+int selectMotion() { // 2012244009 이대웅
 	int selectNum = 1; //selectNum 초기화
 	const int x = 38, y = 19;
 	
@@ -536,7 +537,7 @@ int selectMotion() {
 	}
 	return selectNum;
 }
-int selectSkill(ChStat *chStat) { // 스킬 선택 인터페이스, 이대웅 추가
+int selectSkill(ChStat *chStat) { // 스킬 선택 인터페이스,  2012244009 이대웅
 	int selectNum = 1;
 	const int x = 40, y = 25;
 
@@ -618,7 +619,7 @@ int selectSkill(ChStat *chStat) { // 스킬 선택 인터페이스, 이대웅 추가
 	}
 	return selectNum;
 }
-int selectSave(int lv) {
+int selectSave(int lv) { // 2012244009 이대웅
 	digimonDisplay(lv);
 	showStat();
 	
@@ -674,7 +675,7 @@ int selectSave(int lv) {
 
 		switch (selectNum) {
 		case 1:
-			printf("▶ %s 슬롯", name->name1);
+			printf("▶ %s 슬롯", name->name1); // 본인 캐릭터의 이름 출력
 			gotoxy(x, ++y + 1);
 			printf("   %s 슬롯", name->name2);
 			gotoxy(x, ++y + 2);
@@ -698,11 +699,11 @@ int selectSave(int lv) {
 	}
 	int count1 = 1, count2 = 1, count3 = 1;
 
-	if (!strcmp(name->name1, "빈")) count1--;
+	if (!strcmp(name->name1, "빈")) count1--; // 빈슬롯일 시 0으로 감소
 	if (!strcmp(name->name2, "빈")) count2--;
 	if (!strcmp(name->name3, "빈")) count3--;
 
-	if (count1) fclose(fp1);
+	if (count1) fclose(fp1); // 빈슬롯이 아니라면 close
 	if (count2) fclose(fp2);
 	if (count3) fclose(fp3);
 
@@ -710,7 +711,7 @@ int selectSave(int lv) {
 
 	return selectNum;
 }
-int selectLoad(ChStat *chStat) {
+int selectLoad(ChStat *chStat) { // 2012244009 이대웅
 	int selectNum = 1;
 	Name *name = (Name*)malloc(sizeof(Name)); // 구조체포인터 동적으로 할당
 	FILE *fp1 = fopen("save1.txt", "rt");
@@ -764,7 +765,7 @@ int selectLoad(ChStat *chStat) {
 
 		switch (selectNum) {
 		case 1:
-			printf("▶ %s 슬롯", name->name1);
+			printf("▶ %s 슬롯", name->name1); // 캐릭터의 이름 출력
 			gotoxy(x, ++y + 1);
 			printf("   %s 슬롯", name->name2);
 			gotoxy(x, ++y + 2);
@@ -788,11 +789,11 @@ int selectLoad(ChStat *chStat) {
 	}
 	int count1 = 1, count2 = 1, count3 = 1;
 
-	if (!strcmp(name->name1, "빈")) count1--;
+	if (!strcmp(name->name1, "빈")) count1--; // 빈 슬롯일 시 0으로 감소
 	if (!strcmp(name->name2, "빈")) count2--;
 	if (!strcmp(name->name3, "빈")) count3--;
 
-	if (count1) fclose(fp1);
+	if (count1) fclose(fp1); // 빈슬롯이 아니라면 close
 	if (count2) fclose(fp2);
 	if (count3) fclose(fp3);
 	
@@ -800,7 +801,7 @@ int selectLoad(ChStat *chStat) {
 
 	return selectNum;
 }
-void wait() { // 엔터 입력 전 까지 대기, 이대웅 추가
+void wait() { // 엔터 입력 전 까지 대기, 2012244009 이대웅
 	int key = 1;
 
 	while (1) {
@@ -858,34 +859,6 @@ void printTitle()
 		}
 	}
 }
-/*
-void fightInterface(ChStat *chStat, MonStat *mon) { // 싸움시 디스플레이
-	const int chX = 50, chY = 27, monX = 5, monY = 2; // hp바 위치 고정
-	int i = 0;
-
-	enemyDisplay(mon->lv);
-	digimonDisplay(chStat->lv);
-
-	gotoxy(chX - 14, chY);
-	printf("%s hp : ", chStat->digimon);
-	gotoxy(chX, chY);
-	for (i = 1; i <= chStat->hp; i++) {
-		printf("l");
-		if (i == 50)
-			gotoxy(chX, chY+1);
-	}
-	gotoxy(monX, monY);
-	printf("몬스터 hp : ");
-	gotoxy(monX + 12, monY);
-	for (i = 1; i <= mon->hp; i++)
-		printf("l");
-	gotoxy(75 , 25);
-	printf("기력 : ");
-	gotoxy(83, 25);
-	for (i = 1; i <= chStat->energy; i++)
-		printf("■");
-}
-*/
 void printUser(ChStat *chStat) { // 오프라인 대전시 유저 디스플레이 2016 11 25 한진오 수정
 	const int chX = 5, chY = 2; // hp바 위치 고정
 	int i = 0;
@@ -939,20 +912,20 @@ void printMon(MonStat *mon)//오프라인 대전시 몬스터 디스플레이 2016 11 25 한진오
 
 }
 
-void printEnemy(ChStat *enemyStat) {
+void printEnemy(ChStat *enemyStat) { // 2012244009 이대웅
 	const int enemyX = 5, enemyY = 2;
 	int i = 0;
 
-	enemyDisplay(enemyStat->lv);//**
+	enemyDisplay(enemyStat->lv); // 적 이미지 출력
 
-	gotoxy(enemyX, enemyY);//**
+	gotoxy(enemyX, enemyY);
 	printf("%s hp : ", enemyStat->name);
 	gotoxy(enemyX + 12, enemyY);
 	for (i = 1; i <= enemyStat->hp; i++)
-		printf("l");//**
+		printf("l");
 }
 
-void disappear() { // goto사용시 깜박이는 콘솔의 커서 제거, 참고문헌 http://tip.daum.net/question/39372106
+void disappear() { // goto사용시 깜박이는 콘솔의 커서 제거, 참고문헌 http://tip.daum.net/question/39372106 2012244009 이대웅
 	HANDLE hConsole; // 콘솔 핸들
 	CONSOLE_CURSOR_INFO ConsoleCursor; // 콘솔커서 정보 구조체
 
@@ -963,7 +936,7 @@ void disappear() { // goto사용시 깜박이는 콘솔의 커서 제거, 참고문헌 http://tip.
 
 	SetConsoleCursorInfo(hConsole, &ConsoleCursor); // 설정
 }
-void gotoxy(int x, int y) { // goto 함수선언, 참고문헌 http://m.blog.naver.com/bestheroz/110240153
+void gotoxy(int x, int y) { // goto 함수선언, 참고문헌 http://m.blog.naver.com/bestheroz/110240153  2012244009 이대웅
 	COORD Pos = { x - 1, y - 1 };
 	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), Pos);
 }
