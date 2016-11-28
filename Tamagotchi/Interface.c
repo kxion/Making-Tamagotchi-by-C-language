@@ -902,8 +902,6 @@ void printUser(ChStat *chStat) { // ฟภวมถ๓ภฮ ด๋ภüฝร ภฏภ๚ ต๐ฝบวรทนภฬ 2016 11 25 ว
 		if (i == 50)
 			gotoxy(chX, chY + 1);
 	}
-
-
 	gotoxy(73, 26);
 	printf("ฑโทย : ");
 	gotoxy(81, 26);

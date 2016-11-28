@@ -49,6 +49,8 @@ void baseAt2(MonStat *mon);
 void skAt1_1_1(ChStat *chStat);
 void skAt1_1_2(MonStat *mon);
 
+void onlineAttack(ChStat *enemyStat);
+
 void skAt2_1_1(ChStat *chStat);
 void skAt2_1_2(MonStat *mon);
 void skAt2_2_1(ChStat *chStat);

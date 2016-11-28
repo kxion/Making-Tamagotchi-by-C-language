@@ -33,7 +33,7 @@ int fight(ChStat *chStat, int monLv) {
 	monAttack = mon->attack;
 
 	while (mon->hp > 0 && chStat->hp > 0) { // 몬스터, 유저중 hp가 0이 되면 종료
-
+		
 		printUser(chStat);// 오프라인 대전시 유저 디스플레이 2016 11 25 한진오 수정
 		chSelect = selectMotion();
 		
@@ -106,7 +106,7 @@ int fight(ChStat *chStat, int monLv) {
 		system("cls");
 		printUser(chStat);// 오프라인 대전시 유저 디스플레이 2016 11 25 한진오 수정
 		monAt2(chStat);
-
+		
 		gotoxy(x, y);
 		if (rand() % 100 < chStat->health) { // 방어율보다 낮은 난수 발생시 방어 성공
 			system("cls");//공격모션 지움
@@ -136,7 +136,6 @@ int fight(ChStat *chStat, int monLv) {
 			}
 			else {
 				chStat->hp = chStat->hp - (mon->attack - chStat->health); // 공격력 = 공격력 - 상대방어력
-
 				damaged();
 				system("cls");
 				printUser(chStat);// 오프라인 대전시 유저 디스플레이 2016 11 25 한진오 수정
@@ -331,7 +330,7 @@ int onlineFight(ChStat *myStat, ChStat *enemyStat) {
 			}
 
 			if (myStat->hp <= 0 && enemyStat->hp > 0) {  // 유저가 죽으면 break
-				printLose(); //lose 이미지
+				printLose(); // lose 이미지
 				enemyStat->hp = enemyHp;
 				myStat->hp = myHp;
 				myStat->energy = 0;
