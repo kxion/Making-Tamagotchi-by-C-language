@@ -846,15 +846,16 @@ void printTitle()
 
 	gotoxy(60, y + 6);
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 11);
-	printf("Plese press EnterKey...");
+	printf("Plese press AnyKey...");
 
+	int key;//엔터키입력시  중복 방지
 	while (1)//---------------------------------------------------------------------------------타이틀의 while문
 	{
 		if (_kbhit())//키 입력 여부 확인 ->http://showmiso.tistory.com/8
 		{
 			system("mode con: cols=100 lines=30");//가로 , 세로 ->http://berabue.tistory.com/59
-												  //아무키 입력 받았을때, 호출되는 함수 입력
-			wait();
+
+			key = getch();//엔터기를 입력 받았을시의 경우 대비(방파제)
 			break;
 		}
 	}
