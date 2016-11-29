@@ -37,7 +37,18 @@ void interfaceMain() { // 2012244009 이대웅
 		printf("닉네임을 입력하세요 : ");
 		gotoxy(x + 25, y);
 		fgets(chStat->name, 20, stdin); // 이름 길이제한
-
+		
+		int i=0;//이름 문자열 마지막의 개행문자 제거
+		while (1)
+		{
+			if (chStat->name[i] == '\n')
+			{
+				chStat->name[i] = '\0';
+				break;
+			}
+			i++;
+		}
+		
 		strcpy(chStat->condition, "유년기");
 		strcpy(chStat->digimon, "코요몬");
 

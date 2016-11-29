@@ -12,145 +12,545 @@
 게임상 디스플레이에 필요한 코드들
 */
 
-void coyomon() { // 코요몬
-	gotoxy(2, 12);
-
-	printf("                 ■\n");
-	printf("                 ■ ■\n");
-	printf("                 ■  ■\n");
-	printf(" ■■■■         ■  ■\n");
-	printf("   ■   ■■       ■  ■\n");
-	printf("    ■■    ■     ■  ■\n");
-	printf("     ■■    ■     ■  ■\n");
-	printf("        ■■  ■■■■  ■\n");
-	printf("        ■■  ■        ■\n");
-	printf("       ■                 ■\n");
-	printf("      ■                  ■\n");
-	printf("     ■        ■       ■ ■\n");
-	printf("     ■        ■       ■ ■\n");
-	printf("     ■                    ■\n");
-	printf("     ■          ■■■    ■\n");
-	printf("     ■         ■■■■   ■\n");
-	printf("      ■                 ■\n");
-	printf("        ■■■■■■■■■\n");
+void coyomon() {
+	int x, y;
+	x = 2, y = 12;
+	gotoxy(x, y++);
+	printf("                 ■");
+	gotoxy(x, y++);
+	printf("                 ■ ■");
+	gotoxy(x, y++);
+	printf("                 ■  ■");
+	gotoxy(x, y++);
+	printf(" ■■■■         ■  ■");
+	gotoxy(x, y++);
+	printf("   ■   ■■       ■  ■");
+	gotoxy(x, y++);
+	printf("    ■■    ■     ■  ■");
+	gotoxy(x, y++);
+	printf("     ■■    ■     ■  ■");
+	gotoxy(x, y++);
+	printf("        ■■  ■■■■  ■");
+	gotoxy(x, y++);
+	printf("        ■■  ■        ■");
+	gotoxy(x, y++);
+	printf("       ■                 ■");
+	gotoxy(x, y++);
+	printf("      ■                  ■");
+	gotoxy(x, y++);
+	printf("     ■        ■       ■ ■");
+	gotoxy(x, y++);
+	printf("     ■        ■       ■ ■");
+	gotoxy(x, y++);
+	printf("     ■                    ■");
+	gotoxy(x, y++);
+	printf("     ■          ■■■    ■");
+	gotoxy(x, y++);
+	printf("     ■         ■■■■   ■");
+	gotoxy(x, y++);
+	printf("      ■                 ■");
+	gotoxy(x, y++);
+	printf("        ■■■■■■■■■"); // 18
 }
-void agumon() { // 아구몬
-	gotoxy(2, 12);
+void agumon() {
 
-	printf("          ■■■■■        	  \n");
-	printf("        ■         ■       	  \n");
-	printf("      ■     ■■  ■■     	  \n");
-	printf("      ■   ■■       ■■  	  \n");
-	printf("    ■     ■■■         ■	  \n");
-	printf("    ■      ■■          ■  	  \n");
-	printf("    ■              ■■■■	  \n");
-	printf("    ■                  ■  	  \n");
-	printf("      ■       ■■■■■   	  \n");
-	printf("      ■  ■       ■■■     	  \n");
-	printf("     ■     ■      ■ ■■ 	  \n");
-	printf("   ■■      ■     ■   ■  	  \n");
-	printf("   ■■  ■■■      ■■■ 	  \n");
-	printf("   ■    ■       ■■■		  \n");
-	printf("   ■      ■■■■    ■■■	  \n");
-	printf(" ■ ■■   ■■  ■■  ■■  ■■  \n");
-	printf(" ■ ■■   ■■  ■■  ■■  ■■  \n");
-}
-void greymon() { // 그레이몬
-	gotoxy(2, 10);
+	int x, y;
+	x = 2, y = 12;
 
-	printf("   ■■■   ■■■■■\n");
-	printf("  ■   ■■         ■    ■■\n");
-	printf("   ■    ■■         ■   ■■\n");
-	printf("    ■       ■■    ■■■  ■\n");
-	printf("      ■■■    ■■     ■■■\n");
-	printf("        ■           ■      ■\n");
-	printf("        ■         ■■■■■\n");
-	printf("        ■         ■■■■■\n");
-	printf("      ■                 ■\n");
-	printf("      ■        ■■■■■\n");
-	printf("    ■   ■         ■\n");
-	printf("    ■     ■■       ■■\n");
-	printf(" ■■■        ■     ■  ■\n");
-	printf(" ■■■         ■     ■  ■\n");
-	printf(" ■  ■  ■      ■     ■  ■\n");
-	printf(" ■  ■   ■■■      ■■\n");
-	printf("  ■     ■         ■  ■■\n");
-	printf(" ■  ■  ■  ■■■■■   ■  ■\n");
-	printf(" ■ ■ ■■ ■■■■■   ■ ■\n");
-	printf(" ■■■■■     ■■■■■■\n");
+	gotoxy(x, y++);
+	printf("          ■■■■■        	  ");
+	gotoxy(x, y++);
+	printf("        ■         ■       	  ");
+	gotoxy(x, y++);
+	printf("      ■     ■■  ■■     	  ");
+	gotoxy(x, y++);
+	printf("      ■   ■■       ■■  	  ");
+	gotoxy(x, y++);
+	printf("    ■     ■■■         ■	  ");
+	gotoxy(x, y++);
+	printf("    ■      ■■          ■  	  ");
+	gotoxy(x, y++);
+	printf("    ■              ■■■■	  ");
+	gotoxy(x, y++);
+	printf("    ■                  ■  	  ");
+	gotoxy(x, y++);
+	printf("      ■       ■■■■■   	  ");
+	gotoxy(x, y++);
+	printf("      ■  ■       ■■■     	  ");
+	gotoxy(x, y++);
+	printf("     ■     ■      ■ ■■ 	  ");
+	gotoxy(x, y++);
+	printf("   ■■      ■     ■   ■  	  ");
+	gotoxy(x, y++);
+	printf("   ■■  ■■■      ■■■ 	  ");
+	gotoxy(x, y++);
+	printf("   ■    ■       ■■■		  ");
+	gotoxy(x, y++);
+	printf("   ■      ■■■■    ■■■	  ");
+	gotoxy(x, y++);
+	printf(" ■ ■■   ■■  ■■  ■■  ■■  ");
+	gotoxy(x, y++);
+	printf(" ■ ■■   ■■  ■■  ■■  ■■  "); // 17
 }
-void metalgreymon() { // 메탈그레이몬
-	gotoxy(2, 10);
 
-	printf("   ■■■   ■■■■■\n");
-	printf("   ■    ■■■■■■■  ■■\n");
-	printf("    ■   ■■   ■■■■■ ■\n");
-	printf("    ■   ■■    ■■■■  ■\n");
-	printf("      ■■■■■   ■■■■■\n");
-	printf("        ■■■■■■■■■■\n");
-	printf("        ■■    ■■■  ■■■■\n");
-	printf("      ■■ ■            ■\n");
-	printf("      ■■  ■            ■\n");
-	printf("    ■          ■■■■■\n");
-	printf("    ■   ■    ■    ■\n");
-	printf("    ■   ■■■       ■■\n");
-	printf(" ■■■  ■      ■      ■  ■\n");
-	printf(" ■■■ ■      ■      ■  ■\n");
-	printf(" ■ ■■■      ■      ■  ■\n");
-	printf(" ■ ■   ■■■       ■■\n");
-	printf("   ■     ■         ■ ■■\n");
-	printf(" ■ ■  ■  ■■■■■   ■  ■\n");
-	printf(" ■ ■■■ ■   ■■■■■■■\n");
-	printf(" ■■■■■■    ■■■■■■\n");
-}
-void wargraymon() { // 워그레이몬
-	gotoxy(2, 10);
+void greymon() {
+	int x, y;
+	x = 2, y = 10;
 
-	printf("  ■■    ■■■■■\n");
-	printf(" ■   ■■■■■■■■     ■■\n");
-	printf(" ■     ■■■   ■■■ ■ ■■\n");
-	printf(" ■       ■■    ■■■■■  ■\n");
-	printf(" ■   ■■■■■    ■■■■■■\n");
-	printf(" ■   ■  ■■■■■■■■■■\n");
-	printf(" ■   ■  ■ ■■■■■■■■■\n");
-	printf(" ■     ■     ■■       ■\n");
-	printf(" ■      ■     ■■       ■\n");
-	printf(" ■      ■       ■■■■■\n");
-	printf(" ■  ■  ■ ■        ■\n");
-	printf(" ■  ■■     ■■     ■■\n");
-	printf(" ■  ■■    ■    ■    ■  ■\n");
-	printf(" ■ ■■   ■    ■   ■  ■\n");
-	printf(" ■■  ■■ ■    ■   ■  ■\n");
-	printf(" ■  ■    ■■■■     ■■\n");
-	printf("  ■      ■         ■  ■■\n");
-	printf(" ■  ■  ■  ■■■■    ■  ■\n");
-	printf(" ■ ■  ■ ■■■■■   ■ ■■\n");
-	printf(" ■■■■■      ■■■■■■■\n");
+	gotoxy(x, y++);
+	printf("   ■■■   ■■■■■");
+	gotoxy(x, y++);
+	printf("  ■   ■■         ■    ■■");
+	gotoxy(x, y++);
+	printf("   ■    ■■         ■   ■■");
+	gotoxy(x, y++);
+	printf("    ■       ■■    ■■■  ■");
+	gotoxy(x, y++);
+	printf("      ■■■    ■■     ■■■");
+	gotoxy(x, y++);
+	printf("        ■           ■      ■");
+	gotoxy(x, y++);
+	printf("        ■         ■■■■■");
+	gotoxy(x, y++);
+	printf("        ■         ■■■■■");
+	gotoxy(x, y++);
+	printf("      ■                 ■");
+	gotoxy(x, y++);
+	printf("      ■        ■■■■■");
+	gotoxy(x, y++);
+	printf("    ■   ■         ■");
+	gotoxy(x, y++);
+	printf("    ■     ■■       ■■");
+	gotoxy(x, y++);
+	printf(" ■■■        ■     ■  ■");
+	gotoxy(x, y++);
+	printf(" ■■■         ■     ■  ■");
+	gotoxy(x, y++);
+	printf(" ■  ■  ■      ■     ■  ■");
+	gotoxy(x, y++);
+	printf(" ■  ■   ■■■      ■■");
+	gotoxy(x, y++);
+	printf("  ■     ■         ■  ■■");
+	gotoxy(x, y++);
+	printf(" ■  ■  ■  ■■■■■   ■  ■");
+	gotoxy(x, y++);
+	printf(" ■ ■ ■■ ■■■■■   ■ ■");
+	gotoxy(x, y++);
+	printf(" ■■■■■     ■■■■■■"); // 20
 }
-void omegamon() { // 오메가몬
-	gotoxy(2, 10);
 
-	printf("    ■■              ■■\n");
-	printf("    ■  ■■■■■  ■ ■\n");
-	printf("    ■     ■■■■■■ ■\n");
-	printf("     ■     ■■■■■■ ■\n");
-	printf("      ■■■■   ■■■■\n");
-	printf(" ■■    ■■■■   ■■■■  ■\n");
-	printf(" ■ ■■■ ■■■■■■■■■\n");
-	printf("   ■    ■   ■■■■■■  ■\n");
-	printf("   ■    ■   ■■ ■ ■■  ■\n");
-	printf("   ■      ■■  ■      ■  ■\n");
-	printf(" ■ ■■■   ■■■■■ ■  ■\n");
-	printf(" ■   ■              ■    ■\n");
-	printf("   ■■  ■■■■  ■■■■■\n");
-	printf(" ■   ■■ ■   ■  ■■   ■\n");
-	printf(" ■   ■■ ■   ■  ■■    ■\n");
-	printf(" ■   ■  ■  ■■  ■  ■    ■\n");
-	printf(" ■■■■■ ■   ■  ■■■■■\n");
-	printf("   ■  ■  ■■■■  ■ ■\n");
-	printf("   ■■■■■ ■■■■■■\n");
-	printf("   ■■■■■  ■■■■■\n");
+void metalgreymon() {
+	int x, y;
+	x = 2, y = 10;
+
+	gotoxy(x, y++);
+	printf(" ■■■   ■■■■■");
+	gotoxy(x, y++);
+	printf(" ■    ■■■        ■    ■■");
+	gotoxy(x, y++);
+	printf("   ■  ■    ■  ■   ■■■ ■■");
+	gotoxy(x, y++);
+	printf("   ■       ■■■  ■■■  ■");
+	gotoxy(x, y++);
+	printf(" ■  ■■■   ■  ■   ■■■");
+	gotoxy(x, y++);
+	printf(" ■  ■  ■■               ■");
+	gotoxy(x, y++);
+	printf(" ■  ■  ■ ■■■■■■■■■");
+	gotoxy(x, y++);
+	printf("■     ■     ■■       ■");
+	gotoxy(x, y++);
+	printf("■      ■     ■■       ■");
+	gotoxy(x, y++);
+	printf("■      ■       ■■■■■");
+	gotoxy(x, y++);
+	printf("■  ■  ■ ■        ■");
+	gotoxy(x, y++);
+	printf("■  ■■     ■■     ■■");
+	gotoxy(x, y++);
+	printf("■  ■■    ■    ■    ■  ■");
+	gotoxy(x, y++);
+	printf("■ ■■   ■    ■   ■  ■");
+	gotoxy(x, y++);
+	printf("■■  ■■ ■    ■   ■  ■");
+	gotoxy(x, y++);
+	printf("■  ■    ■■■■     ■■");
+	gotoxy(x, y++);
+	printf(" ■      ■         ■  ■■");
+	gotoxy(x, y++);
+	printf("■  ■  ■  ■■■■    ■  ■");
+	gotoxy(x, y++);
+	printf("■ ■  ■ ■■■■■   ■ ■■");
+	gotoxy(x, y++);
+	printf("■■■■■      ■■■■■■■");
 }
+
+void wargraymon() {
+	int x, y;
+	x = 2, y = 10;
+
+	gotoxy(x, y++);
+	printf("  ■■    ■■■■■");
+	gotoxy(x, y++);
+	printf(" ■   ■■■■■■■■     ■■");
+	gotoxy(x, y++);
+	printf(" ■     ■■■   ■■■ ■ ■■");
+	gotoxy(x, y++);
+	printf(" ■       ■■    ■■■■■  ■");
+	gotoxy(x, y++);
+	printf(" ■   ■■■■■    ■■■■■■");
+	gotoxy(x, y++);
+	printf(" ■   ■  ■■■■■■■■■■");
+	gotoxy(x, y++);
+	printf(" ■   ■  ■ ■■■■■■■■■");
+	gotoxy(x, y++);
+	printf(" ■     ■     ■■       ■");
+	gotoxy(x, y++);
+	printf(" ■      ■     ■■       ■");
+	gotoxy(x, y++);
+	printf(" ■      ■       ■■■■■");
+	gotoxy(x, y++);
+	printf(" ■  ■  ■ ■        ■");
+	gotoxy(x, y++);
+	printf(" ■  ■■     ■■     ■■");
+	gotoxy(x, y++);
+	printf(" ■  ■■    ■    ■    ■  ■");
+	gotoxy(x, y++);
+	printf(" ■ ■■   ■    ■   ■  ■");
+	gotoxy(x, y++);
+	printf(" ■■  ■■ ■    ■   ■  ■");
+	gotoxy(x, y++);
+	printf(" ■  ■    ■■■■     ■■");
+	gotoxy(x, y++);
+	printf("  ■      ■         ■  ■■");
+	gotoxy(x, y++);
+	printf(" ■  ■  ■  ■■■■    ■  ■");
+	gotoxy(x, y++);
+	printf(" ■ ■  ■ ■■■■■   ■ ■■");
+	gotoxy(x, y++);
+	printf(" ■■■■■      ■■■■■■■");
+}
+
+void omegamon() {
+	int x, y;
+	x = 2, y = 10;
+
+	gotoxy(x, y++);
+	printf("    ■■              ■■");
+	gotoxy(x, y++);
+	printf("    ■  ■■■■■  ■ ■");
+	gotoxy(x, y++);
+	printf("    ■     ■■■■■■ ■");
+	gotoxy(x, y++);
+	printf("     ■     ■■■■■■ ■");
+	gotoxy(x, y++);
+	printf("      ■■■■   ■■■■");
+	gotoxy(x, y++);
+	printf(" ■■    ■■■■   ■■■■  ■");
+	gotoxy(x, y++);
+	printf(" ■ ■■■ ■■■■■■■■■");
+	gotoxy(x, y++);
+	printf("   ■    ■   ■■■■■■  ■");
+	gotoxy(x, y++);
+	printf("   ■    ■   ■■ ■ ■■  ■");
+	gotoxy(x, y++);
+	printf("   ■      ■■  ■      ■  ■");
+	gotoxy(x, y++);
+	printf(" ■ ■■■   ■■■■■ ■  ■");
+	gotoxy(x, y++);
+	printf(" ■   ■              ■    ■");
+	gotoxy(x, y++);
+	printf("   ■■  ■■■■  ■■■■■");
+	gotoxy(x, y++);
+	printf(" ■   ■■ ■   ■  ■■   ■");
+	gotoxy(x, y++);
+	printf(" ■   ■■ ■   ■  ■■    ■");
+	gotoxy(x, y++);
+	printf(" ■   ■  ■  ■■  ■  ■    ■");
+	gotoxy(x, y++);
+	printf(" ■■■■■ ■   ■  ■■■■■");
+	gotoxy(x, y++);
+	printf("   ■  ■  ■■■■  ■ ■");
+	gotoxy(x, y++);
+	printf("   ■■■■■ ■■■■■■");
+	gotoxy(x, y++);
+	printf("   ■■■■■  ■■■■■");
+}
+
+
+// 이하 왼쪽 방향을 보는 디지몬 추가
+
+void leftCoyomon() {
+
+	int x = 70, y = 11;
+
+	gotoxy(x, y++);
+	printf("            ■");
+	gotoxy(x, y++);
+	printf("          ■■");
+	gotoxy(x, y++);
+	printf("          ■■");
+	gotoxy(x, y++);
+	printf("        ■  ■       ■■■■");
+	gotoxy(x, y++);
+	printf("      ■  ■     ■■   ■");
+	gotoxy(x, y++);
+	printf("     ■ ■      ■   ■■");
+	gotoxy(x, y++);
+	printf("     ■ ■     ■    ■■");
+	gotoxy(x, y++);
+	printf("     ■ ■■■■ ■■");
+	gotoxy(x, y++);
+	printf("     ■       ■ ■■");
+	gotoxy(x, y++);
+	printf("   ■                ■");
+	gotoxy(x, y++);
+	printf("   ■                ■");
+	gotoxy(x, y++);
+	printf(" ■  ■       ■       ■");
+	gotoxy(x, y++);
+	printf(" ■ ■        ■       ■");
+	gotoxy(x, y++);
+	printf(" ■                    ■");
+	gotoxy(x, y++);
+	printf(" ■    ■■■          ■");
+	gotoxy(x, y++);
+	printf(" ■   ■■■■         ■");
+	gotoxy(x, y++);
+	printf("   ■                ■");
+	gotoxy(x, y++);
+	printf("    ■■■■■■■■■");
+}
+
+void leftAgumon() {
+
+	int x = 70, y = 10;
+	gotoxy(x, y++);
+	printf("            ■■■■");
+	gotoxy(x, y++);
+	printf("           ■■■■■");
+	gotoxy(x, y++);
+	printf("          ■        ■");
+	gotoxy(x, y++);
+	printf("        ■■ ■■     ■");
+	gotoxy(x, y++);
+	printf("    ■■       ■■   ■");
+	gotoxy(x, y++);
+	printf("   ■        ■■■     ■");
+	gotoxy(x, y++);
+	printf("   ■        ■■■     ■");
+	gotoxy(x, y++);
+	printf("   ■■■■             ■");
+	gotoxy(x, y++);
+	printf("    ■                  ■");
+	gotoxy(x, y++);
+	printf("      ■■■■■      ■");
+	gotoxy(x, y++);
+	printf("        ■■       ■ ■");
+	gotoxy(x, y++);
+	printf("      ■ ■      ■     ■");
+	gotoxy(x, y++);
+	printf("      ■  ■     ■     ■");
+	gotoxy(x, y++);
+	printf("      ■■■     ■■■ ■");
+	gotoxy(x, y++);
+	printf("          ■■      ■    ■");
+	gotoxy(x, y++);
+	printf("      ■■   ■■■■     ■");
+	gotoxy(x, y++);
+	printf("    ■  ■   ■  ■ ■  ■ ■");
+	gotoxy(x, y++);
+	printf("    ■  ■   ■  ■ ■  ■ ■");
+	gotoxy(x, y++);
+	printf("    ■■■■■■ ■■■■■■");
+}
+
+void leftGreymon() {
+	int x = 70, y = 10;
+
+	gotoxy(x, y++);
+	printf("         ■■■■■  ■■■");
+	gotoxy(x, y++);
+	printf(" ■■   ■        ■■   ■");
+	gotoxy(x, y++);
+	printf(" ■■  ■         ■■   ■");
+	gotoxy(x, y++);
+	printf(" ■ ■■■   ■■      ■");
+	gotoxy(x, y++);
+	printf(" ■■■    ■■   ■■■");
+	gotoxy(x, y++);
+	printf(" ■     ■          ■");
+	gotoxy(x, y++);
+	printf(" ■■■■■         ■");
+	gotoxy(x, y++);
+	printf(" ■■■■■         ■");
+	gotoxy(x, y++);
+	printf("   ■                ■");
+	gotoxy(x, y++);
+	printf("    ■■■■■       ■");
+	gotoxy(x, y++);
+	printf("        ■        ■   ■");
+	gotoxy(x, y++);
+	printf("    ■■       ■■    ■");
+	gotoxy(x, y++);
+	printf("   ■ ■     ■        ■■■");
+	gotoxy(x, y++);
+	printf("  ■  ■     ■        ■■■");
+	gotoxy(x, y++);
+	printf("  ■  ■     ■     ■ ■  ■");
+	gotoxy(x, y++);
+	printf("    ■■      ■■■   ■  ■");
+	gotoxy(x, y++);
+	printf("  ■■  ■        ■     ■");
+	gotoxy(x, y++);
+	printf(" ■ ■   ■■■■■ ■ ■  ■");
+	gotoxy(x, y++);
+	printf(" ■ ■   ■■■■■■■■ ■");
+	gotoxy(x, y++);
+	printf(" ■■■■■■     ■■■■■");
+}
+
+void leftMetalgreymon() {
+	int x = 70, y = 10;
+
+	gotoxy(x, y++);
+	printf("          ■■■■■  ■■■");
+	gotoxy(x, y++);
+	printf(" ■■   ■        ■■   ■");
+	gotoxy(x, y++);
+	printf(" ■■  ■         ■■   ■");
+	gotoxy(x, y++);
+	printf(" ■ ■■■   ■■      ■");
+	gotoxy(x, y++);
+	printf(" ■■■    ■■   ■■■ ■");
+	gotoxy(x, y++);
+	printf(" ■     ■        ■ ■  ■");
+	gotoxy(x, y++);
+	printf(" ■■■■■       ■ ■  ■");
+	gotoxy(x, y++);
+	printf(" ■■■■■       ■ ■  ■");
+	gotoxy(x, y++);
+	printf("   ■               ■     ■");
+	gotoxy(x, y++);
+	printf("    ■■■■■      ■     ■");
+	gotoxy(x, y++);
+	printf("        ■          ■ ■  ■");
+	gotoxy(x, y++);
+	printf("    ■■       ■■  ■■  ■");
+	gotoxy(x, y++);
+	printf("   ■ ■     ■      ■■  ■");
+	gotoxy(x, y++);
+	printf("  ■  ■     ■      ■■ ■");
+	gotoxy(x, y++);
+	printf("  ■  ■     ■     ■■ ■■");
+	gotoxy(x, y++);
+	printf("    ■■      ■■■   ■  ■");
+	gotoxy(x, y++);
+	printf("  ■■  ■        ■     ■");
+	gotoxy(x, y++);
+	printf(" ■ ■   ■■■■■ ■ ■  ■");
+	gotoxy(x, y++);
+	printf(" ■ ■   ■■■■■■■■ ■");
+	gotoxy(x, y++);
+	printf(" ■■■■■■     ■■■■■");
+}
+
+
+void leftWargraymon() {
+	int x = 70, y = 10;
+
+	gotoxy(x, y++);
+	printf("         ■■■■■   ■■■");
+	gotoxy(x, y++);
+	printf(" ■■   ■■■■■■■    ■");
+	gotoxy(x, y++);
+	printf("■■■ ■■■   ■■■  ■");
+	gotoxy(x, y++);
+	printf("■  ■■■■■   ■■   ■");
+	gotoxy(x, y++);
+	printf("■■■■■■   ■■■■■ ■");
+	gotoxy(x, y++);
+	printf("■■■■■■■■■■  ■  ■");
+	gotoxy(x, y++);
+	printf("■■■■■■■■■■  ■  ■");
+	gotoxy(x, y++);
+	printf("  ■       ■■     ■     ■");
+	gotoxy(x, y++);
+	printf("  ■       ■■     ■      ■");
+	gotoxy(x, y++);
+	printf("    ■■■■■      ■      ■");
+	gotoxy(x, y++);
+	printf("        ■       ■ ■  ■  ■");
+	gotoxy(x, y++);
+	printf("    ■■     ■■     ■■  ■");
+	gotoxy(x, y++);
+	printf("   ■ ■    ■   ■   ■■  ■");
+	gotoxy(x, y++);
+	printf("  ■  ■   ■    ■   ■■ ■");
+	gotoxy(x, y++);
+	printf("  ■  ■   ■    ■ ■■  ■■");
+	gotoxy(x, y++);
+	printf("    ■■     ■■■■   ■  ■");
+	gotoxy(x, y++);
+	printf("  ■■  ■        ■      ■");
+	gotoxy(x, y++);
+	printf(" ■ ■    ■■■■  ■  ■  ■");
+	gotoxy(x, y++);
+	printf("■■■   ■■■■■ ■  ■ ■");
+	gotoxy(x, y++);
+	printf("■■■■■■■     ■■■■■");
+}
+
+
+
+void leftOmegamon() {
+	int x = 70, y = 10;
+
+	gotoxy(x, y++);
+	printf("	■■             ■■");
+	gotoxy(x, y++);
+	printf("    ■ ■  ■■■■■  ■");
+	gotoxy(x, y++);
+	printf("    ■ ■■■■■■    ■");
+	gotoxy(x, y++);
+	printf("    ■ ■■■■■■    ■");
+	gotoxy(x, y++);
+	printf("      ■■■■  ■■■■");
+	gotoxy(x, y++);
+	printf("■  ■■■■  ■■■■   ■■");
+	gotoxy(x, y++);
+	printf(" ■■■■■■■■■■■■ ■");
+	gotoxy(x, y++);
+	printf("■  ■■■■■■   ■    ■");
+	gotoxy(x, y++);
+	printf(" ■ ■■ ■ ■■   ■    ■");
+	gotoxy(x, y++);
+	printf("  ■  ■     ■ ■■     ■");
+	gotoxy(x, y++);
+	printf("■  ■ ■■■■■  ■■■ ■");
+	gotoxy(x, y++);
+	printf("■    ■             ■   ■");
+	gotoxy(x, y++);
+	printf("  ■■■■■  ■■■■ ■■");
+	gotoxy(x, y++);
+	printf(" ■  ■■  ■   ■ ■■   ■");
+	gotoxy(x, y++);
+	printf("■    ■■ ■   ■ ■■   ■");
+	gotoxy(x, y++);
+	printf(" ■   ■ ■  ■■ ■ ■   ■");
+	gotoxy(x, y++);
+	printf("■■■■■ ■   ■ ■■■■■");
+	gotoxy(x, y++);
+	printf("    ■ ■  ■■■■  ■  ■");
+	gotoxy(x, y++);
+	printf("    ■■■■■■■■■■■");
+	gotoxy(x, y++);
+	printf("    ■■■■■  ■■■■■");
+}
+
+
+
+
 
 void digimonDisplay(int lv) { // lv에 따라 불러오는 디지몬 이미지 2012244009 이대웅
 	if (lv >= 1 && lv < 5)

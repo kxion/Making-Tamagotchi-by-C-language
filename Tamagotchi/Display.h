@@ -19,6 +19,14 @@ void metalgreymon(); // 메탈그레이몬 이미지
 void wargraymon(); // 워그레이몬 이미지
 void omegamon(); // 오메가몬 이미지
 
+void leftCoyomon();// 왼쪽 방향의 코요몬 이미지
+void leftAgumon();// 왼쪽 방향의 아구몬 이미지
+void leftGreymon();// 왼쪽 방향의 그레이몬 이미지
+void leftMetalgreymon();// 왼쪽 방향의 메탈그레이몬 이미지
+void leftWargraymon();// 왼쪽 방향의 워그레이몬 이미지
+void leftOmegamon();// 왼쪽 방향의 오메가몬 이미지
+
+
 void digimonDisplay(int lv); // 디지몬 이미지
 void enemyDisplay(int monLv); // 적 이미지
 ChStat* skillDisplay(ChStat *chStat, MonStat *mon, int selectNum); // 스킬 선택
