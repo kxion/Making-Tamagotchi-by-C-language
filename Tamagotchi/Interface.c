@@ -849,15 +849,15 @@ void printTitle()
 	printf("Plese press AnyKey...");
 
 	int key;//엔터키입력시  중복 방지
+
 	while (1)//---------------------------------------------------------------------------------타이틀의 while문
 	{
 		if (_kbhit())//키 입력 여부 확인 ->http://showmiso.tistory.com/8
 		{
 			system("mode con: cols=100 lines=30");//가로 , 세로 ->http://berabue.tistory.com/59
-
 			key = getch();//엔터기를 입력 받았을시의 경우 대비(방파제)
 			break;
-		}
+		} 
 	}
 }
 void printUser(ChStat *chStat) { // 오프라인 대전시 유저 디스플레이 2016 11 25 한진오 수정

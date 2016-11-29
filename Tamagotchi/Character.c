@@ -45,13 +45,17 @@ ChStat* levelUp(int lv) { // ·¾¾÷ À¯¹« È®ÀÎ
 
 	if (chStat.exp >= lv * 1) {
 		printLvUp();
-		for (i = 0; i < 3; i++) { // ·¾¾÷ ÀÓÆÑÆ®
-			system("cls");
-			Sleep(500);
-			digimonDisplay(lv);
-			Sleep(500);
+		++lv;
+
+		if (lv % 5 == 0) {
+			lv = lv - 1;
+			for (i = 0; i < 3; i++) { // ·¾¾÷ ÀÓÆÑÆ®
+				system("cls");
+				Sleep(500);
+				digimonDisplay(lv);
+				Sleep(500);
+			}
 		}
-		
 		++lv;
 		chStat.exp = 0;
 		name = searchName(lv); // ¼ºÀå,µðÁö¸ó¸í Ã£±â
