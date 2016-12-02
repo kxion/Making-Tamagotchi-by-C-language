@@ -55,8 +55,8 @@ ChStat* levelUp(int lv) { // 렙업 유무 확인
 				digimonDisplay(lv);
 				Sleep(500);
 			}
+			++lv;
 		}
-		++lv;
 		chStat.exp = 0;
 		name = searchName(lv); // 성장,디지몬명 찾기
 		strcpy(pChStat->condition, name->name); // 찾은 성장 스텟에 저장

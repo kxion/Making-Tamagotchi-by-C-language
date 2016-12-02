@@ -92,7 +92,6 @@ void agumon() {
 	gotoxy(x, y++);
 	printf(" ■ ■■   ■■  ■■  ■■  ■■  "); // 17
 }
-
 void greymon() {
 	int x, y;
 	x = 2, y = 10;
@@ -138,7 +137,6 @@ void greymon() {
 	gotoxy(x, y++);
 	printf(" ■■■■■     ■■■■■■"); // 20
 }
-
 void metalgreymon() {
 	int x, y;
 	x = 2, y = 10;
@@ -184,7 +182,6 @@ void metalgreymon() {
 	gotoxy(x, y++);
 	printf("■■■■■      ■■■■■■■");
 }
-
 void wargraymon() {
 	int x, y;
 	x = 2, y = 10;
@@ -230,7 +227,6 @@ void wargraymon() {
 	gotoxy(x, y++);
 	printf(" ■■■■■      ■■■■■■■");
 }
-
 void omegamon() {
 	int x, y;
 	x = 2, y = 10;
@@ -276,8 +272,6 @@ void omegamon() {
 	gotoxy(x, y++);
 	printf("   ■■■■■  ■■■■■");
 }
-
-
 // 이하 왼쪽 방향을 보는 디지몬 추가
 
 void leftCoyomon() {
@@ -321,7 +315,6 @@ void leftCoyomon() {
 	gotoxy(x, y++);
 	printf("    ■■■■■■■■■");
 }
-
 void leftAgumon() {
 
 	int x = 70, y = 10;
@@ -364,7 +357,6 @@ void leftAgumon() {
 	gotoxy(x, y++);
 	printf("    ■■■■■■ ■■■■■■");
 }
-
 void leftGreymon() {
 	int x = 70, y = 10;
 
@@ -409,7 +401,6 @@ void leftGreymon() {
 	gotoxy(x, y++);
 	printf(" ■■■■■■     ■■■■■");
 }
-
 void leftMetalgreymon() {
 	int x = 70, y = 10;
 
@@ -454,8 +445,6 @@ void leftMetalgreymon() {
 	gotoxy(x, y++);
 	printf(" ■■■■■■     ■■■■■");
 }
-
-
 void leftWargraymon() {
 	int x = 70, y = 10;
 
@@ -500,9 +489,6 @@ void leftWargraymon() {
 	gotoxy(x, y++);
 	printf("■■■■■■■     ■■■■■");
 }
-
-
-
 void leftOmegamon() {
 	int x = 70, y = 10;
 
@@ -548,10 +534,6 @@ void leftOmegamon() {
 	printf("    ■■■■■  ■■■■■");
 }
 
-
-
-
-
 void digimonDisplay(int lv) { // lv에 따라 불러오는 디지몬 이미지 2012244009 이대웅
 	if (lv >= 1 && lv < 5)
 		coyomon();
@@ -564,6 +546,19 @@ void digimonDisplay(int lv) { // lv에 따라 불러오는 디지몬 이미지 2
 	else if (lv >= 20 && lv < 25)
 		wargraymon();
 	else omegamon();
+}
+void onlineDisplay(int lv) {
+	if (lv >= 1 && lv < 5)
+		leftCoyomon();
+	else if (lv >= 5 && lv < 10)
+		leftAgumon();
+	else if (lv >= 10 && lv < 15)
+		leftGreymon();
+	else if (lv >= 15 && lv < 20)
+		leftMetalgreymon();
+	else if (lv >= 20 && lv < 25)
+		leftWargraymon();
+	else leftOmegamon();
 }
 void enemyDisplay(int monLv) { // 몬스터 레벨에 따른 몬스터 이미지 2012244009 이대웅
 	switch (monLv) {
@@ -579,6 +574,7 @@ void enemyDisplay(int monLv) { // 몬스터 레벨에 따른 몬스터 이미지
 	case 10: enemy10(); break;
 	}
 }
+
 ChStat* skillDisplay(ChStat *chStat, MonStat *mon, int selectNum) { // 디지몬에 따라 각각 다른 스킬명들 2012244009 이대웅
 	const int x = 40, y = 23, speed = 1000;
 	gotoxy(x, y);
@@ -4610,7 +4606,7 @@ void baseAt2(MonStat *mon)
 			break;
 	}
 }
-
+// 온라인 대전
 void enemyAt1(ChStat *enemyStat) { // 온라인 대전시 적 이미지 및 모션 2012244009 이대웅
 		int x, y, speed;
 		x = 46, y = 13, speed = 8;

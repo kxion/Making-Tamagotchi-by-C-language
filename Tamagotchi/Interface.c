@@ -38,7 +38,7 @@ void interfaceMain() { // 2012244009 ÀÌ´ë¿õ
 		gotoxy(x + 25, y);
 		fgets(chStat->name, 20, stdin); // ÀÌ¸§ ±æÀÌÁ¦ÇÑ
 		
-		int i=0;//ÀÌ¸§ ¹®ÀÚ¿­ ¸¶Áö¸·ÀÇ °³Çà¹®ÀÚ Á¦°Å
+		int i=0; // ÀÌ¸§ ¹®ÀÚ¿­ ¸¶Áö¸·ÀÇ °³Çà¹®ÀÚ Á¦°Å
 		while (1)
 		{
 			if (chStat->name[i] == '\n')
@@ -871,6 +871,7 @@ void printTitle()
 		} 
 	}
 }
+
 void printUser(ChStat *chStat) { // ¿ÀÇÁ¶óÀÎ ´ëÀü½Ã À¯Àú µð½ºÇÃ·¹ÀÌ 2016 11 25 ÇÑÁø¿À ¼öÁ¤
 	const int chX = 5, chY = 2; // hp¹Ù À§Ä¡ °íÁ¤
 	int i = 0;
@@ -879,7 +880,7 @@ void printUser(ChStat *chStat) { // ¿ÀÇÁ¶óÀÎ ´ëÀü½Ã À¯Àú µð½ºÇÃ·¹ÀÌ 2016 11 25 Ç
 	digimonDisplay(chStat->lv);
 
 	gotoxy(chX, chY);
-	printf("%s hp : ", chStat->digimon);
+	printf("%s hp : ", chStat->name);
 
 	gotoxy(chX + 12, chY);
 	for (i = 1; i <= chStat->hp; i++) {
@@ -900,7 +901,7 @@ void printUser2(ChStat *chStat) { // ±â·Â Ç¥½Ã ¾ÈµÇ´Â, À¯Àú µð½ºÇÃ·¹ÀÌ 2016 11 2
 	digimonDisplay(chStat->lv);
 
 	gotoxy(chX, chY);
-	printf("%s hp : ", chStat->digimon);
+	printf("%s hp : ", chStat->name);
 
 	gotoxy(chX + 12, chY);
 	for (i = 1; i <= chStat->hp; i++) {
@@ -923,12 +924,11 @@ void printMon(MonStat *mon)//¿ÀÇÁ¶óÀÎ ´ëÀü½Ã ¸ó½ºÅÍ µð½ºÇÃ·¹ÀÌ 2016 11 25 ÇÑÁø¿À
 		printf("l");//**
 
 }
-
 void printEnemy(ChStat *enemyStat) { // 2012244009 ÀÌ´ë¿õ
 	const int enemyX = 5, enemyY = 2;
 	int i = 0;
 
-	enemyDisplay(enemyStat->lv); // Àû ÀÌ¹ÌÁö Ãâ·Â
+	onlineDisplay(enemyStat->lv); // Àû ÀÌ¹ÌÁö Ãâ·Â
 
 	gotoxy(enemyX, enemyY);
 	printf("%s hp : ", enemyStat->name);
