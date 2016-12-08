@@ -34,6 +34,7 @@ void skillDescription(ChStat *chStat); // 디지몬명에 따른 스킬 선택
 void printWin();//윈 이미지
 void printLose();//로즈 이미지
 void printLvUp();//레벨업 이미지
+void printDraw();//비길때 이미지
 
 void enemy1(); // 적 1
 void enemy2(); // 적 2
