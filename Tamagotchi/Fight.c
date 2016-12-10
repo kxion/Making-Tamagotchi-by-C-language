@@ -12,12 +12,13 @@
 #include"Interface.h"
 #include"Skill.h"
 #include"Display.h"
-
+#pragma comment(lib, "winmm.lib")//PlaySound함수 구현을 위한 라이브러리 참조
 #pragma warning(disable:4996) // warning C4996을 잡기 위한 코드, 참고문헌 http://blog.naver.com/PostView.nhn?blogId=sorkelf&logNo=40137167266
 
 int fight(ChStat *chStat, int monLv) { // 2012244009 이대웅
 	const int x = 38, y = 23;
-	int chSelect = 0, money = 0, skSelect = 0, monHp = 0, chHp = 0, chAttack = 0, monAttack = 0, speed = 500;
+	int chSelect = 0, money = 0, skSelect = 0, monHp = 0, chHp = 0, chAttack = 0, monAttack = 0, speed = 750;
+	PlaySound(NULL, 0, 0);//배경음악의 음악 종료
 
 	srand((unsigned)time(NULL));
 	/*  
@@ -58,6 +59,7 @@ int fight(ChStat *chStat, int monLv) { // 2012244009 이대웅
 		if (rand() % 100 < mon->sheild) { // 방어율보다 낮은 난수 발생시 방어 성공
 			system("cls"); // 공격모션 지움
 			printMon(mon);
+			PlaySound(TEXT("Defend.wav"), NULL, SND_FILENAME | SND_ASYNC); //음성 출력 한진오->http://breadlab.net/36
 			gotoxy(x, y);
 			printf("몬스터 방어성공 !!!\n\n");
 			Sleep(speed);
@@ -67,12 +69,13 @@ int fight(ChStat *chStat, int monLv) { // 2012244009 이대웅
 		else {
 			if (rand() % 100 < chStat->agility) { // 크리티커율보다 낮은 난수 발생시 크리티컬 발생
 				mon->hp = mon->hp - (chStat->attack + chStat->agility - mon->sheild); // 공격력 = 공격력 + 크리댐 - 상대방어력
-
+				PlaySound(TEXT("critical.wav"), NULL, SND_FILENAME | SND_ASYNC); //음성 출력 한진오->http://breadlab.net/36
 				damaged();// 해골 모양 출력
 				system("cls");
 
 				printMon(mon);//오프라인 대전시 몬스터 및 hp 디스플레이 2016 11 25 한진오 수정
 
+				
 				gotoxy(x - 10, y);
 				printf("크리티컬 발생!!!\n\n");
 				gotoxy(x, y + 2);
@@ -85,12 +88,13 @@ int fight(ChStat *chStat, int monLv) { // 2012244009 이대웅
 			}
 			else {
 				mon->hp = mon->hp - (chStat->attack - mon->sheild); // 공격력 = 공격력 - 상대방어력
-
+				PlaySound(TEXT("damaged.wav"), NULL, SND_FILENAME | SND_ASYNC); //음성 출력 한진오->http://breadlab.net/36
 				damaged();
 				system("cls");
 
 				printMon(mon);//오프라인 대전시 몬스터 및 hp 디스플레이 2016 11 25 한진오 수정
 
+				
 				gotoxy(x, y);
 				printf("데미지 : %2d", chStat->attack - mon->sheild);
 				Sleep(speed);
@@ -112,6 +116,7 @@ int fight(ChStat *chStat, int monLv) { // 2012244009 이대웅
 		if (rand() % 100 < chStat->health) { // 방어율보다 낮은 난수 발생시 방어 성공
 			system("cls");//공격모션 지움
 			printUser(chStat);
+			PlaySound(TEXT("Defend.wav"), NULL, SND_FILENAME | SND_ASYNC); //음성 출력 한진오->http://breadlab.net/36
 			gotoxy(x, y);
 			printf("유저 방어성공 !!!\n");
 			Sleep(speed);
@@ -121,10 +126,11 @@ int fight(ChStat *chStat, int monLv) { // 2012244009 이대웅
 		else {
 			if (rand() % 100 < mon->critical) { // 크리티커율보다 낮은 난수 발생시 크리티컬 발생
 				chStat->hp = chStat->hp - (mon->attack + mon->critical - chStat->health); // 공격력 = 공격력 + 크리댐 - 상대방어력
-
+				PlaySound(TEXT("critical.wav"), NULL, SND_FILENAME | SND_ASYNC); //음성 출력 한진오->http://breadlab.net/36
 				damaged();
 				system("cls");
 				printUser(chStat);// 오프라인 대전시 유저 디스플레이 2016 11 25 한진오 수정
+				
 				gotoxy(x, y);
 				printf("크리티컬 발생!!!\n");
 				gotoxy(x, y + 2);
@@ -137,9 +143,11 @@ int fight(ChStat *chStat, int monLv) { // 2012244009 이대웅
 			}
 			else {
 				chStat->hp = chStat->hp - (mon->attack - chStat->health); // 공격력 = 공격력 - 상대방어력
+				PlaySound(TEXT("damaged.wav"), NULL, SND_FILENAME | SND_ASYNC); //음성 출력 한진오->http://breadlab.net/36
 				damaged();
 				system("cls");
 				printUser(chStat);// 오프라인 대전시 유저 디스플레이 2016 11 25 한진오 수정
+				
 				gotoxy(x, y);
 				printf("데미지 : %2d", mon->attack - chStat->health);
 				Sleep(speed);
@@ -160,6 +168,7 @@ int fight(ChStat *chStat, int monLv) { // 2012244009 이대웅
 	}
 
 	if (mon->hp <= 0) {
+		PlaySound(TEXT("Win.wav"), NULL, SND_FILENAME | SND_ASYNC); //음성 출력 한진오->http://breadlab.net/36
 		printWin(); // win 이미지
 		chStat->money += 500 * monLv; // 몬스터 레벨이 비례하여 돈 획득
 		mon->hp = monHp; // hp 초기화
@@ -168,13 +177,15 @@ int fight(ChStat *chStat, int monLv) { // 2012244009 이대웅
 		return 20 * monLv; // 몬스터 레벨에 알맞은 경험치 반환
 	}
 	else if (mon->hp < 0 && chStat->hp < 0) {
-		printf("무승부....\n");
+		PlaySound(TEXT("Draw.wav"), NULL, SND_FILENAME | SND_ASYNC); //음성 출력 한진오->http://breadlab.net/36
+		printDraw();//무승부 이미지
 		mon->hp = monHp; // hp 초기화
 		chStat->hp = chHp; // hp 초기화
 		chStat->energy = 0; // 기력 초기화
 		return 0;
 	}
 	else {
+		PlaySound(TEXT("Lose.wav"), NULL, SND_FILENAME | SND_ASYNC); //음성 출력 한진오->http://breadlab.net/36
 		printLose(); // lose 이미지
 		mon->hp = monHp; // hp 초기화
 		chStat->hp = chHp; // hp 초기화
@@ -213,6 +224,7 @@ int onlineFight(ChStat *myStat, ChStat *enemyStat) { // 온라인 대전
 			system("cls");//공격모션 지움
 			printEnemy(enemyStat);
 
+			PlaySound(TEXT("Defend.wav"), NULL, SND_FILENAME | SND_ASYNC); //음성 출력 한진오->http://breadlab.net/36
 			gotoxy(x, y);
 			printf("방어성공 !!!\n\n");
 			Sleep(speed);
@@ -222,10 +234,11 @@ int onlineFight(ChStat *myStat, ChStat *enemyStat) { // 온라인 대전
 		else {
 			if (rand() % 100 < myStat->agility) { // 크리티커율보다 낮은 난수 발생시 크리티컬 발생
 				enemyStat->hp = enemyStat->hp - (myStat->attack + myStat->agility - enemyStat->health); // 공격력 = 공격력 + 크리댐 - 상대방어력
-
+				PlaySound(TEXT("critical.wav"), NULL, SND_FILENAME | SND_ASYNC); //음성 출력 한진오->http://breadlab.net/36
 				damaged();// 해골 모양 출력
 				system("cls");
 				printEnemy(enemyStat); // 적 이미지
+				
 				
 				gotoxy(x - 10, y);
 				printf("크리티컬 발생!!!\n\n");
@@ -239,11 +252,11 @@ int onlineFight(ChStat *myStat, ChStat *enemyStat) { // 온라인 대전
 			}
 			else {
 				enemyStat->hp = enemyStat->hp - (myStat->attack - enemyStat->health); // 공격력 = 공격력 - 상대방어력
-
+				PlaySound(TEXT("damaged.wav"), NULL, SND_FILENAME | SND_ASYNC); //음성 출력 한진오->http://breadlab.net/36
 				damaged();
 				system("cls");
 				printEnemy(enemyStat); // 적 이미지
-				
+			
 				gotoxy(x, y);
 				printf("데미지 : %2d", myStat->attack - enemyStat->health);
 				Sleep(speed);
@@ -254,6 +267,7 @@ int onlineFight(ChStat *myStat, ChStat *enemyStat) { // 온라인 대전
 
 		Sleep(speed);
 		if (enemyStat->hp <= 0 && myStat->hp > 0) {
+			PlaySound(TEXT("Win.wav"), NULL, SND_FILENAME | SND_ASYNC); //음성 출력 한진오->http://breadlab.net/36
 			printWin();// win 이미지
 			return 1; 
 		}
@@ -267,6 +281,8 @@ int onlineFight(ChStat *myStat, ChStat *enemyStat) { // 온라인 대전
 		if (rand() % 100 < myStat->health) { // 방어율보다 낮은 난수 발생시 방어 성공
 			system("cls");//공격모션 지움
 			printUser(myStat);
+			
+			PlaySound(TEXT("Defend.wav"), NULL, SND_FILENAME | SND_ASYNC); //음성 출력 한진오->http://breadlab.net/36
 			gotoxy(x, y);
 			printf("유저 방어성공 !!!\n");
 			Sleep(speed);
@@ -276,10 +292,12 @@ int onlineFight(ChStat *myStat, ChStat *enemyStat) { // 온라인 대전
 		else {
 			if (rand() % 100 < enemyStat->agility) { // 크리티커율보다 낮은 난수 발생시 크리티컬 발생
 				myStat->hp = myStat->hp - (enemyStat->attack + enemyStat->agility - myStat->health); // 공격력 = 공격력 + 크리댐 - 상대방어력
-
+				PlaySound(TEXT("critical.wav"), NULL, SND_FILENAME | SND_ASYNC); //음성 출력 한진오->http://breadlab.net/36
 				damaged();
 				system("cls");
 				printUser(myStat);// 오프라인 대전시 유저 디스플레이 2016 11 25 한진오 수정
+				
+				
 				gotoxy(x, y);
 				printf("크리티컬 발생!!!\n");
 				gotoxy(x, y + 2);
@@ -292,10 +310,11 @@ int onlineFight(ChStat *myStat, ChStat *enemyStat) { // 온라인 대전
 			}
 			else {
 				myStat->hp = myStat->hp - (enemyStat->attack - myStat->health); // 공격력 = 공격력 - 상대방어력
-
+				PlaySound(TEXT("damaged.wav"), NULL, SND_FILENAME | SND_ASYNC); //음성 출력 한진오->http://breadlab.net/36
 				damaged();
 				system("cls");
 				printUser(myStat);// 오프라인 대전시 유저 디스플레이 2016 11 25 한진오 수정
+				
 				gotoxy(x, y);
 				printf("데미지 : %2d", enemyStat->attack - myStat->health);
 				Sleep(speed);
@@ -304,6 +323,7 @@ int onlineFight(ChStat *myStat, ChStat *enemyStat) { // 온라인 대전
 			}
 
 			if (myStat->hp <= 0 && enemyStat->hp > 0) {  // 유저가 죽으면 break
+				PlaySound(TEXT("Lose.wav"), NULL, SND_FILENAME | SND_ASYNC); //음성 출력 한진오->http://breadlab.net/36
 				printLose(); // lose 이미지
 				enemyStat->hp = enemyHp;
 				myStat->hp = myHp;
@@ -321,7 +341,8 @@ int onlineFight(ChStat *myStat, ChStat *enemyStat) { // 온라인 대전
 		enemyStat->attack = enemyAttack; // 공격력 초기화
 	}
 	if (enemyStat->hp <= 0 && myStat->hp <= 0) {
-		printf("무승부....\n");
+		PlaySound(TEXT("Draw.wav"), NULL, SND_FILENAME | SND_ASYNC); //음성 출력 한진오->http://breadlab.net/36
+		printDraw();
 		enemyStat->hp = enemyHp; // hp 초기화
 		myStat->hp = myHp; // hp 초기화
 		myStat->energy = 0; // 기력 초기화

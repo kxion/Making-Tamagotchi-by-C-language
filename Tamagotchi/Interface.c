@@ -10,7 +10,7 @@
 #include"BinaryTree.h"
 #include"Monster.h"
 #include"Client.h"
-
+#pragma comment(lib, "winmm.lib")//PlaySound함수 구현을 위한 라이브러리 참조
 #pragma warning(disable:4996) // warning C4996을 잡기 위한 코드, 참고문헌 http://blog.naver.com/PostView.nhn?blogId=sorkelf&logNo=40137167266
 
 /*
@@ -74,10 +74,14 @@ void interfaceMain() { // 2012244009 이대웅
 void menu(ChStat* chStat) { // 2012244009 이대웅
 	int monLv = 0, number = 0, exp = 0, save = 0, hp = 0;
 	const int x = 35, y = 15;
-
+	PlaySound(TEXT("game.wav"), NULL, SND_FILENAME | SND_ASYNC | SND_LOOP);//메모리를 음악의 크기만큼 사용하게 됨. 이 경우는 약 38mb  ->http://breadlab.net/36
+																		   //NULL, SND_FILENAME 는 파일을 못찾을시 재생을 안함, SND_ASYNC는 음악 재생과 동시에 다른 작업 가능. SND_LOOP는 음악 무한재생.
+																		   //음악 출처 ->http://bgmstore.net/view/D1uAK
 	system("cls");
 
 	while (1) {
+		
+		
 		digimonDisplay(chStat->lv); // 디지몬 이미지
 		showStat(); // 스텟
 
@@ -92,9 +96,11 @@ void menu(ChStat* chStat) { // 2012244009 이대웅
 			chStat->exp += exp;
 			addExp(chStat->exp);
 			chStat = levelUp(chStat->lv); // 렙업
-
 			Sleep(1000);
 			system("cls");
+			PlaySound(TEXT("game.wav"), NULL, SND_FILENAME | SND_ASYNC | SND_LOOP);//메모리를 음악의 크기만큼 사용하게 됨. 이 경우는 약 38mb  ->http://breadlab.net/36
+																				   //NULL, SND_FILENAME 는 파일을 못찾을시 재생을 안함, SND_ASYNC는 음악 재생과 동시에 다른 작업 가능. SND_LOOP는 음악 무한재생.
+																				   //음악 출처 ->http://bgmstore.net/view/D1uAK
 			break;
 		case 2:
 			save = selectSave(chStat->lv); // 세이브슬롯 선택
@@ -826,7 +832,9 @@ void wait() { // 엔터 입력 전 까지 대기, 2012244009 이대웅
 void printTitle()
 {
 	int x = 10, y = 3;
-
+	PlaySound(TEXT("title.wav"), NULL, SND_FILENAME | SND_ASYNC | SND_LOOP);//메모리를 음악의 크기만큼 사용하게 됨. 이 경우는 약 38mb  ->http://breadlab.net/36
+																		   //NULL, SND_FILENAME 는 파일을 못찾을시 재생을 안함, SND_ASYNC는 음악 재생과 동시에 다른 작업 가능. SND_LOOP는 음악 무한재생.
+																		   //음악 출처 ->http://bgmstore.net/view/D1uAK
 	system("mode con: cols=140 lines=28");//가로 , 세로 ->http://berabue.tistory.com/59
 	gotoxy(x, y++);
 	printf(" [(\\\?,                    +|             |!                    ?xCCY|I                      ^(YCCr[.  :$i          `J< \n");
@@ -863,13 +871,29 @@ void printTitle()
 
 	while (1)//---------------------------------------------------------------------------------타이틀의 while문
 	{
+		gotoxy(60, y + 6);
+		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 11);
+		printf("Plese press AnyKey...");
+		
 		if (_kbhit())//키 입력 여부 확인 ->http://showmiso.tistory.com/8
 		{
 			system("mode con: cols=100 lines=30");//가로 , 세로 ->http://berabue.tistory.com/59
 			key = getch();//엔터기를 입력 받았을시의 경우 대비(방파제)
 			break;
 		} 
+		Sleep(500);
+		gotoxy(60, y + 6);
+		printf("                     ");
+
+		if (_kbhit())//키 입력 여부 확인 ->http://showmiso.tistory.com/8
+		{
+			system("mode con: cols=100 lines=30");//가로 , 세로 ->http://berabue.tistory.com/59
+			key = getch();//엔터기를 입력 받았을시의 경우 대비(방파제)
+			break;
+		}
+		Sleep(500);
 	}
+	
 }
 
 void printUser(ChStat *chStat) { // 오프라인 대전시 유저 디스플레이 2016 11 25 한진오 수정

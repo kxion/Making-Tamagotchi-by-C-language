@@ -44,11 +44,13 @@ ChStat* levelUp(int lv) { // 렙업 유무 확인
 	int i = 0;
 
 	if (chStat.exp >= lv * 1) {
+		PlaySound(TEXT("levelUp.wav"), NULL, SND_FILENAME | SND_ASYNC); //음성 출력 한진오->http://breadlab.net/36
 		printLvUp();
 		++lv;
 
 		if (lv % 5 == 0) {
 			lv = lv - 1;
+			PlaySound(TEXT("grow.wav"), NULL, SND_FILENAME | SND_ASYNC); //음성 출력 한진오->http://breadlab.net/36
 			for (i = 0; i < 3; i++) { // 렙업 임팩트
 				system("cls");
 				Sleep(500);

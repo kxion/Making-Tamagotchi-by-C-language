@@ -5,6 +5,7 @@
 #include"Interface.h"
 #include"Skill.h"
 #include"Monster.h"
+#pragma comment(lib, "winmm.lib")//PlaySound함수 구현을 위한 라이브러리 참조
 /*
 2012244009 이대웅
 2012244063 한진오
@@ -1049,6 +1050,64 @@ void printLvUp() { // 승리시
 	Sleep(1000);
 }
 
+
+
+void printDraw()
+{
+	int x = 20, y = 4;
+	gotoxy(x, y++);
+	printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
+	gotoxy(x, y++);
+	printf("@                                                            ^\n");
+	gotoxy(x, y++);
+	printf("@                                                            ^\n");
+	gotoxy(x, y++);
+	printf("@                                                            ^\n");
+	gotoxy(x, y++);
+	printf("@                                                            @\n");
+	gotoxy(x, y++);
+	printf("@   =@@@@@@@#+                                               @\n");
+	gotoxy(x, y++);
+	printf("@   +@    ..+^@^                                             @\n");
+	gotoxy(x, y++);
+	printf("@   +@          @@    :  .+*     :++=     :.      :       :  @\n");
+	gotoxy(x, y++);
+	printf("@   +@          :@=   @:^@+*.  @@#++#@#   @@     :@*     @^  @\n");
+	gotoxy(x, y++);
+	printf("@   +@           @*   @@=      :     .@=  :@.    ^^@    .@.  @\n");
+	gotoxy(x, y++);
+	printf("@   +@           @#   @^              @#   @#   .@ @=   #@   @\n");
+	gotoxy(x, y++);
+	printf("@   +@           @+   @=        =#^@@@@#   +@   ^* *@   @:   @\n");
+	gotoxy(x, y++);
+	printf("@   +@          *@    @=      =@#=.   @#    @+  @   @. +@    @\n");
+	gotoxy(x, y++);
+	printf("@   +@         :@=    @=      @+      @#    *@ ##   ^# @+    @\n");
+	gotoxy(x, y++);
+	printf("@   +@        #@=     @=     .@=     *@#     @:@    .@:@     @\n");
+	gotoxy(x, y++);
+	printf("@   +@+==+*#@@*       @=      #@+..=@+@^     #@^     @@*     @\n");
+	gotoxy(x, y++);
+	printf("@   :******=.         *.       :#^^*  +=     .*.     :*      @\n");
+	gotoxy(x, y++);
+	printf("@                                                            @\n");
+	gotoxy(x, y++);
+	printf("@                                                            ^\n");
+	gotoxy(x, y++);
+	printf("@                                                            @\n");
+	gotoxy(x, y++);
+	printf("@                                                            ^\n");
+	gotoxy(x, y++);
+	printf("@                                                            ^\n");
+	gotoxy(x, y++);
+	printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
+
+	Sleep(1000);
+
+
+}
+
+
 void enemy1() // 2012244063 한진오 디자인, 2012244009 이대웅 위치선언
 {
 	int x = 70, y = 13;
@@ -1607,7 +1666,7 @@ void monAt1(MonStat *mon)
 {
 	int x, y, speed;
 	x = 46, y = 13, speed = 8;
-
+	PlaySound(TEXT("baseAt.wav"), NULL, SND_FILENAME | SND_ASYNC); //음성 출력 한진오->http://breadlab.net/36
 	system("cls");
 	printMon(mon);
 	while (1)
@@ -2626,7 +2685,7 @@ void monAt2(ChStat *chStat)
 //기본공격(공통)
 void baseAt1(ChStat *chStat)
 {
-
+	PlaySound(TEXT("baseAt.wav"), NULL, SND_FILENAME | SND_ASYNC); //음성 출력 한진오->http://breadlab.net/36
 	int x = 32, y = 13, speed = 8;
 
 	system("cls");
@@ -4608,6 +4667,7 @@ void baseAt2(MonStat *mon)
 }
 // 온라인 대전
 void enemyAt1(ChStat *enemyStat) { // 온라인 대전시 적 이미지 및 모션 2012244009 이대웅
+		PlaySound(TEXT("baseAt.wav"), NULL, SND_FILENAME | SND_ASYNC); //음성 출력 한진오->http://breadlab.net/36	
 		int x, y, speed;
 		x = 46, y = 13, speed = 8;
 
@@ -5662,7 +5722,7 @@ void onlineAttack(ChStat *enemyStat) { // 온라인 대전시 적 이미지 및 
 void onlineAttack2(ChStat *chStat) { // 온라인 대전시 자기자신 이미지 및 모션 2012244009 이대웅
 		int x = 46, y = 13, speed = 8;
 		x = 46, y = 13, speed = 8;
-
+		PlaySound(TEXT("baseAt.wav"), NULL, SND_FILENAME | SND_ASYNC); //음성 출력 한진오->http://breadlab.net/36
 		system("cls");
 		
 		while (1)
@@ -6177,6 +6237,7 @@ void onlineAttack2(ChStat *chStat) { // 온라인 대전시 자기자신 이미�
 void skAt1_1_1(ChStat *chStat)
 {
 	int x = 32, y = 13, speed = 8;
+	PlaySound(TEXT("skillAt.wav"), NULL, SND_FILENAME | SND_ASYNC); //음성 출력 한진오->http://breadlab.net/36
 
 	system("cls");
 	printUser2(chStat);
@@ -7215,7 +7276,7 @@ void skAt1_1_2(MonStat *mon)
 void skAt2_1_1(ChStat *chStat)
 {
 	int x = 32, y = 13, speed = 8;
-
+	PlaySound(TEXT("skillAt.wav"), NULL, SND_FILENAME | SND_ASYNC); //음성 출력 한진오->http://breadlab.net/36
 	system("cls");
 	printUser2(chStat);
 
@@ -8291,7 +8352,7 @@ void skAt2_1_2(MonStat *mon)
 void skAt2_2_1(ChStat *chStat)
 {
 	int x = 32, y = 13, speed = 8;
-
+	PlaySound(TEXT("skillAt.wav"), NULL, SND_FILENAME | SND_ASYNC); //음성 출력 한진오->http://breadlab.net/36
 	system("cls");
 	printUser2(chStat);
 
@@ -9333,7 +9394,7 @@ void skAt2_2_2(MonStat *mon)
 void skAt3_1_1(ChStat *chStat)
 {
 	int x = 32, y = 13, speed = 8;
-
+	PlaySound(TEXT("skillAt.wav"), NULL, SND_FILENAME | SND_ASYNC); //음성 출력 한진오->http://breadlab.net/36
 	system("cls");
 	printUser2(chStat);
 
@@ -10411,7 +10472,7 @@ void skAt3_1_2(MonStat *mon)
 void skAt3_2_1(ChStat *chStat)
 {
 	int x = 32, y = 13, speed = 8;
-
+	PlaySound(TEXT("skillAt.wav"), NULL, SND_FILENAME | SND_ASYNC); //음성 출력 한진오->http://breadlab.net/36
 
 	system("cls");
 	printUser2(chStat);
@@ -11494,7 +11555,7 @@ void skAt3_2_2(MonStat *mon)
 void skAt4_1_1(ChStat *chStat)
 {
 	int x = 32, y = 13, speed = 8;
-	//32,8
+	PlaySound(TEXT("skillAt.wav"), NULL, SND_FILENAME | SND_ASYNC); //음성 출력 한진오->http://breadlab.net/36
 	system("cls");
 	printUser2(chStat);
 	while (1)
@@ -12535,7 +12596,7 @@ void skAt4_1_2(MonStat *mon)
 void skAt4_2_1(ChStat *chStat)
 {
 	int x = 32, y = 13, speed = 8;
-
+	PlaySound(TEXT("skillAt.wav"), NULL, SND_FILENAME | SND_ASYNC); //음성 출력 한진오->http://breadlab.net/36
 	system("cls");
 	printUser2(chStat);
 
@@ -13540,7 +13601,7 @@ void skAt4_2_2(MonStat *mon)
 void skAt5_1_1(ChStat *chStat)
 {
 	int x = 32, y = 13, speed = 8;
-
+	PlaySound(TEXT("skillAt.wav"), NULL, SND_FILENAME | SND_ASYNC); //음성 출력 한진오->http://breadlab.net/36
 	system("cls");
 	printUser2(chStat);
 
@@ -14582,7 +14643,7 @@ void skAt5_1_2(MonStat *mon)
 void skAt5_2_1(ChStat *chStat)
 {
 	int x = 32, y = 13, speed = 8;
-
+	PlaySound(TEXT("skillAt.wav"), NULL, SND_FILENAME | SND_ASYNC); //음성 출력 한진오->http://breadlab.net/36
 	system("cls");
 	printUser2(chStat);
 
@@ -15630,7 +15691,7 @@ void skAt5_2_2(MonStat *mon)
 void skAt6_1_1(ChStat *chStat)
 {
 	int x = 32, y = 13, speed = 8;
-
+	PlaySound(TEXT("skillAt.wav"), NULL, SND_FILENAME | SND_ASYNC); //음성 출력 한진오->http://breadlab.net/36
 	system("cls");
 	printUser2(chStat);
 
@@ -16673,7 +16734,7 @@ void skAt6_1_2(MonStat *mon)
 void skAt6_2_1(ChStat *chStat)
 {
 	int x = 32, y = 13, speed = 8;
-
+	PlaySound(TEXT("skillAt.wav"), NULL, SND_FILENAME | SND_ASYNC); //음성 출력 한진오->http://breadlab.net/36
 	system("cls");
 	printUser2(chStat);
 
